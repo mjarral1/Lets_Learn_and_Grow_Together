@@ -8,7 +8,7 @@ Daily 30-minute to 1-hour lessons designed for busy professionals and beginners 
 
 The series will follow this consecutive order for every 30 days:
 
-- Git: Let's Git Together!
+- Git:[Let's Git Together!](https://github.com/mjarral1/Lets_Learn_and_Grow_Together./blob/main/index.html)
 - Excel: Navigating the World of Excel!
 - SQL: Let’s Query with SQL!
 - Python: Peek a Boo with Python—Unravel the Magic of Coding!
