@@ -42,10 +42,10 @@
         <button type="button" onclick="checkAnswer3()">Check Answer</button>
     </form>
         <form id = "Exercise4">
-            <label for="question4">What command is used for add files to staging?</label>
+            <label for="question4">What command is used to add file to staging?</label>
             <input type="text"id = "question4"
             name="question4">
-            <button type="button" onClick = "CheckAnswer4()">Check Answer </button>
+            <button type="button" onClick = "checkAnswer4()">Check Answer </button>
                 </form>
         <p id="score">Score: 0</p>
     <button type="button" onclick="saveScore()">Save Daily Score</button>
@@ -57,7 +57,7 @@
         const answer1 = document.getElementById("question1").value.toLowerCase();
         if (answer1 === "version control system" || answer1.includes("track changes")) {
             alert("Correct!");
-            score += 1;
+            score += 10;
         } else {
             alert("Try again!");
         }
@@ -68,7 +68,7 @@
         const answer2 = document.getElementById("question2").value.toLowerCase();
         if (answer2 === "git init") {
             alert("Correct!");
-            score += 1;
+            score += 10;
         } else {
             alert("Try again!");
         }
@@ -79,7 +79,17 @@
         const answer3 = document.getElementById("question3").value.toLowerCase();
         if (answer3 === "git commit -m") {
             alert("Correct!");
-            score += 1;
+            score += 10;
+        } else {
+            alert("Try again!");
+        }
+        updateScore();
+    }
+function checkAnswer4() {
+        const answer4 = document.getElementById("question4").value.toLowerCase();
+        if (answer4 === "git add") {
+            alert("Correct!");
+            score += 10;
         } else {
             alert("Try again!");
         }
