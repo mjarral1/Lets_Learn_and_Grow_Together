@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 1: Let's start with Basic: Introduction to Git and Setup</title>
-    <link rel = "stylesheet" href = ".../css/styles.css">
-    
+    <link rel="stylesheet" href=".../css/styles.css">
 </head>
 <body>
     <header>
@@ -17,149 +16,109 @@
         <h2 style="color: red">Day:1</h2> 
         <br><b>1.</b>&emsp;Understand what Git is and why it’s essential for version control.
         <br><b>2.</b>&emsp;Learn how to install Git and set up a basic repository.
-        <br><b>3.</b>&emsp;Familiarize with essential Git commands for creating, saving, and tracking code.  
+        <br><b>3.</b>&emsp;Familiarize with essential Git commands for creating, saving, and tracking code.
     </section>
+    
     <section>
         <h2 style="color: brown">Overview of Lesson 1:</h2>
-        <p>Lesson 1 covers the Introduction to Git, shows us the Git Setup process, and makes us to learn some Git Basics to begin our journey of Git together!</p>
-        <h3 style="color: green">1.&emsp;What is Git?</h3>
-            <b>Definition:</b> <br>
-            &emsp;&emsp;Git is a distributed version control system that helps track code changes, collaborate with others, and manage project history.<br>
-            <br>
-            <b>Why Use Git?:</b><br>
-            &emsp;&emsp;Git allows multiple developers to work on a project simultaneously, maintains a complete history of all changes, and provides tools to merge and resolve code differences.
-        <h3 style="color: green">2.&emsp;Git Setup:</h3>
-        <b>Installation:</b><br>
-        &emsp;&emsp;Download and install Git from 
-        <a href="https://git-scm.com/" target="_blank">git-scm.com.</a> <br>
-        &emsp;&emsp;Open your command prompt and type the command git. If git is installed properly then it will not show any errors. However, it will show some useful git commands.<br>
-        <br>
-        <b>Configuration:</b><br>
-        &emsp;&emsp;Set up your name and email (Git requires these for commit history).<br><br>
-       <I> &emsp;&emsp; git config --global user.name "Your Name" </I> <br>
-       <I> &emsp;&emsp; git config --global user.email "your.email@example.com" </I>
-       &emsp; <h4 style="color: red" >Please write your name and your email address that you used to make a git account.</h4>
-        <h3 style="color: green">3.&emsp;Basic Commands:</h3>
-        <b>Initialize a Repository:</b> Creates a new Git repository in your project folder.<br>
-        <I>&emsp;&emsp;git init</I> <br>
-        <b>Add Files to Staging:</b> To prepare files to be committed, use:<br>
-        <I>&emsp;&emsp;git add <file-name></I><br>
-        <h4 style="color: red" >Please type the name of file you want to create instead of file-name.</h4><br>
-       <b>Commit Changes: </b>To save changes to the repository with a message, use:<br>
-        <I>&emsp;&emsp;git commit -m "Initial commit"</I><br>
-        <b>View Commit History:</b> To view all previous commits, use: <br>
-        <I>&emsp;&emsp;git log</I> <br>
-        
-    
+        <p>Lesson 1 covers the Introduction to Git, shows us the Git Setup process, and makes us learn some Git Basics to begin our journey with Git together!</p>
     </section>
+
+    <!-- Practice Questions -->
     <section>
-        <h2 style="color: orange">
-            Practice Exercises:
-        </h2>
+        <h2 style="color: orange">Practice Exercises:</h2>
         <form id="Exercise1">
-        <label for="question1">1.&emsp;What is Git?</label>
-        <input type="text" id="question1" name="question1">
-        <button type="button" onclick="checkAnswer1()">Check Answer</button>
-    </form>
+            <label for="question1">1.&emsp;What is Git?</label>
+            <input type="text" id="question1" name="question1">
+            <button type="button" onclick="checkAnswer('question1', 'version control system', 'Git is a version control system that tracks changes.')">Check Answer</button>
+        </form>
+        
+        <form id="Exercise2">
             <label for="question2">2.&emsp;Which command initializes a Git repository?</label>
-        <input type="text" id="question2" name="question2">
-        <button type="button" onclick="checkAnswer2()">Check Answer</button>
-    </form>
-        <form id="exercise3">
-        <label for="question3">3.&emsp;What command saves changes with a message?</label>
-        <input type="text" id="question3" name="question3">
-        <button type="button" onclick="checkAnswer3()">Check Answer</button>
-    </form>
-        <form id = "Exercise4">
-            <label for="question4">4.&emsp;What command is used to add file to staging?</label>
-            <input type="text"id = "question4"
-            name="question4">
-            <button type="button" onClick = "checkAnswer4()">Check Answer </button>
+            <input type="text" id="question2" name="question2">
+            <button type="button" onclick="checkAnswer('question2', 'git init', 'Use `git init` to initialize a repository.')">Check Answer</button>
         </form>
-        <form id = "Exercise5">
-            <label for="question5">5.&emsp;What command is used to check history of commits?</label>
-            <input type="text"id = "question5"
-            name="question5">
-            <button type="button" onClick = "checkAnswer5()">Check Answer </button>
+        
+        <form id="Exercise3">
+            <label for="question3">3.&emsp;What command saves changes with a message?</label>
+            <input type="text" id="question3" name="question3">
+            <button type="button" onclick="checkAnswer('question3', 'git commit -m', 'Use `git commit -m` to save changes with a message.')">Check Answer</button>
         </form>
+        
         <p id="score">Score: 0</p>
-    <button type="button" onclick="saveScore()">Save Daily Score</button>
+        <button type="button" onclick="saveDailyScore()">Save Daily Score</button>
     </section>
+
+    <section>
+        <button type="button" onclick="calculateTrophy()">View Your Trophy</button>
+        <p id="trophyResult"></p>
+    </section>
+
     <script>
-    let score = 0;
-
-    function checkAnswer1() {
-        const answer1 = document.getElementById("question1").value.toLowerCase();
-        if (answer1 === "version control system" || answer1.includes("track changes")) {
-            alert("Correct!");
-            score += 10;
-        } else {
-            alert("Try again!");
-        }
-        updateScore();
-    }
-
-    function checkAnswer2() {
-        const answer2 = document.getElementById("question2").value.toLowerCase();
-        if (answer2 === "git init") {
-            alert("Correct!");
-            score += 10;
-        } else {
-            alert("Try again!");
-        }
-        updateScore();
-    }
-
-    function checkAnswer3() {
-        const answer3 = document.getElementById("question3").value.toLowerCase();
-        if (answer3 === "git commit -m") {
-            alert("Correct!");
-            score += 10;
-        } else {
-            alert("Try again!");
-        }
-        updateScore();
-    }
-function checkAnswer4() {
-        const answer4 = document.getElementById("question4").value.toLowerCase();
-        if (answer4 === "git add") {
-            alert("Correct!");
-            score += 10;
-        } else {
-            alert("Try again!");
-        }
-        updateScore();
-    }
-function checkAnswer5() {
-        const answer5 = document.getElementById("question5").value.toLowerCase();
-        if (answer5 === "git log") {
-            alert("Correct!");
-            score += 10;
-        } else {
-            alert("Try again!");
-        }
-        updateScore();
-    }
-    function updateScore() {
-        document.getElementById("score").innerText = "Score: " + score;
-    }
-
-    function saveScore() {
-        localStorage.setItem("day1Score", score);
-        alert("Score saved! Your Day 1 score is " + score);
-    }
-
-    function loadScore() {
-        const savedScore = localStorage.getItem("day1Score");
-        if (savedScore) {
-            score = parseInt(savedScore);
+        let score = 0;
+        let attempts = { question1: 0, question2: 0, question3: 0 };
+        const hintMessage = "Hint: Read the lesson carefully.";
+        
+        function checkAnswer(questionId, correctAnswer, solution) {
+            const answer = document.getElementById(questionId).value.toLowerCase();
+            if (answer === correctAnswer) {
+                alert("Correct!");
+                score += 10;
+                document.getElementById(questionId).disabled = true;
+                attempts[questionId] = 0;
+            } else {
+                attempts[questionId]++;
+                if (attempts[questionId] === 3) {
+                    alert(hintMessage);
+                } else if (attempts[questionId] === 4) {
+                    alert("Solution: " + solution);
+                    document.getElementById(questionId).disabled = true;
+                } else {
+                    alert("Incorrect! Try again.");
+                }
+            }
             updateScore();
         }
-    }
 
-    window.onload = loadScore;
-</script>
-        
+        function updateScore() {
+            document.getElementById("score").innerText = "Score: " + score;
+        }
+
+        function saveDailyScore() {
+            const day = "day1";
+            localStorage.setItem(day, score);
+            alert("Score saved! Your Day 1 score is " + score);
+        }
+
+        function calculateTrophy() {
+            let daysAttended = 0;
+            for (let i = 1; i <= 30; i++) {
+                if (localStorage.getItem("day" + i)) {
+                    daysAttended++;
+                }
+            }
+
+            let trophy;
+            if (daysAttended === 30) {
+                trophy = "Golden Trophy";
+            } else if (daysAttended >= 20) {
+                trophy = "Silver Trophy";
+            } else {
+                trophy = "Copper Trophy";
+            }
+            
+            document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
+        }
+
+        function loadScore() {
+            const savedScore = localStorage.getItem("day1");
+            if (savedScore) {
+                score = parseInt(savedScore);
+                updateScore();
+            }
+        }
+
+        window.onload = loadScore;
+    </script>
 </body>
-
 </html>
