@@ -72,7 +72,16 @@
             <input type="text" id="question3" name="question3">
             <button type="button" onclick="checkAnswer('question3', 'git commit -m')">Check Answer</button>
         </form>
-        
+        <form id="Exercise4">
+            <label for="question4">4. What command is used to add file to staging?</label>
+            <input type="text" id="question4" name="question4">
+            <button type="button" onclick="checkAnswer('question4', 'git add')">Check Answer</button>
+        </form>
+        <form id="Exercise5">
+            <label for="question5">5. What command is used to view history of commits?</label>
+            <input type="text" id="question5" name="question5">
+            <button type="button" onclick="checkAnswer('question5', 'git log')">Check Answer</button>
+        </form>
         <p id="score">Score: 0</p>
         <button type="button" onclick="saveScore()">Save Your Score</button>
     </section>
@@ -84,7 +93,7 @@
 
     <script>
         let score = 0;
-        let attempts = { question1: 0, question2: 0, question3: 0 };
+        let attempts = { question1: 0, question2: 0, question3: 0};
         const hintMessage = "Hint: Review the lesson content above.";
 
         function checkAnswer(questionId, correctAnswer) {
