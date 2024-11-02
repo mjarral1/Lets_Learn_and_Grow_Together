@@ -15,6 +15,11 @@
     <section>
          <h2>Week:1 </h2> 
         <p>Understand basic Git operations: setting up, creating, and committing in repositories, with a focus on tracking changes and basic branching.</p>
+         <p>Understand what Git is and why it’s essential for version control.</p>
+         <p>Learn how to install Git and set up a basic repository.</p>
+         <p>Familiarize with essential Git commands for creating, saving, and tracking code.</p>   
+    
+    
     </section>
     <section>
         <h2>Overview of Lesson 1:</h2>
@@ -46,7 +51,13 @@
             <input type="text"id = "question4"
             name="question4">
             <button type="button" onClick = "checkAnswer4()">Check Answer </button>
-                </form>
+        </form>
+        <form id = "Exercise5">
+            <label for="question5">What command is used to history of commits?</label>
+            <input type="text"id = "question4"
+            name="question5">
+            <button type="button" onClick = "checkAnswer5()">Check Answer </button>
+        </form>
         <p id="score">Score: 0</p>
     <button type="button" onclick="saveScore()">Save Daily Score</button>
     </section>
@@ -95,7 +106,16 @@ function checkAnswer4() {
         }
         updateScore();
     }
-
+function checkAnswer5() {
+        const answer5 = document.getElementById("question5").value.toLowerCase();
+        if (answer5 === "git log") {
+            alert("Correct!");
+            score += 10;
+        } else {
+            alert("Try again!");
+        }
+        updateScore();
+    }
     function updateScore() {
         document.getElementById("score").innerText = "Score: " + score;
     }
