@@ -11,16 +11,18 @@
         <h1 style="color: black">Lesson 1: Introduction to Git, Setup, and Git Basics!</h1>
     </header>
     <section>
-        <h2 style="color: blue">Week:1 </h2> 
+        <h2 style="color: blue">Week: 1 </h2> 
         <p>Understand basic Git operations: setting up, creating, and committing in repositories, with a focus on tracking changes and basic branching.</p>
-        <h2 style="color: red">Day:1</h2> 
-        <br><b>1.</b>&emsp;Understand what Git is and why it’s essential for version control.
-        <br><b>2.</b>&emsp;Learn how to install Git and set up a basic repository.
-        <br><b>3.</b>&emsp;Familiarize with essential Git commands for creating, saving, and tracking code.  
+        <h2 style="color: red">Day: 1</h2> 
+        <p>
+            <b>1.</b>&emsp;Understand what Git is and why it’s essential for version control.<br>
+            <b>2.</b>&emsp;Learn how to install Git and set up a basic repository.<br>
+            <b>3.</b>&emsp;Familiarize with essential Git commands for creating, saving, and tracking code.
+        </p>
     </section>
     <section>
         <h2 style="color: brown">Overview of Lesson 1:</h2>
-        <p>Lesson 1 covers the Introduction to Git, shows us the Git Setup process, and makes us to learn some Git Basics to begin our journey of Git together!</p>
+        <p>Lesson 1 covers the Introduction to Git, shows us the Git Setup process, and makes us learn some Git Basics to begin our journey of Git together!</p>
         <h3 style="color: green">1.&emsp;What is Git?</h3>
         <b>Definition:</b> <br>
         &emsp;&emsp;Git is a distributed version control system that helps track code changes, collaborate with others, and manage project history.<br>
@@ -31,19 +33,19 @@
         <b>Installation:</b><br>
         &emsp;&emsp;Download and install Git from 
         <a href="https://git-scm.com/" target="_blank">git-scm.com.</a> <br>
-        &emsp;&emsp;Open your command prompt and type the command git. If git is installed properly then it will not show any errors. However, it will show some useful git commands.<br>
+        &emsp;&emsp;Open your command prompt and type the command git. If git is installed properly, it will not show any errors. However, it will show some useful git commands.<br>
         <br>
         <b>Configuration:</b><br>
         &emsp;&emsp;Set up your name and email (Git requires these for commit history).<br><br>
-       <i>&emsp;&emsp; git config --global user.name "Your Name" </i> <br>
-       <i>&emsp;&emsp; git config --global user.email "your.email@example.com" </i>
-       <h4 style="color: red">Please write your name and your email address that you used to make a git account.</h4>
+        <i>&emsp;&emsp; git config --global user.name "Your Name" </i> <br>
+        <i>&emsp;&emsp; git config --global user.email "your.email@example.com" </i>
+        <h4 style="color: red">Please write your name and your email address that you used to make a git account.</h4>
         <h3 style="color: green">3.&emsp;Basic Commands:</h3>
         <b>Initialize a Repository:</b> Creates a new Git repository in your project folder.<br>
         <i>&emsp;&emsp;git init</i> <br>
         <b>Add Files to Staging:</b> To prepare files to be committed, use:<br>
         <i>&emsp;&emsp;git add <file-name></i><br>
-        <h4 style="color: red">Please type the name of file you want to create instead of file-name.</h4><br>
+        <h4 style="color: red">Please type the name of the file you want to create instead of file-name.</h4><br>
         <b>Commit Changes: </b>To save changes to the repository with a message, use:<br>
         <i>&emsp;&emsp;git commit -m "Initial commit"</i><br>
         <b>View Commit History:</b> To view all previous commits, use: <br>
@@ -53,31 +55,33 @@
         <h2 style="color: orange">Practice Exercises:</h2>
         <form id="Exercise1">
             <label for="question1">1.&emsp;What is Git?</label>
-            <input type="text" id="question1" name="question1">
+            <input type="text" id="question1" name="question1" required>
             <button type="button" onclick="checkAnswer1()">Check Answer</button>
         </form>
         <form id="Exercise2">
             <label for="question2">2.&emsp;Which command initializes a Git repository?</label>
-            <input type="text" id="question2" name="question2">
+            <input type="text" id="question2" name="question2" required>
             <button type="button" onclick="checkAnswer2()">Check Answer</button>
         </form>
         <form id="Exercise3">
             <label for="question3">3.&emsp;What command saves changes with a message?</label>
-            <input type="text" id="question3" name="question3">
+            <input type="text" id="question3" name="question3" required>
             <button type="button" onclick="checkAnswer3()">Check Answer</button>
         </form>
         <form id="Exercise4">
             <label for="question4">4.&emsp;What command is used to add file to staging?</label>
-            <input type="text" id="question4" name="question4">
+            <input type="text" id="question4" name="question4" required>
             <button type="button" onclick="checkAnswer4()">Check Answer</button>
         </form>
         <form id="Exercise5">
-            <label for="question5">5.&emsp;What command is used to check history of commits?</label>
-            <input type="text" id="question5" name="question5">
+            <label for="question5">5.&emsp;What command is used to check the history of commits?</label>
+            <input type="text" id="question5" name="question5" required>
             <button type="button" onclick="checkAnswer5()">Check Answer</button>
         </form>
         <p id="score">Score: 0</p>
         <button type="button" onclick="saveScore()">Save Daily Score</button>
+        <p id="trophyResult"></p>
+        <button type="button" onclick="calculateTrophy()">Calculate Trophy</button>
     </section>
     <script>
         let score = 0;
@@ -106,7 +110,7 @@
 
         function checkAnswer3() {
             const answer3 = document.getElementById("question3").value.toLowerCase();
-            if (answer3 === "git commit -m") {
+            if (answer3.includes("git commit -m")) {
                 alert("Correct!");
                 score += 10;
             } else {
@@ -152,18 +156,20 @@
                 score = parseInt(savedScore);
                 updateScore();
             }
-                window.onload = loadScore;
         }
-        function saveScore() {
-            localStorage.setItem("day1_score", score);
-            alert("Score saved for Day 1: " + score);
+
+        function calculateTrophy() {
+            let trophyMessage = "";
+            if (score >= 50) {
+                trophyMessage = "🎉 You've earned a Git Master trophy! 🎉";
+            } else {
+                trophyMessage = "Keep practicing to earn your Git Master trophy!";
+            }
+            document.getElementById("trophyResult").innerText = trophyMessage;
         }
-         function calculateTrophy() {
-            let daysAttended = 1; // Update this as needed for future days
-            let trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
-            document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
-        }
-        
+
+        // Load score when the page is opened
+        window.onload = loadScore;
     </script>
 </body>
 </html>
