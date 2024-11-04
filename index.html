@@ -2,25 +2,29 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Let's Learn and Grow Together!</title>
- <link rel="stylesheet" href="css/styles.css">
+ <meta name="viewport" content="width= device-width, initial-scale = 1.0">
+ <title>
+    Let's Learn and Grow Together!
+ </title>
+ <link rel="stylesheet "href = "css/styles.css">
 </head>
 <body>
     <header>
         <h1>🚀 Let's Learn and Grow Together in 30 Days, One Skill at a Time! 🚀</h1>
-        <p>Greetings, my dear friend! My name is MJ. I hope you are doing fine. I'm a continuous learner and a humble mentor who wants to grow in the field of data just like you.</p>
-        <h3>Quick Questions❓</h3>
-        <p>Are you eager to master essential skills and tools like Git, Excel, Power BI, Power Automate, PowerApps, SQL, ML, DL, DS, AI, and more? Join me on a 30-day journey with daily 30-minute to 1-hour study and practice lessons!</p>
-        <p id="welcomeMessage">Welcome!</p>
+        <p id="welcomeMessage">Welcome!</p>  
         <p id="lessonPrompt"></p>
         <p id="attendanceMessage">Total Attendance Days: 0</p>
+        
+        <!-- Reset Progress Button -->
+        <button onclick="resetProgress()">Reset Progress</button>
+        
         <section id="feedbackSection" style="display: none;">
             <p>Would you like to continue learning, provide feedback, or ask questions?</p>
             <button onclick="continueLearning()">Continue to Next Lesson</button>
             <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
         </section>
     </header>
+    
     <!-- JavaScript for interactive prompts and attendance tracking -->
     <script>
         const TOTAL_DAYS = 30;
@@ -28,7 +32,6 @@
         const SILVER_THRESHOLD = 20;
         const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-        // Step 1: Get the user's nickname
         function getNickname() {
             let nickname = localStorage.getItem("nickname");
             if (!nickname) {
@@ -45,33 +48,22 @@
             startLessonPrompt();
         }
 
-        // Step 2: Prompt the lesson and exercise
         function startLessonPrompt() {
             const lessonPrompt = "Today's lesson is ready! Please review the lesson material and complete the exercise.";
             document.getElementById("lessonPrompt").innerText = lessonPrompt;
 
-            // Prompt user to complete lesson and practice exercise
-            if (confirm("Have you completed today's lesson and practice exercise?")) {
+            if (confirm("Have you completed the lesson and exercise?")) {
                 markAttendance();
-            } else {
-                if (confirm("Would you like to review another day's lesson and practice exercise instead?")) {
-                    chooseOtherDay();
-                } else {
-                    alert("Please complete today's lesson and exercise, then come back tomorrow!");
-                }
             }
         }
 
-        // Step 3: Mark attendance for the day with 24-hour restriction
         function markAttendance() {
             const lastAttendance = parseInt(localStorage.getItem("lastAttendance")) || 0;
             const now = Date.now();
 
-            // Check if 24 hours have passed since the last attendance
             if (now - lastAttendance >= ONE_DAY_MS) {
                 let attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
 
-                // Increment attendance by 1 and update last attendance timestamp
                 attendanceDays += 1;
                 localStorage.setItem("attendanceDays", attendanceDays);
                 localStorage.setItem("lastAttendance", now);
@@ -79,22 +71,18 @@
                 updateAttendanceMessage();
                 checkResult();
 
-                // Show feedback options
                 document.getElementById("feedbackSection").style.display = "block";
             } else {
-                // Inform the user they’ve already marked attendance today
                 const hoursLeft = Math.floor((ONE_DAY_MS - (now - lastAttendance)) / (60 * 60 * 1000));
                 alert(`You’ve already marked attendance today. Please wait ${hoursLeft} hours to mark again.`);
             }
         }
 
-        // Step 4: Update the display message for attendance count
         function updateAttendanceMessage() {
             const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
             document.getElementById("attendanceMessage").innerText = `Total Attendance Days: ${attendanceDays}`;
         }
 
-        // Step 5: Determine and display the learner's result based on attendance
         function checkResult() {
             const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
             let result = "";
@@ -110,38 +98,34 @@
             if (result) alert(result);
         }
 
-        // Option to review another day's lesson
-        function chooseOtherDay() {
-            const day = prompt("Enter the day number (1-30) of the lesson you want to review:");
-            if (day >= 1 && day <= TOTAL_DAYS) {
-                window.location.href = `Lesson_Day${day}.html`;
-            } else {
-                alert("Invalid day. Please enter a number between 1 and 30.");
-            }
-        }
-
-        // Option to continue learning (redirects to lessons index)
         function continueLearning() {
             window.location.href = "index.html";
         }
 
-        // Option to provide feedback or ask questions (redirects to LinkedIn and GitHub)
         function giveFeedback() {
             const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question on GitHub?");
             if (feedbackChoice) {
-                window.open("https://www.linkedin.com/in/mjarral786/", "_blank");
-                window.open("https://github.com/mjarral1/Lets_Learn_and_Grow_Together/discussions", "_blank");
+                window.open("https://www.linkedin.com/in/mj/", "_blank");
+                window.open("https://github.com/mj/my_repo/discussions", "_blank");
             }
         }
 
-        // Initialize the tracker on page load
+        // New Function: Reset Progress
+        function resetProgress() {
+            if (confirm("Are you sure you want to reset your progress? This will clear all attendance days.")) {
+                localStorage.setItem("attendanceDays", "0");
+                localStorage.removeItem("lastAttendance");
+                updateAttendanceMessage();
+                alert("Progress has been reset. You can start your learning journey from day 1!");
+            }
+        }
+
         function init() {
             getNickname();
             updateAttendanceMessage();
             checkResult();
         }
 
-        // Run init on page load
         window.onload = init;
     </script>
 </body>
