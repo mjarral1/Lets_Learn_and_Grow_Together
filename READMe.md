@@ -9,21 +9,21 @@ Daily 30-minute to 1-hour lessons designed for busy professionals and beginners 
 🔗 Each Month, we'll cover one essential skill in-depth.
 Here's what's planned so far:
 
-- **Git:**[Let's Git Together!](https://github.com/mjarral1/Lets_Learn_and_Grow_Together./blob/main/index.html)
-- Excel: Navigating the World of Excel!
-- SQL: Let’s Query with SQL!
-- Python: Peek a Boo with Python—Unravel the Magic of Coding!
-- Power BI: Just Visualize the Beauty of Data!
-- Power Automate: Let’s be Automated with Power Automate!
-- Power Apps: Be Powerful with Power Apps!
-- Statistics: Let's clear out some stats, facts, and figures!
-- ML: Understanding the Psychology of Machines!
-- DL: Time for Deep Learning Together!
-- ChatBot: Let's Chat with Machines!
-- DS: The Science Behind Data Science!
-- AI: The Power is Yours!
-- The Story of My Life: From Sales to Data Science!!!
-- More: .... (For additional topics, please suggest in the comments!)
+- **Git:** Let's Git Together!
+- **Excel:** Navigating the World of Excel!
+- **SQL:** Let’s Query with SQL!
+- **Python:** Peek a Boo with Python—Unravel the Magic of Coding!
+- **Power BI:** Just Visualize the Beauty of Data!
+- **Power Automate:** Let’s be Automated with Power Automate!
+- **Power Apps:** Be Powerful with Power Apps!
+- **Statistics:** Let's clear out some stats, facts, and figures!
+- **ML:** Understanding the Psychology of Machines!
+- **DL:** Time for Deep Learning Together!
+- **ChatBot:** Let's Chat with Machines!
+- **DS:** The Science Behind Data Science!
+- **AI:** The Power is Yours!
+- **The Story of My Life:** From Sales to Data Science!!!
+- **More:** .... (For additional topics, please suggest in the comments!)
 Consistent learning and skill-building, one step at a time!
 
 📅 How It Works:
