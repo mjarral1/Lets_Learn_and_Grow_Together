@@ -17,25 +17,36 @@
          <p>🔍 What to Expect:</p>   
             <p>Daily 30-minute to 1-hour lessons designed for busy professionals and beginners alike.
             Practical exercises that will help you apply what you learn immediately.</p>
-      <h2>📅 Attendance Tracker</h2>
-        <p id="welcomeMessage"></p>
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Learning Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>🚀 Let's Learn and Grow Together in 30 Days, One Skill at a Time! 🚀</h1>
+        <p id="welcomeMessage">Welcome!</p>
+        <p id="lessonPrompt"></p>
         <p id="attendanceMessage">Total Attendance Days: 0</p>
-        <button onclick="markAttendance()">Mark Attendance for Today</button>
-        <section id="resultSection" style="display: none;">
-            <h2>Results</h2>
-            <p id="resultMessage"></p>
+        <section id="feedbackSection" style="display: none;">
+            <p>Would you like to continue learning, provide feedback, or ask questions?</p>
+            <button onclick="continueLearning()">Continue to Next Lesson</button>
+            <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
         </section>
-
     </header>
 
-    <!-- JavaScript for Attendance Tracking -->
+    <!-- JavaScript for interactive prompts and attendance tracking -->
     <script>
         const TOTAL_DAYS = 30;
         const GOLD_THRESHOLD = 30;
         const SILVER_THRESHOLD = 20;
+        const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-        // Prompt user to enter a nickname if they don't have one saved
-        function checkNickname() {
+        // Step 1: Get the user's nickname
+        function getNickname() {
             let nickname = localStorage.getItem("nickname");
             if (!nickname) {
                 nickname = prompt("Please enter your nickname:");
@@ -48,52 +59,85 @@
                 }
             }
             document.getElementById("welcomeMessage").innerText = `Welcome, ${nickname}!`;
+            startLessonPrompt();
         }
 
-        // Mark attendance for the day
+        // Step 2: Prompt the lesson and exercise
+        function startLessonPrompt() {
+            const lessonPrompt = "Today's lesson is ready! Please review the lesson material and complete the exercise.";
+            document.getElementById("lessonPrompt").innerText = lessonPrompt;
+
+            // Wait for user to complete lesson and exercise
+            if (confirm("Have you completed the lesson and exercise?")) {
+                markAttendance();
+            }
+        }
+
+        // Step 3: Mark attendance for the day with 24-hour restriction
         function markAttendance() {
-            let attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+            const lastAttendance = parseInt(localStorage.getItem("lastAttendance")) || 0;
+            const now = Date.now();
 
-            // Increment attendance by 1 for each new day (basic check)
-            attendanceDays += 1;
-            localStorage.setItem("attendanceDays", attendanceDays);
-            
-            updateAttendanceMessage();
-            checkResult();
+            // Check if 24 hours have passed since the last attendance
+            if (now - lastAttendance >= ONE_DAY_MS) {
+                let attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+
+                // Increment attendance by 1 and update last attendance timestamp
+                attendanceDays += 1;
+                localStorage.setItem("attendanceDays", attendanceDays);
+                localStorage.setItem("lastAttendance", now);
+
+                updateAttendanceMessage();
+                checkResult();
+
+                // Show feedback options
+                document.getElementById("feedbackSection").style.display = "block";
+            } else {
+                // Inform the user they’ve already marked attendance today
+                const hoursLeft = Math.floor((ONE_DAY_MS - (now - lastAttendance)) / (60 * 60 * 1000));
+                alert(`You’ve already marked attendance today. Please wait ${hoursLeft} hours to mark again.`);
+            }
         }
 
-        // Update the display message for attendance count
+        // Step 4: Update the display message for attendance count
         function updateAttendanceMessage() {
             const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
             document.getElementById("attendanceMessage").innerText = `Total Attendance Days: ${attendanceDays}`;
         }
 
-        // Determine and display the learner's result based on attendance
+        // Step 5: Determine and display the learner's result based on attendance
         function checkResult() {
             const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+            let result = "";
 
-            if (attendanceDays >= TOTAL_DAYS) {
-                let result;
-                if (attendanceDays >= GOLD_THRESHOLD) {
-                    result = "Congratulations, you're a Golden Learner!";
-                } else if (attendanceDays >= SILVER_THRESHOLD) {
-                    result = "Great job! You're a Silver Learner!";
-                } else {
-                    result = "Keep it up! You're a Copper Learner!";
-                }
-                displayResult(result);
+            if (attendanceDays >= GOLD_THRESHOLD) {
+                result = "Congratulations, you won a Gold Medal! 🥇";
+            } else if (attendanceDays >= SILVER_THRESHOLD) {
+                result = "Great job! You won a Silver Medal! 🥈";
+            } else if (attendanceDays > 0) {
+                result = "Keep it up! You won a Bronze Medal! 🥉";
             }
+            
+            if (result) alert(result);
         }
 
-        // Show the result in the result section
-        function displayResult(resultMessage) {
-            document.getElementById("resultSection").style.display = "block";
-            document.getElementById("resultMessage").innerText = resultMessage;
+        // Option to continue learning (redirects to lessons index)
+        function continueLearning() {
+            window.location.href = "index.html";
+        }
+
+        // Option to provide feedback or ask questions (redirects to LinkedIn and GitHub)
+        function giveFeedback() {
+            const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question on GitHub?");
+            if (feedbackChoice) {
+                window.open("https://www.linkedin.com/in/mj/", "_blank");
+                window.open("https://github.com/yourusername/yourrepository/discussions", "_blank");
+            }
         }
 
         // Initialize the tracker on page load
         function init() {
-            checkNickname();
+            getNickname();
             updateAttendanceMessage();
             checkResult();
         }
@@ -101,6 +145,7 @@
         // Run init on page load
         window.onload = init;
     </script>
+     
           <p>The series will follow this consecutive order for each skill for every 30 days:</p>
             <nav>
                 <ul>
