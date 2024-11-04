@@ -101,11 +101,13 @@
             const lessonPrompt = "Today's lesson is ready! Please review the lesson material and complete the exercise.";
             document.getElementById("lessonPrompt").innerText = lessonPrompt;
 
-            if (confirm("Have you completed the lesson and exercise?")) {
+            if (!confirm("Have you completed the lesson and exercise?")) {
                 markAttendance();
             }else {
                     alert("Please work on your assigned learning and do the practice exercise.");
                     location.reload();
+             document.getElementById("lessonPrompt").innerText = lessonPrompt;
+                    markAttendance();
                 }
         }
 
