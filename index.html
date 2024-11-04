@@ -103,7 +103,10 @@
 
             if (confirm("Have you completed the lesson and exercise?")) {
                 markAttendance();
-            }
+            }else {
+                    alert("Please work on your assigned learning and do the practice exercise.");
+                    location.reload();
+                }
         }
 
         function markAttendance() {
