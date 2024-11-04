@@ -29,10 +29,26 @@
             Professionals wanting to enhance their automation, visualization, and app-building skills.
             Anyone curious about data tools and seeking hands-on practice.</p>
          <p>💡 Get Started: Simply follow my daily posts, stay consistent, and let’s grow our data skills together! 🙌</p>
+<script>
+      function getNickname() {
+            let nickname = localStorage.getItem("nickname");
+            if (!nickname) {
+                nickname = prompt("Please enter your nickname:");
+                if (nickname) {
+                    localStorage.setItem("nickname", nickname);
+                    localStorage.setItem("attendanceDays", "0");
+                } else {
+                    alert("Nickname is required to track your progress.");
+                    location.reload();
+                }
+            }
+            document.getElementById("welcomeMessage").innerText = nickname;
+        }
+</script>
 
         <h3>Welcome, <span id="welcomeMessage"></span>!</h3>
         <p id="lessonPrompt">Today's lesson is ready! Please review the material and complete the exercise.</p>
- 
+       <li><a href="Lets_Git_Together!/Week1/Git_Day1.html">Git: Let's Git Together! Day 1</a></li>
       <button id="completeLessonButton" onclick="completeLesson()">I’ve completed today's lesson and exercise</button>
         <p id="attendanceMessage">Total Attendance Days: 0</p>
         <section id="nextStepsSection" style="display: none;">
@@ -48,22 +64,7 @@
         const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
         const GOLD_THRESHOLD = 30;
         const SILVER_THRESHOLD = 20;
-
-        function getNickname() {
-            let nickname = localStorage.getItem("nickname");
-            if (!nickname) {
-                nickname = prompt("Please enter your nickname:");
-                if (nickname) {
-                    localStorage.setItem("nickname", nickname);
-                    localStorage.setItem("attendanceDays", "0");
-                } else {
-                    alert("Nickname is required to track your progress.");
-                    location.reload();
-                }
-            }
-            document.getElementById("welcomeMessage").innerText = nickname;
-        }
-
+     
         function completeLesson() {
             const lastAttendance = parseInt(localStorage.getItem("lastAttendance")) || 0;
             const now = Date.now();
