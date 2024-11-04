@@ -90,6 +90,11 @@
         <button type="button" onclick="calculateTrophy()">View Your Trophy</button>
         <p id="trophyResult"></p>
     </section>
+     <section id="feedbackSection" style="display: none;">
+            <p>Would you like to continue learning, provide feedback, or ask questions?</p>
+            <button onclick="continueLearning()">Continue to Learning</button>
+            <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
+        </section>
 
     <script>
         let score = 0;
@@ -127,6 +132,15 @@
             let trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
             document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
         }
+         function continueLearning() {
+            window.location.href = "index.html";
+        }
+         function giveFeedback() {
+            const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question on GitHub?");
+            if (feedbackChoice) {
+                window.open("https://www.linkedin.com/in/mjarral786/", "_blank");
+                window.open("https://github.com/mjarral1/Lets_Learn_and_Grow_Together/discussions", "_blank");
+            }
     </script>
 </body>
 </html>
