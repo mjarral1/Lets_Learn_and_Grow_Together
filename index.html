@@ -17,6 +17,90 @@
          <p>🔍 What to Expect:</p>   
             <p>Daily 30-minute to 1-hour lessons designed for busy professionals and beginners alike.
             Practical exercises that will help you apply what you learn immediately.</p>
+      <h2>📅 Attendance Tracker</h2>
+        <p id="welcomeMessage"></p>
+        <p id="attendanceMessage">Total Attendance Days: 0</p>
+        <button onclick="markAttendance()">Mark Attendance for Today</button>
+        <section id="resultSection" style="display: none;">
+            <h2>Results</h2>
+            <p id="resultMessage"></p>
+        </section>
+
+    </header>
+
+    <!-- JavaScript for Attendance Tracking -->
+    <script>
+        const TOTAL_DAYS = 30;
+        const GOLD_THRESHOLD = 30;
+        const SILVER_THRESHOLD = 20;
+
+        // Prompt user to enter a nickname if they don't have one saved
+        function checkNickname() {
+            let nickname = localStorage.getItem("nickname");
+            if (!nickname) {
+                nickname = prompt("Please enter your nickname:");
+                if (nickname) {
+                    localStorage.setItem("nickname", nickname);
+                    localStorage.setItem("attendanceDays", "0");
+                } else {
+                    alert("Nickname is required to track your progress.");
+                    location.reload();
+                }
+            }
+            document.getElementById("welcomeMessage").innerText = `Welcome, ${nickname}!`;
+        }
+
+        // Mark attendance for the day
+        function markAttendance() {
+            let attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+
+            // Increment attendance by 1 for each new day (basic check)
+            attendanceDays += 1;
+            localStorage.setItem("attendanceDays", attendanceDays);
+            
+            updateAttendanceMessage();
+            checkResult();
+        }
+
+        // Update the display message for attendance count
+        function updateAttendanceMessage() {
+            const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+            document.getElementById("attendanceMessage").innerText = `Total Attendance Days: ${attendanceDays}`;
+        }
+
+        // Determine and display the learner's result based on attendance
+        function checkResult() {
+            const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+
+            if (attendanceDays >= TOTAL_DAYS) {
+                let result;
+                if (attendanceDays >= GOLD_THRESHOLD) {
+                    result = "Congratulations, you're a Golden Learner!";
+                } else if (attendanceDays >= SILVER_THRESHOLD) {
+                    result = "Great job! You're a Silver Learner!";
+                } else {
+                    result = "Keep it up! You're a Copper Learner!";
+                }
+                displayResult(result);
+            }
+        }
+
+        // Show the result in the result section
+        function displayResult(resultMessage) {
+            document.getElementById("resultSection").style.display = "block";
+            document.getElementById("resultMessage").innerText = resultMessage;
+        }
+
+        // Initialize the tracker on page load
+        function init() {
+            checkNickname();
+            updateAttendanceMessage();
+            checkResult();
+        }
+
+        // Run init on page load
+        window.onload = init;
+    </script>
           <p>The series will follow this consecutive order for each skill for every 30 days:</p>
             <nav>
                 <ul>
