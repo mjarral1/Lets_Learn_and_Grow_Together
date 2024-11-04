@@ -18,6 +18,9 @@
         <!-- Reset Progress Button -->
         <button onclick="resetProgress()">Reset Progress</button>
         
+        <!-- Reset Nickname Button -->
+        <button onclick="resetNickname()">Reset Nickname</button>
+        
         <section id="feedbackSection" style="display: none;">
             <p>Would you like to continue learning, provide feedback, or ask questions?</p>
             <button onclick="continueLearning()">Continue to Next Lesson</button>
@@ -117,6 +120,20 @@
                 localStorage.removeItem("lastAttendance");
                 updateAttendanceMessage();
                 alert("Progress has been reset. You can start your learning journey from day 1!");
+            }
+        }
+
+        // New Function: Reset Nickname
+        function resetNickname() {
+            if (confirm("Are you sure you want to reset your nickname? This will allow you to choose a new one.")) {
+                let newNickname = prompt("Please enter your new nickname:");
+                if (newNickname) {
+                    localStorage.setItem("nickname", newNickname);
+                    document.getElementById("welcomeMessage").innerText = `Welcome, ${newNickname}!`;
+                    alert("Nickname has been successfully updated!");
+                } else {
+                    alert("Nickname reset canceled. The existing nickname will be retained.");
+                }
             }
         }
 
