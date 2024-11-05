@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1: Let's start with Basic: Introduction to Git and Setup</title>
+    <title>Day 1: Let's start with Basics: Introduction to Git and Setup</title>
     <link rel="stylesheet" href=".../css/styles.css">
 </head>
 <body>
@@ -92,53 +92,67 @@
     </section>
 
     <script>
-        let score = 0;
-        const attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
+let score = 0;
+let attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
+const hintMessage = "Hint: Review the lesson content above.";
+let questionsAnswered = 0; // To track the number of completed questions
 
-        function checkAnswer(questionId, correctAnswer) {
-            const input = document.getElementById(questionId);
-            const hint = document.getElementById(`hint${questionId.slice(-1)}`);
-            if (input.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-                alert("Correct!");
-                score += 10;
-                input.disabled = true;
-                hint.style.display = "none";
-            } else {
-                attempts[questionId]++;
-                if (attempts[questionId] === 3) {
-                    hint.style.display = "inline";
-                } else if (attempts[questionId] === 4) {
-                    input.disabled = true;
-                    alert("Solution: " + correctAnswer);
-                } else {
-                    alert("Incorrect! Try again.");
-                }
-            }
+function checkAnswer(questionId, correctAnswer) {
+    const input = document.getElementById(questionId);
+    if (input.value.toLowerCase() === correctAnswer.toLowerCase()) {
+        if (!input.disabled) { // Ensures score is only added once
+            alert("Correct!");
+            score += 10;
+            questionsAnswered++;
+            input.disabled = true;
+            attempts[questionId] = 0;
             document.getElementById("score").innerText = "Score: " + score;
-        }
-
-        function saveScore() {
-            localStorage.setItem("day1_score", score);
-            alert("Score saved for Day 1: " + score);
-        }
-
-        function calculateTrophy() {
-            const daysAttended = 1;
-            const trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
-            document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
-        }
-
-        function continueLearning() {
-            window.location.href = "index.html";
-        }
-
-        function giveFeedback() {
-            const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question on GitHub?");
-            if (feedbackChoice) {
-                window.open("https://www.linkedin.com/in/mjarral786/", "_blank");
-                window.open("https://github.com/mjarral1/Lets_Learn_and_Grow_Together/discussions", "_blank");
+            
+            if (questionsAnswered === 5) { // Check if all questions are answered
+                alert("Congratulations! You've completed all questions.");
+                document.getElementById("feedbackSection").style.display = "block";
             }
         }
-    </script>
+    } else {
+        attempts[questionId]++;
+        if (attempts[questionId] === 3) {
+            alert(hintMessage);
+        } else if (attempts[questionId] === 4) {
+            alert("Solution: " + correctAnswer);
+            input.disabled = true;
+            questionsAnswered++;
+            if (questionsAnswered === 5) {
+                alert("Congratulations! You've completed all questions.");
+                document.getElementById("feedbackSection").style.display = "block";
+            }
+        } else {
+            alert("Incorrect! Try again.");
+        }
+    }
+}
+
+function saveScore() {
+    localStorage.setItem("day1_score", score);
+    alert("Score saved for Day 1: " + score);
+}
+
+function calculateTrophy() {
+    let daysAttended = 1; // Update this as needed for future days
+    let trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
+    document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
+}
+
+function continueLearning() {
+    window.location.href = "index.html"; // Redirect to index.html for next lessons
+}
+
+function giveFeedback() {
+    const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question on GitHub?");
+    if (feedbackChoice) {
+        window.open("https://www.linkedin.com/in/mjarral786/", "_blank");
+        window.open("https://github.com/mjarral1/Lets_Learn_and_Grow_Together/discussions", "_blank");
+    }
+}
+  </script>
 </body>
 </html>
