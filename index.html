@@ -13,19 +13,17 @@
         <p>My name is Misbah Jarral! I hope you are doing fine. I am one of many continuous learners and a humble mentor who wants to learn and grow in the field of data just like you.</p> 
 
         <h3>Quick Question❓</h3>
-        <p>Are you eager to master essential skills and tools like Git, Excel, Power BI, Power Automate, PowerApps, SQL, ML, DL, DS, AI and more? If yes, then join me for a planned series of 30-day learning journey episodes, where I’ll share 30-minute to 1-hour study and practice lessons every day!</p>
+        <p>Are you eager to master essential skills and tools like Git, Excel, Power BI, Power Automate, PowerApps, SQL, ML, DL, DS, AI, and more? If yes, then join me for a planned series of 30-day learning journey episodes, where I’ll share 30-minute to 1-hour study and practice lessons every day!</p>
 
         <h3>🔍 What to Expect:</h3>   
         <p>Daily 30-minute to 1-hour lessons designed for busy professionals and beginners alike. Practical exercises that will help you apply what you learn immediately.</p>
 
         <h3>📅 How It Works:</h3>
         <p>
-            I’ll post a new lesson every day for 30 days, focusing on 1 skill at a time.
-            Dedicate just 30 minutes to 1 hour each day to learn and practice.
-            At the end of 30 days, you'll have built a solid foundation in various skills!
+            I’ll post a new lesson every day for 30 days, focusing on one skill at a time. Dedicate just 30 minutes to 1 hour each day to learn and practice. At the end of 30 days, you'll have built a solid foundation in various skills!
         </p>
         
-        <h3>🔥 Who is This For? </h3>
+        <h3>🔥 Who is This For?</h3>
         <p>
             Beginners looking to start a career in data analysis.<br>
             Professionals wanting to enhance their automation, visualization, and app-building skills.<br>
@@ -39,7 +37,7 @@
         
         <!-- Attendance and Feedback Section -->
         <p id="attendanceMessage">Total Attendance Days: 0</p>
-        <button onclick="continueLearning()">Continue to Learning</button>
+        <button onclick="markAttendance()">Mark Attendance</button>
         <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
         <button onclick="resetProgress()">Reset Progress</button>
         <button onclick="resetNickname()">Reset Nickname</button>
@@ -59,7 +57,7 @@
                     <li><a href="Visualize_with_Power_Bi/PowerBi.html">Power BI: Just Visualize the Beauty of Data!</a></li>  
                     <li><a href="Let's_Automate/PowerAutomate.html">Power Automate: Let’s be Automated with Power Automate!</a></li>
                     <li><a href="Be_Powerful_with_PowerApps!/PowerApps.html">Power Apps: Be Powerful with Power Apps!</a></li>
-                    <li><a href="Lets_Show_Some_Stats_Facts_and_Figures!/Statistics.html">Statistics:Let's Dig Into Stats, Facts, and Figures!</a></li>
+                    <li><a href="Lets_Show_Some_Stats_Facts_and_Figures!/Statistics.html">Statistics: Let's Dig Into Stats, Facts, and Figures!</a></li>
                     <li><a href="Machine_Learning!/ML.html">ML: Understanding the Psychology of Machines!</a></li>
                     <li><a href="Deep_Learning!/DL.html">DL: Time for Some Deep Learning Together!</a></li>
                     <li><a href="Chit_Chat_With_Machines!/ChatBot.html">ChatBot: Let's Chat with Machines!</a></li>
@@ -67,7 +65,6 @@
                     <li><a href="Let's_Do_Some_Math/Math.html">Maths: Two Plus Two Equals 4!</a></li>
                     <li><a href="Power_Is_Yours!/AI.html">AI: The Power is Yours!</a></li>
                     <li><a href="Story_Of_My_Life!/Story_Of_My_Life.html">The Story of My Life: From Sales to Data Science!!!</a></li>
-
                 </ul>
             </nav>
 
@@ -81,133 +78,103 @@
             <p>Follow me and the trends on LinkedIn: 
                 <a href="https://www.amivero.com/" target="_blank">#Amivero</a> 
                 <a href="https://www.linkedin.com/in/mjarral786/" target="_blank">#LinkedIn</a>   
-                <a href="https://www.linkedin.com/posts/activity-7151332103652007936-ImW9?utm_source=share&utm_medium=member_desktop"target="_blank">Human & AI Collaboration: Beyond Competition to Synergy </a> 
-                <a href="https://www.linkedin.com/pulse/unlocking-narratives-art-storytelling-clean-data-amivero-8kllc/?trackingId=r4Z3KcDGIDgpe%2BGRRleONw%3D%3D"target="_blank">Unlocking Narratives: The Art of Storytelling with Clean Data </a>           
+                <a href="https://www.linkedin.com/posts/activity-7151332103652007936-ImW9?utm_source=share&utm_medium=member_desktop"target="_blank">Human & AI Collaboration: Beyond Competition to Synergy</a> 
+                <a href="https://www.linkedin.com/pulse/unlocking-narratives-art-storytelling-clean-data-amivero-8kllc/?trackingId=r4Z3KcDGIDgpe%2BGRRleONw%3D%3D" target="_blank">Unlocking Narratives: The Art of Storytelling with Clean Data</a>           
             </p>
-          <p> #SQL #GitHub #Learning #DataAnalysis #Excel #PowerBI #PowerAutomate #PowerApps #Python #LearningJourney #30DaysOfLearning #DataSkills #GrowthMindset #DataScience #Automation #Statistics #MachineLearning #AI </P>
-         </p>
-
+          <p>#SQL #GitHub #Learning #DataAnalysis #Excel #PowerBI #PowerAutomate #PowerApps #Python #LearningJourney #30DaysOfLearning #DataSkills #GrowthMindset #DataScience #Automation #Statistics #MachineLearning #AI</p>
     </header>
- </body>
+</body>
 </html>
 
-    <!-- JavaScript for interactive prompts and attendance tracking -->
-    <script>
-        const TOTAL_DAYS = 30;
-        const GOLD_THRESHOLD = 30;
-        const SILVER_THRESHOLD = 20;
-        const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+<!-- JavaScript for interactive prompts and attendance tracking -->
+<script>
+    const TOTAL_DAYS = 30;
+    const GOLD_THRESHOLD = 30;
+    const SILVER_THRESHOLD = 20;
+    const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
-        function getNickname() {
-            let nickname = localStorage.getItem("nickname");
-            if (!nickname) {
-                nickname = prompt("Please enter your nickname:");
-                if (nickname) {
-                    localStorage.setItem("nickname", nickname);
-                    localStorage.setItem("attendanceDays", "0");
-                } else {
-                    alert("Nickname is required to track your progress.");
-                    location.reload();
-                }
-            }
-            document.getElementById("welcomeMessage").innerText = `Welcome, ${nickname}!`;
-            startLessonPrompt();
-        }
-
-        function startLessonPrompt() {
-            const lastVisit = localStorage.getItem("lastVisitDate");
-            const today = new Date().toDateString();
-            
-            if (lastVisit !== today) {
-                localStorage.setItem("lastVisitDate", today);
-                const lessonPrompt = "Today's lesson is ready! Please review the lesson material and complete the exercise.";
-                if (confirm("Would you like to start today's lesson and practice exercise?")) {
-                    window.open("Lets_Git_Together!/Week1/Git_Day1.html", "_blank");
-                }
-                document.getElementById("lessonPrompt").innerText = lessonPrompt;
-            }
-        }
-
-        function markAttendance() {
-            const lastAttendance = parseInt(localStorage.getItem("lastAttendance")) || 0;
-            const now = Date.now();
-
-            if (now - lastAttendance >= ONE_DAY_MS) {
-                let attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
-                attendanceDays += 1;
-                localStorage.setItem("attendanceDays", attendanceDays);
-                localStorage.setItem("lastAttendance", now);
-
-                updateAttendanceMessage();
-                checkResult();
-
-                document.getElementById("feedbackSection").style.display = "block";
-            } else {
-                const hoursLeft = Math.floor((ONE_DAY_MS - (now - lastAttendance)) / (60 * 60 * 1000));
-                alert(`You’ve already marked attendance today. Please wait ${hoursLeft} hours to mark again.`);
-            }
-        }
-
-        function updateAttendanceMessage() {
-            const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
-            document.getElementById("attendanceMessage").innerText = `Total Attendance Days: ${attendanceDays}`;
-        }
-
-        function checkResult() {
-            const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
-            let result = "";
-
-            if (attendanceDays >= GOLD_THRESHOLD) {
-                result = "Congratulations, you won a Gold Medal! 🥇";
-            } else if (attendanceDays >= SILVER_THRESHOLD) {
-                result = "Great job! You won a Silver Medal! 🥈";
-            } else if (attendanceDays > 0) {
-                result = "Keep it up! You won a Bronze Medal! 🥉";
-            }
-            
-            if (result) alert(result);
-        }
-
-        function continueLearning() {
-            window.location.href = "index.html";
-        }
-
-        function giveFeedback() {
-            const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question?");
-            if (feedbackChoice) {
-                window.open("https://www.linkedin.com/in/mjarral786/", "_blank");
-                window.open("https://github.com/mjarral1/Lets_Learn_and_Grow_Together/discussions", "_blank");
-            }
-        }
-
-        function resetProgress() {
-            if (confirm("Are you sure you want to reset your progress? This will clear all attendance days.")) {
+    function getNickname() {
+        let nickname = localStorage.getItem("nickname");
+        if (!nickname) {
+            nickname = prompt("Please enter your nickname:");
+            if (nickname) {
+                localStorage.setItem("nickname", nickname);
                 localStorage.setItem("attendanceDays", "0");
-                localStorage.removeItem("lastAttendance");
-                updateAttendanceMessage();
-                alert("Progress has been reset. You can start your learning journey from day 1!");
+            } else {
+                alert("Nickname is required to track your progress.");
+                location.reload();
             }
         }
+        document.getElementById("welcomeMessage").innerText = `Welcome, ${nickname}!`;
+        startLessonPrompt();
+    }
 
-        function resetNickname() {
-            if (confirm("Are you sure you want to reset your nickname? This will allow you to choose a new one.")) {
-                let newNickname = prompt("Please enter your new nickname:");
-                if (newNickname) {
-                    localStorage.setItem("nickname", newNickname);
-                    document.getElementById("welcomeMessage").innerText = `Welcome, ${newNickname}!`;
-                    alert("Nickname has been successfully updated!");
-                } else {
-                    alert("Nickname reset canceled. The existing nickname will be retained.");
-                }
+    function startLessonPrompt() {
+        const lastVisit = localStorage.getItem("lastVisitDate");
+        const today = new Date().toDateString();
+        
+        if (lastVisit !== today) {
+            localStorage.setItem("lastVisitDate", today);
+            const lessonPrompt = "Today's lesson is ready! Please review the lesson material and complete the exercise.";
+            if (confirm("Would you like to start today's lesson and practice exercise?")) {
+                window.open("Lets_Git_Together!/Week1/Git_Day1.html", "_blank");
             }
+            document.getElementById("lessonPrompt").innerText = lessonPrompt;
         }
+    }
 
-        function init() {
-            getNickname();
+    function markAttendance() {
+        const lastAttendance = parseInt(localStorage.getItem("lastAttendance")) || 0;
+        const now = Date.now();
+
+        if (now - lastAttendance >= ONE_DAY_MS) {
+            let attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+            attendanceDays += 1;
+            localStorage.setItem("attendanceDays", attendanceDays);
+            localStorage.setItem("lastAttendance", now);
+
             updateAttendanceMessage();
             checkResult();
+
+            document.getElementById("feedbackSection").style.display = "block";
+        } else {
+            alert("You can only mark attendance once every 24 hours.");
         }
+    }
 
-        window.onload = init;
-    </script>
+    function updateAttendanceMessage() {
+        const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+        document.getElementById("attendanceMessage").innerText = `Total Attendance Days: ${attendanceDays}`;
+    }
 
+    function checkResult() {
+        const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+        let result = "Keep going!";
+
+        if (attendanceDays >= GOLD_THRESHOLD) {
+            result = "Congratulations! You’ve earned the Gold Badge!";
+        } else if (attendanceDays >= SILVER_THRESHOLD) {
+            result = "Well done! You’ve earned the Silver Badge!";
+        } else {
+            result = `You're doing great! ${attendanceDays} days completed.`;
+        }
+        document.getElementById("attendanceMessage").innerText += " " + result;
+    }
+
+    function resetProgress() {
+        if (confirm("Are you sure you want to reset your attendance progress?")) {
+            localStorage.removeItem("attendanceDays");
+            localStorage.removeItem("lastAttendance");
+            updateAttendanceMessage();
+        }
+    }
+
+    function resetNickname() {
+        if (confirm("Are you sure you want to reset your nickname?")) {
+            localStorage.removeItem("nickname");
+            location.reload();
+        }
+    }
+
+    getNickname();
+</script>
