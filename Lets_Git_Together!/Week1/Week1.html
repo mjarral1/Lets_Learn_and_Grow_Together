@@ -27,22 +27,21 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to the Git Lesson Page of Week 1</h1>
+    <h1>Welcome to the Lesson Page</h1>
     <div id="welcome-message" class="message"></div>
     <div id="error-message" class="error-message"></div>
     <button class="button" onclick="openLesson()">Open Today's Lesson and Practice Exercise</button>
 
     <script>
         // Function to open the lesson in a new window
-    function openLesson() {    
-       window.open("https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week1/Week1.html","_blank");
-    }
+        function openLesson() {
+            window.open("https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week1/Git_Day1.html", "_blank");
+        }
 
         // Function to load lesson with error handling
         function loadLesson() {
             try {
                 let lesson = getLessonFromSource(); // Replace with your actual lesson loading logic
-                
                 document.getElementById("welcome-message").innerText = lesson;
             } catch (e) {
                 document.getElementById("error-message").innerText = 
@@ -52,8 +51,8 @@
 
         // Function to simulate lesson loading
         function getLessonFromSource() {
-            <p id="lessonPrompt"><li><a href="Lets_Git_Together!/Week1/Git_Day1.html">Git: Let's Git Together!</a></li></p>
-            throw new Error("Lesson not available, Please visit this site at a later point when a lesson is loaded to learn and practice! Meanwhile, just keep learning and practicing the assigned lesson!"); // This is just for demonstration
+            // Simulate lesson text for demonstration
+            return "Git: Let's Git Together! Today's lesson is now loaded.";
         }
 
         // Function to check the user's visit date
@@ -78,7 +77,7 @@
             return "Are you sure you want to close the GitHub website?";
         };
 
-        // Call checkVisit when the page loads
+        // Call checkVisit and loadLesson when the page loads
         window.onload = function() {
             checkVisit();
             loadLesson();
