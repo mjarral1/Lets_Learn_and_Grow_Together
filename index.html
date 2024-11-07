@@ -42,6 +42,10 @@
         
         <!-- Attendance and Feedback Section -->
         <p id="attendanceMessage">Total Attendance Days: 0</p>
+     <section>
+    <h2>Lesson Scores</h2>
+    <p id="day1Score">Lesson 1 Score: Not completed yet.</p>
+</section>
         <button onclick="markAttendance()">Mark Attendance!</button>
         <button onclick="continueLearning()">Lesson of the day!</button>
         <button onclick="giveFeedback()">Give Feedback / Ask a Question?</button>
@@ -219,6 +223,18 @@
                 }
             }
         }
+     
+    function displayScores() {
+        const day1Score = localStorage.getItem("day1_score");
+        const day1Date = localStorage.getItem("day1_date");
+
+        if (day1Score && day1Date) {
+            document.getElementById("day1Score").innerText = `Lesson 1 Score: ${day1Score} (Date: ${day1Date})`;
+        }
+    }
+
+    window.onload = displayScores;
+
 
         function init() {
             getNickname();
