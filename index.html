@@ -107,6 +107,7 @@
                 if (nickname) {
                     localStorage.setItem("nickname", nickname);
                     localStorage.setItem("attendanceDays", "0");
+                    localStorage.setItem("totalScore", "0");
                 } else {
                     alert("Nickname is required to track your progress.");
                     location.reload();
@@ -125,6 +126,7 @@
                 const lessonPrompt = "Today's lesson is ready! Please review the lesson material and complete the exercise.";
                 if (confirm("Would you like to start today's lesson and practice exercise?")) {
                     window.open("Lets_Git_Together!/Week1/Git_Day1.html", "_blank");
+                  markAttendance();
                 }
                 document.getElementById("lessonPrompt").innerText = lessonPrompt;
             }
@@ -162,6 +164,10 @@
         function updateAttendanceMessage() {
             const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
             document.getElementById("attendanceMessage").innerText = `Total Attendance Days: ${attendanceDays}`;
+        }
+       function showTotalScore() {
+            const totalScore = parseInt(localStorage.getItem("totalScore")) || 0;
+            alert(`Your Total Score: ${totalScore}`);
         }
         function checkResult() {
             const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
