@@ -3,43 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 2: Let's start with Basics: Introduction to Git and Setup</title>
+    <title>Day 2: Let's start with Basics: Branching and Merging in Git</title>
     <link rel="stylesheet" href=".../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Lesson 2: Introduction to Git, Setup, and Git Basics!</h1>
+        <h1 style="color: black">Lesson 2: Branching and Merging in Git!</h1>
     </header>
 
     <section>
-        <h2>Week: 1 </h2> 
+        <h2 style="color: green">Week: 1 </h2> 
         <p>Understand basic Git operations: setting up, creating, and committing in repositories, with a focus on tracking changes and basic branching.</p>
-        <h2>Day: 2</h2> 
-        <p> By the end of the lesson 2, we’ll know how to:
+        <h2 style="color: blue>Day: 2</h2> 
+        <p> By the end of the lesson 2, we’ll know how to:<br>
             <b>1.</b> Create and switch branches.<br>
             <b>2.</b> Commit changes in different branches.<br>
             <b>3.</b> Merge branches.<br>
             <b>4.</b> Push branches to a GitHub repository.<br>
-            <b>5.</b> Create and manage pull requests on GitHub.
+            <b>5.</b> Create and manage pull requests on GitHub.<br>
         </p>
     </section>
 
     <section>
-        <h2>Overview of Lesson 2: Branching and Merging in Git</h2>
-        <p>Lesson 1 covers the Introduction to Git, shows us the Git Setup process, and makes us learn some Git Basics to begin our journey of Git together!<br>
-        Review Lesson 1 content, focusing on Git setup, initializing repositories, and basic Git commands like git add, git commit, and git push.
+        <h2 style="color: orange">Overview of Lesson 2: </h2>
+        <p> Review Lesson 1 content, focusing on Git setup, initializing repositories, and basic Git commands like git add, git commit, and git push.<br>
         </p>
-        <h3>1. What is Git?</h3>
-        <p>Git is a distributed version control system that helps track code changes, collaborate with others, and manage project history.</p>
-        <p><b>Why Use Git?</b> Git allows multiple developers to work on a project simultaneously, maintains a complete history of all changes, and provides tools to merge and resolve code differences.</p>
+        <h3 style="color: purple">1. Create and Switch Branches:</h3>
+        <p>Branches in Git are like “work zones” where you can build new features without affecting the main project.Imagine you’re writing a book with a friend. <br>
+        You both want to add chapters, make edits, and explore new ideas — but if you’re both working in the same document, it’s easy to step on each other’s toes. This is where branches come in.<p>
+        <p>In Git, branches are like separate workspaces where each person can work independently on different parts of a project. You can make changes, experiment with new features, and try out ideas without affecting anyone else’s work. <br>
+         Once your changes are polished and ready, you can merge them back into the main project, combining everyone’s contributions smoothly.</p>
+        <p>Imagine you’re building a website with two teammates: Alice and Bob. Alice is designing the homepage, Bob is creating a contact form, and you’re working on the navigation bar.</p>
+        Here’s how branches keep things organized:<br>
+     <b>Step 1:</b> Each person creates their own branch. Alice has a homepage branch, Bob has a contact-form branch, and you create a navbar branch.<br>
+     <b>Step 2:</b> You all work independently, making changes to your own parts.<br>
+       <b>Step 3:</b> Once everyone is done, you can merge each branch back into the main project, putting all the pieces together. <br>
+       <p>No one’s work interferes with anyone else’s, and the main project remains stable until you’re ready to merge everything.</p>
+     <pre>git branch branchName</pre>
+    <pre> git checkout branchName</pre>
+        Once you’ve completed work on a branch, it’s time to bring it into the main project.
 
-        <h3>2. Git Setup:</h3>
+        <h3 style="color: aqua">2. Merge Branches:</h3>
         <p><b>Installation:</b> Download and install Git from <a href="https://git-scm.com/" target="_blank">git-scm.com.</a></p>
         <p><b>Configuration:</b> Set up your name and email for commit history.</p>
         <pre>git config --global user.name "Your Name"</pre>
         <pre>git config --global user.email "your.email@example.com"</pre>
 
-        <h3>3. Basic Commands:</h3>
+        <h3 style="color: majenta">3. Basic Commands:</h3>
         <p><b>Initialize a Repository:</b> <code>git init</code></p>
         <p><b>Add Files to Staging:</b> <code>git add &lt;file-name&gt;</code></p>
         <p><b>Commit Changes:</b> <code>git commit -m "Initial commit"</code></p>
@@ -48,7 +58,7 @@
 
     <!-- Practice Questions Section -->
     <section>
-        <h2>Practice Exercises:</h2>
+        <h2 style="color: brown">Practice Exercises:</h2>
         <form id="Exercise1">
             <label for="question1">1. What is Git?</label>
             <input type="text" id="question1" name="question1">
