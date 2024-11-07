@@ -156,6 +156,9 @@
                 localStorage.setItem("lastAttendance", now);
                 updateAttendanceMessage();
                 checkResult();
+               let totalScore = parseInt(localStorage.getItem("totalScore")) || 0;
+                totalScore += SCORE_PER_LESSON;
+                localStorage.setItem("totalScore", totalScore);
                 document.getElementById("feedbackSection").style.display = "block";
             } else {
                 const hoursLeft = Math.floor((ONE_DAY_MS - (now - lastAttendance)) / (60 * 60 * 1000));
@@ -197,6 +200,7 @@
         function resetProgress() {
             if (confirm("Are you sure you want to reset your progress? This will clear all attendance days.")) {
                 localStorage.setItem("attendanceDays", "0");
+                localStorage.setItem("totalScore", "0");
                 localStorage.removeItem("lastAttendance");
                 updateAttendanceMessage();
                 alert("Progress has been reset. You can start your learning journey from day 1!");
