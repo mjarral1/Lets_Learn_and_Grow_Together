@@ -46,6 +46,8 @@
     <section>
         <h2>Practice Exercises:</h2>
         <form id="Exercise1">
+        <p id="score">Score: 0</p>
+        <button type="button" onclick="saveScore()">Save Your Score</button>
             <label for="question1">1. What is Git?</label>
             <input type="text" id="question1" name="question1">
             <button type="button" onclick="checkAnswer('question1', 'version control system')">Check Answer</button>
@@ -92,49 +94,67 @@
     </section>
 
     <script>
-let score = 0;
-let attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
-const hintMessage = "Hint: Review the lesson content above.";
-let questionsAnswered = 0; // To track the number of completed questions
+-----------
+    <script>
+        let score = 0;
+        let questionsAnswered = 0;
+        let attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
+        const hintMessage = "Hint: Review the lesson content above.";
+        const today = new Date().toLocaleDateString(); // Get today's date as a string
 
-function checkAnswer(questionId, correctAnswer) {
-    const input = document.getElementById(questionId);
-    if (input.value.toLowerCase() === correctAnswer.toLowerCase()) {
-        if (!input.disabled) { // Ensures score is only added once
-            alert("Correct!");
-            score += 10;
-            questionsAnswered++;
-            input.disabled = true;
-            attempts[questionId] = 0;
-            document.getElementById("score").innerText = "Score: " + score;
-            
-            if (questionsAnswered === 5) { // Check if all questions are answered
-                alert("Congratulations! You've completed all questions.");
-                document.getElementById("feedbackSection").style.display = "block";
+        function checkAnswer(questionId, correctAnswer) {
+            const input = document.getElementById(questionId);
+            if (input.value.toLowerCase() === correctAnswer.toLowerCase()) {
+                if (!input.disabled) {
+                    alert("Correct!");
+                    score += 10;
+                    questionsAnswered++;
+                    input.disabled = true;
+                    attempts[questionId] = 0;
+                    document.getElementById("score").innerText = "Score: " + score;
+
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                }
+            } else {
+                attempts[questionId]++;
+                if (attempts[questionId] === 3) {
+                    alert(hintMessage);
+                } else if (attempts[questionId] === 4) {
+                    alert("Solution: " + correctAnswer);
+                    input.disabled = true;
+                    questionsAnswered++;
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                } else {
+                    alert("Incorrect! Try again.");
+                }
             }
         }
-    } else {
-        attempts[questionId]++;
-        if (attempts[questionId] === 3) {
-            alert(hintMessage);
-        } else if (attempts[questionId] === 4) {
-            alert("Solution: " + correctAnswer);
-            input.disabled = true;
-            questionsAnswered++;
-            if (questionsAnswered === 5) {
-                alert("Congratulations! You've completed all questions.");
-                document.getElementById("feedbackSection").style.display = "block";
-            }
-        } else {
-            alert("Incorrect! Try again.");
-        }
-    }
-}
 
-function saveScore() {
-    localStorage.setItem("day1_score", score);
-    alert("Score saved for Day 1: " + score);
-}
+        function saveScore() {
+            const previousScore = localStorage.getItem("day1_score");
+            const previousDate = localStorage.getItem("day1_date");
+
+            if (previousDate === today) {
+                alert("You have already saved your score today.");
+            } else if (previousScore) {
+                if (confirm("You already saved a score before. Saving now will overwrite it. Do you want to continue?")) {
+                    updateScore();
+                }
+            } else {
+                updateScore();
+            }
+        }
+
+        function updateScore() {
+            localStorage.setItem("day1_score", score);
+            localStorage.setItem("day1_date", today);
+            alert("Score saved for Day 1: " + score);
+        }
+
 
 function calculateTrophy() {
     let daysAttended = 1; // Update this as needed for future days
