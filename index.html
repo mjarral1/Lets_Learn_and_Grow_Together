@@ -42,6 +42,7 @@
         
         <!-- Attendance and Feedback Section -->
         <p id="attendanceMessage">Total Attendance Days: 0</p>
+        <button onclick="markAttendance()">Mark Attendance!</button>
         <button onclick="continueLearning()">Lesson of the day!</button>
         <button onclick="giveFeedback()">Give Feedback / Ask a Question?</button>
         <button onclick="resetProgress()">Reset Progress!</button>
@@ -91,8 +92,6 @@
          </p>
 
     </header>
- </body>
-</html>
 
     <!-- JavaScript for interactive prompts and attendance tracking -->
     <script>
@@ -114,6 +113,7 @@
                 }
             }
             document.getElementById("welcomeMessage").innerText = `Welcome, ${nickname}!`;
+            trackAttendance();
             startLessonPrompt();
         }
 
@@ -127,6 +127,19 @@
                     window.open("Lets_Git_Together!/Week1/Git_Day1.html", "_blank");
                 }
                 document.getElementById("lessonPrompt").innerText = lessonPrompt;
+            }
+        }
+     function trackAttendance() {
+            const lastVisit = localStorage.getItem("lastVisitDate");
+            const today = new Date().toDateString();
+
+            if (lastVisit !== today) {
+                let attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+                attendanceDays += 1; // Increase attendance for a new day
+                localStorage.setItem("attendanceDays", attendanceDays);
+                localStorage.setItem("lastVisitDate", today);
+                updateAttendanceMessage();
+                checkMedalStatus();
             }
         }
 
@@ -204,3 +217,5 @@
 
         window.onload = init;
     </script>
+</body>
+</html>
