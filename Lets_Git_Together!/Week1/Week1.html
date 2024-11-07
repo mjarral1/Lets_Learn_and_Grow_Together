@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's Git Together!</title>
+    <title>Lesson Loader</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to the Git Lesson Page</h1>
+    <h1>Welcome to the Lesson Page</h1>
     <div id="welcome-message" class="message"></div>
     <div id="error-message" class="error-message"></div>
     <div id="lesson-buttons"></div>
@@ -43,24 +43,32 @@
             return new Date(joinDate);
         }
 
-        // Function to get the number of days since the user joined
+        // Function to calculate the day number since the user joined
         function getDaySinceJoin(joinDate) {
             const today = new Date();
             const timeDiff = today - joinDate;
             return Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 1;
         }
 
-        // Function to create lesson buttons dynamically
-        function createLessonButtons(currentDay) {
+        // Function to check if the user is a regular visitor
+        function isRegularUser(joinDate) {
+            const currentDay = getDaySinceJoin(joinDate);
+            return currentDay >= 7; // If they've visited for 7 days since joining, they’re considered a regular user
+        }
+
+        // Function to create lesson buttons based on user type
+        function createLessonButtons(isRegularUser) {
             const lessonButtonsContainer = document.getElementById("lesson-buttons");
             lessonButtonsContainer.innerHTML = ""; // Clear previous buttons
 
-            for (let day = 1; day <= currentDay; day++) {
+            const totalDays = isRegularUser ? 7 : getDaySinceJoin(getUserJoinDate());
+
+            for (let day = 1; day <= totalDays; day++) {
                 const button = document.createElement("button");
                 button.className = "button";
                 button.innerText = `Day ${day} Lesson`;
 
-                if (day <= 4) {
+                if (day <= 4 || isRegularUser) { // Allow access to lessons up to Day 4, or all if a regular user
                     button.onclick = () => openLesson(day);
                 } else {
                     button.onclick = () => alert("The lesson for this day is not available yet. Please check back later.");
@@ -80,16 +88,21 @@
         // Initial function to set up the page
         function initializePage() {
             const joinDate = getUserJoinDate();
-            const currentDay = getDaySinceJoin(joinDate);
-            createLessonButtons(currentDay);
+            const isUserRegular = isRegularUser(joinDate);
+            createLessonButtons(isUserRegular);
             
-            // Display a message based on the user's join date and current day
+            // Display a welcome message
             const welcomeMessage = document.getElementById("welcome-message");
-            welcomeMessage.innerText = `Welcome! Today is Day ${currentDay} of your learning journey since joining on ${joinDate.toDateString()}.`;
+            if (isUserRegular) {
+                welcomeMessage.innerText = "Welcome, regular user! You have access to all available lessons.";
+            } else {
+                const currentDay = getDaySinceJoin(joinDate);
+                welcomeMessage.innerText = `Welcome! Today is Day ${currentDay} of your learning journey since joining on ${joinDate.toDateString()}.`;
+            }
 
-            // Automatically open today's lesson if it's within available lessons
-            if (currentDay <= 4) {
-                openLesson(currentDay);
+            // Automatically open today's lesson if within available range for non-regular users
+            if (!isUserRegular && getDaySinceJoin(joinDate) <= 4) {
+                openLesson(getDaySinceJoin(joinDate));
             }
         }
 
