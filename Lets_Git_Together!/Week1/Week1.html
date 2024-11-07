@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson Loader</title>
+    <title>Let's Git Together!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,67 +22,79 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Lesson Page</h1>
+    <h1>Welcome to the Git Lesson Page</h1>
     <div id="welcome-message" class="message"></div>
     <div id="error-message" class="error-message"></div>
-    <button class="button" onclick="openLesson()">Open Today's Lesson and Practice Exercise</button>
+    <div id="lesson-buttons"></div>
 
     <script>
-        // Function to open the lesson in a new window
-        function openLesson() {
-            window.open("https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week1/Git_Day1.html","_blank");
-            window.open("https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week1/Git_Day2.html","_blank");
+        // Function to get the user's join date or set it if it's the user's first visit
+        function getUserJoinDate() {
+            let joinDate = localStorage.getItem("joinDate");
+            if (!joinDate) {
+                joinDate = new Date().toDateString();
+                localStorage.setItem("joinDate", joinDate);
+            }
+            return new Date(joinDate);
         }
 
-        // Function to load lesson with error handling
-        function loadLesson() {
-            try {
-                let lesson = getLessonFromSource(); // Replace with your actual lesson loading logic
-                document.getElementById("welcome-message").innerText = lesson;
-            } catch (e) {
-                document.getElementById("error-message").innerText = 
-                    "Please visit this site at a later point when a new lesson is loaded to learn and practice! Meanwhile, just keep learning and practicing the assigned lesson!";
+        // Function to get the number of days since the user joined
+        function getDaySinceJoin(joinDate) {
+            const today = new Date();
+            const timeDiff = today - joinDate;
+            return Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 1;
+        }
+
+        // Function to create lesson buttons dynamically
+        function createLessonButtons(currentDay) {
+            const lessonButtonsContainer = document.getElementById("lesson-buttons");
+            lessonButtonsContainer.innerHTML = ""; // Clear previous buttons
+
+            for (let day = 1; day <= currentDay; day++) {
+                const button = document.createElement("button");
+                button.className = "button";
+                button.innerText = `Day ${day} Lesson`;
+
+                if (day <= 4) {
+                    button.onclick = () => openLesson(day);
+                } else {
+                    button.onclick = () => alert("The lesson for this day is not available yet. Please check back later.");
+                    button.disabled = true; // Disable button for lessons not yet loaded
+                }
+
+                lessonButtonsContainer.appendChild(button);
             }
         }
 
-        // Function to simulate lesson loading
-    
-         function getLessonFromSource() {
-            throw new Error("Lesson not available, Please visit this site at a later point when a lesson is loaded to learn and practice! Meanwhile, just keep learning and practicing the assigned lesson!"); // This is just for demonstration
+        // Function to open a specific lesson in a new window
+        function openLesson(day) {
+            const lessonURL = `https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week1/Git_Day${day}.html`;
+            window.open(lessonURL, "_blank");
         }
 
-        // Function to check the user's visit date
-        function checkVisit() {
-            const lastVisitDate = localStorage.getItem("lastVisitDate");
-            const today = new Date().toDateString();
+        // Initial function to set up the page
+        function initializePage() {
+            const joinDate = getUserJoinDate();
+            const currentDay = getDaySinceJoin(joinDate);
+            createLessonButtons(currentDay);
+            
+            // Display a message based on the user's join date and current day
+            const welcomeMessage = document.getElementById("welcome-message");
+            welcomeMessage.innerText = `Welcome! Today is Day ${currentDay} of your learning journey since joining on ${joinDate.toDateString()}.`;
 
-            if (lastVisitDate === today) {
-                alert("Welcome back!");
-            } else if (lastVisitDate) {
-                alert("Welcome! Would you like to continue with today's lesson and practice exercise?");
-            } else {
-                alert("Welcome to our site!");
+            // Automatically open today's lesson if it's within available lessons
+            if (currentDay <= 4) {
+                openLesson(currentDay);
             }
-
-            // Update the last visit date
-            localStorage.setItem("lastVisitDate", today);
         }
 
-        // Display a confirmation prompt if the user tries to close the window
-        window.onbeforeunload = function() {
-            return "Are you sure you want to close the GitHub website?";
-        };
-
-        // Call checkVisit and loadLesson when the page loads
-        window.onload = function() {
-            checkVisit();
-            loadLesson();
-        };
+        // Initialize page on load
+        window.onload = initializePage;
     </script>
 </body>
 </html>
