@@ -26,8 +26,8 @@
 
     <section>
         <h2 style="color: orange">Overview of Lesson 2: </h2>
-        <p> Review Lesson 1 content, focusing on Git setup, initializing repositories, and basic Git commands like git add, git commit, and git push.<br>
-        </p>
+        <p> First Review Lesson 1 content that was about focusing on Git setup, initializing repositories, and basic Git commands like git add, git commit, and git push.<br>
+        </p>However, Lesson 2 covers how to create, switch, merge, push, and pull branches in git repository.
         <h3 style="color: purple">1. Create and Switch Branches:</h3>
         <p>Branches in Git are like “work zones” where you can build new features without affecting the main project.Imagine you’re writing a book with a friend. <br>
         You both want to add chapters, make edits, and explore new ideas — but if you’re both working in the same document, it’s easy to step on each other’s toes. This is where branches come in.<p>
@@ -41,31 +41,33 @@
        <p>No one’s work interferes with anyone else’s, and the main project remains stable until you’re ready to merge everything.</p>
      <pre>git branch branchName</pre>
     <pre> git checkout branchName</pre>
-        Once you’ve completed work on a branch, it’s time to bring it into the main project.
+       
 
-        <h3 style="color: aqua">2. Merge Branches:</h3>
-        <p><b>Installation:</b> Download and install Git from <a href="https://git-scm.com/" target="_blank">git-scm.com.</a></p>
-        <p><b>Configuration:</b> Set up your name and email for commit history.</p>
-        <pre>git config --global user.name "Your Name"</pre>
-        <pre>git config --global user.email "your.email@example.com"</pre>
+        <h3 style="color: aqua">2. Merge Branches:</h3><br>
+         <p> Once you’ve completed work on a branch, it’s time to bring it into the main project.</p>
 
         <h3 style="color: majenta">3. Basic Commands:</h3>
         <p><b>Initialize a Repository:</b> <code>git init</code></p>
         <p><b>Add Files to Staging:</b> <code>git add &lt;file-name&gt;</code></p>
         <p><b>Commit Changes:</b> <code>git commit -m "Initial commit"</code></p>
-        <p><b>View Commit History:</b> <code>git log</code></p>
+        <p><b>View Commit History:</b><code>git log</code></p>
+       <p><b> Create a new branch:</b> git branch branchName </p>
+        <p><b>Switch to a branch: </b>git checkout branchName</p>
+       <p><b>Merge a branch:</b> git merge branchName </p>
+       <p><b>Push a branch to GitHub:</b> git push -u origin branchName</p>
     </section>
 
     <!-- Practice Questions Section -->
     <section>
+          <!--Questions 1 to 5... -->
         <h2 style="color: brown">Practice Exercises:</h2>
         <form id="Exercise1">
-            <label for="question1">1. What is Git?</label>
+            <label for="question1">1. What command is used to create a branch in Git?</label>
             <input type="text" id="question1" name="question1">
-            <button type="button" onclick="checkAnswer('question1', 'version control system')">Check Answer</button>
+            <button type="button" onclick="checkAnswer('question1', 'git branch')">Check Answer</button>
             <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
         </form>
-        <!--Questions 2 to 5... -->
+      
         <form id="Exercise2">
             <label for="question2">2. Which command initializes a Git repository?</label>
             <input type="text" id="question2" name="question2">
@@ -73,21 +75,21 @@
             <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
         </form>
         <form id="Exercise3">
-            <label for="question3">3. What command saves changes with a message?</label>
+            <label for="question3">3. What command merge the branch?</label>
             <input type="text" id="question3" name="question3">
-            <button type="button" onclick="checkAnswer('question3', 'git commit -m')">Check Answer</button>
+            <button type="button" onclick="checkAnswer('question3', 'git merge')">Check Answer</button>
             <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
         </form>
         <form id="Exercise4">
-            <label for="question4">4. What command is used to add file to staging?</label>
+            <label for="question4">4. What command is used to remove the branch from local repository?</label>
             <input type="text" id="question4" name="question4">
-            <button type="button" onclick="checkAnswer('question4', 'git add')">Check Answer</button>
+            <button type="button" onclick="checkAnswer('question4', 'git branch -d')">Check Answer</button>
             <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
         </form>
         <form id="Exercise5">
-            <label for="question5">5. What command is used to view history of commits?</label>
+            <label for="question5">5. What command is used to push a branch to GitHub?</label>
             <input type="text" id="question5" name="question5">
-            <button type="button" onclick="checkAnswer('question5', 'git log')">Check Answer</button>
+            <button type="button" onclick="checkAnswer('question5', 'git push -u origin')">Check Answer</button>
             <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
         </form>
         <p id="score">Score: 0</p>
