@@ -45,15 +45,13 @@
     <!-- Practice Questions Section -->
     <section>
         <h2>Practice Exercises:</h2>
+         <!--Questions 1 to 5... -->
         <form id="Exercise1">
-        <p id="score">Score: 0</p>
-        <button type="button" onclick="saveScore()">Save Your Score</button>
             <label for="question1">1. What is Git?</label>
             <input type="text" id="question1" name="question1">
             <button type="button" onclick="checkAnswer('question1', 'version control system')">Check Answer</button>
             <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
         </form>
-        <!--Questions 2 to 5... -->
         <form id="Exercise2">
             <label for="question2">2. Which command initializes a Git repository?</label>
             <input type="text" id="question2" name="question2">
@@ -80,8 +78,8 @@
         </form>
         <p id="score">Score: 0</p>
         <button type="button" onclick="saveScore()">Save Your Score</button>
+        
     </section>
-
     <section>
         <button type="button" onclick="calculateTrophy()">View Your Trophy</button>
         <p id="trophyResult"></p>
@@ -93,8 +91,12 @@
         <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
     </section>
 
-    <script>
------------
+     <section>
+        <h2>Practice Exercises:</h2>
+        <!-- Exercise forms as in your original code -->
+        <p id="score">Score: 0</p>
+        <button type="button" onclick="saveScore()">Save Your Score</button>
+    </section>
     <script>
         let score = 0;
         let questionsAnswered = 0;
