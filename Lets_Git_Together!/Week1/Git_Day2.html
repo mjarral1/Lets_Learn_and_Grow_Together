@@ -28,15 +28,15 @@
     <section>
         <h2 style="color: orange">Overview of Lesson 2: </h2>
         <p> First Review Lesson 1 content that was about focusing on Git setup, initializing repositories, and basic Git commands like git add, git commit, and git push.<br>
-        </p>However, Lesson 2 covers how to create, switch, merge, push, and pull branches in git repository.
+        </p>However, Lesson 2 covers how to create, switch, merge, push, pull, and remove branches in git repository.
         <h3 style="color: purple">1. Create and Switch Branches:</h3>
         <p>Branches in Git are like “work zones” where you can build new features without affecting the main project.Imagine you’re writing a book with a friend. <br>
         You both want to add chapters, make edits, and explore new ideas — but if you’re both working in the same document, it’s easy to step on each other’s toes. This is where branches come in.<p>
         <p>In Git, branches are like separate workspaces where each person can work independently on different parts of a project. You can make changes, experiment with new features, and try out ideas without affecting anyone else’s work. <br>
          Once your changes are polished and ready, you can merge them back into the main project, combining everyone’s contributions smoothly.</p>
-        <p>Imagine you’re building a website with two teammates: Alice and Bob. Alice is designing the homepage, Bob is creating a contact form, and you’re working on the navigation bar.</p>
+        <p>Imagine you’re building a website with two teammates: Mary and Jane. Mary is designing the homepage, Jane is creating a contact form, and you’re working on the navigation bar.</p>
         Here’s how branches keep things organized:<br>
-     <b>Step 1:</b> Each person creates their own branch. Alice has a homepage branch, Bob has a contact-form branch, and you create a navbar branch.<br>
+     <b>Step 1:</b> Each person creates their own branch. Mary has a homepage branch, Jane has a contact-form branch, and you create a navbar branch.<br>
      <b>Step 2:</b> You all work independently, making changes to your own parts.<br>
        <b>Step 3:</b> Once everyone is done, you can merge each branch back into the main project, putting all the pieces together. <br>
        <p>No one’s work interferes with anyone else’s, and the main project remains stable until you’re ready to merge everything.</p>
@@ -45,32 +45,33 @@
     <b>To switch to the new branch use:</b>
     <pre> git checkout branchName</pre>
         <b style="color:red">Note: Replace branchName with your choice of branch name.</b>
-        <h3 style="color: blue">2. Commit changes in different branches.:</h3><br>
+        <h3 style="color: blue">2. Commit changes in different branches.:</h3>
         <p>Commits record changes to your branch, like saving versions of your work.</p>
         <pre>git add fileName</pre>
         <pre>git commit -m "Add description of the changes"</pre>
-<p><b>1.</b>Let’s say you create or edit a file named index.html.<br>
-<b>2.</b>Stage the file with git add index.html.<br>
-<b>3.</b>Commit the change with git commit -m "Add index.html with initial content".<br>
-<b>4.</b>Now this change is saved in branchName but not in the main branch.<br>
+<p>
+    <b>1.</b>Let’s say you create or edit a file named index.html.<br>
+    <b>2.</b>You stage the file with <code>git add index.html</code><br>
+    <b>3.</b>You commit the change with: <code> git commit -m "Add index.html with initial content" </code>.<br>
+    <b>4.</b>Now this change is saved in branchName but not in the main branch.<br>
 </p>        
- <h3 style="color: red">3. Merge Branches:</h3><br>
+ <h3 style="color: red">3. Merge Branches:</h3>
 <p> Once you’ve completed work on a branch, it’s time to bring it into the main project.<br>
 Merging brings the changes from one branch into another (typically from a  branchName into the main branch).<br>
-<b>1.</b>First, switch to main with: <code>git checkout main</code><br>
-<b>2.</b>Merge branchName changes into main by running <code>git merge branchName</code><br>
-<b>3.</b>Your main branch now has all the updates from branchName</p>
-<h3 style="color: purple">4. Push Branches to a GitHub Repository:</h3><br> 
+<b>1.</b>First, switch to main branch with: <code>git checkout main</code><br>
+<b>2.</b>Now Merge branchName changes into main by running <code>git merge branchName</code><br>
+<b>3.</b>Your main branch now has all the updates from <b>branchName</b></p>
+<h3 style="color: purple">4. Push Branches to a GitHub Repository:</h3>
         <p>Pushing uploads your branch (and all its commits) to GitHub, making it available online for others to see or review.<br>
-        To Push your branch to GitHub <code>git push -u origin branchName</code><br>
+        <b>1.</b>To Push your branch to GitHub <code>git push -u origin branchName</code><br>
         Now branchName is available on GitHub, and others can see the changes there.</p>
         <h3 style="color: green">5. Create and manage pull requests on GitHub:</h3>
-         <p>A pull request (PR) is a request to merge your branch into the main branch on GitHub.<br>
+         <p>A pull request (PR) is a request to merge your branch into the main branch on GitHub.
         It allows team members to review and approve changes before they are merged.
 <b>1.</b> Go to GitHub and navigate to your repository.<br>
 <b>2.</b>Click the button to Compare & pull request for branchName.
 <b>3.</b>Write a short description (e.g., "Adds initial content for index.html").<br>
-<b>4.</b>Click Create pull request.<br>
+<b>4.</b>Click Create pull request.
 <b>5.</b>Once approved, you can Merge the pull request to add branchName changes to main.<br>
          </p>
         <h3 style="color: orange">6.Remove a branch:</h3>
@@ -80,7 +81,8 @@ Merging brings the changes from one branch into another (typically from a  branc
                 <code>git branch -d branchName </code><br>
                 <b>2.</b>This will delete branchName from your local repository.<br>
                 If Git prevents deletion because the branch hasn't been merged yet, you can force-delete it with:
-                <code>git branch -D branchName</code> <b style="color:red">Note:</b>Use this carefully, as force deletion will remove the branch and its changes permanently from your local repo.
+                <code>git branch -D branchName</code><br>
+                <b style="color:red">Note:</b>Use this carefully, as force deletion will remove the branch and its changes permanently from your local repo.
 
             </p>
         <h3 style="color: majenta">7. Basic Commands:</h3>
