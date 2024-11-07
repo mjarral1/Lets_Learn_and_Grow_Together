@@ -36,106 +36,104 @@
          Once your changes are polished and ready, you can merge them back into the main project, combining everyone’s contributions smoothly.</p>
         <p>Imagine you’re building a website with two teammates: Mary and Jane. Mary is designing the homepage, Jane is creating a contact form, and you’re working on the navigation bar.</p>
         Here’s how branches keep things organized:<br>
-     <b>Step 1:</b> Each person creates their own branch. Mary has a homepage branch, Jane has a contact-form branch, and you create a navbar branch.<br>
-     <b>Step 2:</b> You all work independently, making changes to your own parts.<br>
+       <b>Step 1:</b> Each person creates their own branch. Mary has a homepage branch, Jane has a contact-form branch, and you create a navbar branch.<br>
+       <b>Step 2:</b> You all work independently, making changes to your own parts.<br>
        <b>Step 3:</b> Once everyone is done, you can merge each branch back into the main project, putting all the pieces together. <br>
        <p>No one’s work interferes with anyone else’s, and the main project remains stable until you’re ready to merge everything.</p>
-    <b>To Create a new branch use:</b>
+       <b>To Create a new branch use:</b>
         <pre>git branch branchName</pre>
-    <b>To switch to the new branch use:</b>
-    <pre> git checkout branchName</pre>
-        <b style="color:red">Note: Replace branchName with your choice of branch name.</b>
-        <h3 style="color: blue">2. Commit changes in different branches.:</h3>
-        <p>Commits record changes to your branch, like saving versions of your work.</p>
+      <b>To switch to the new branch use:</b>
+        <pre> git checkout branchName</pre>
+      <b style="color:red">Note: Replace branchName with your choice of branch name.</b>
+      <h3 style="color: blue">2. Commit changes in different branches.:</h3>
+      <p>Commits record changes to your branch, like saving versions of your work.</p>
         <pre>git add fileName</pre>
         <pre>git commit -m "Add description of the changes"</pre>
-<p>
-    <b>1.</b>Let’s say you create or edit a file named index.html.<br>
-    <b>2.</b>You stage the file with <code>git add index.html</code><br>
-    <b>3.</b>You commit the change with: <code> git commit -m "Add index.html with initial content" </code>.<br>
-    <b>4.</b>Now this change is saved in branchName but not in the main branch.<br>
-</p>        
- <h3 style="color: red">3. Merge Branches:</h3>
-<p> Once you’ve completed work on a branch, it’s time to bring it into the main project.<br>
-Merging brings the changes from one branch into another (typically from a  branchName into the main branch).<br>
-<b>1.</b>First, switch to main branch with: <code>git checkout main</code><br>
-<b>2.</b>Now Merge branchName changes into main by running <code>git merge branchName</code><br>
-<b>3.</b>Your main branch now has all the updates from <b>branchName</b></p>
-<h3 style="color: purple">4. Push Branches to a GitHub Repository:</h3>
-        <p>Pushing uploads your branch (and all its commits) to GitHub, making it available online for others to see or review.<br>
-        <b>1.</b>To Push your branch to GitHub <code>git push -u origin branchName</code><br>
-        Now branchName is available on GitHub, and others can see the changes there.</p>
-        <h3 style="color: green">5. Create and manage pull requests on GitHub:</h3>
-         <p>A pull request (PR) is a request to merge your branch into the main branch on GitHub.
-        It allows team members to review and approve changes before they are merged.
-<b>1.</b> Go to GitHub and navigate to your repository.<br>
-<b>2.</b>Click the button to Compare & pull request for branchName.
-<b>3.</b>Write a short description (e.g., "Adds initial content for index.html").<br>
-<b>4.</b>Click Create pull request.
-<b>5.</b>Once approved, you can Merge the pull request to add branchName changes to main.<br>
-         </p>
-        <h3 style="color: orange">6.Remove a branch:</h3>
-            <p>Use this command to delete a branch that you no longer need. Note that you must not be on the branch you are trying to delete.
-            <code>git branch -d yourBranchName</code><br>
-                <b>1.</b>If you have a branch named branchName that you want to delete, type:
-                <code>git branch -d branchName </code><br>
-                <b>2.</b>This will delete branchName from your local repository.<br>
-                If Git prevents deletion because the branch hasn't been merged yet, you can force-delete it with:
-                <code>git branch -D branchName</code><br>
-                <b style="color:red">Note:</b>Use this carefully, as force deletion will remove the branch and its changes permanently from your local repo.
-
-            </p>
-        <h3 style="color: majenta">7. Basic Commands:</h3>
-        <p><b>Initialize a Repository:</b> <code>git init</code></p>
-        <p><b>Add Files to Staging:</b> <code>git add &lt;file-name&gt;</code></p>
-        <p><b>Commit Changes:</b> <code>git commit -m "Initial commit"</code></p>
-        <p><b>View Commit History:</b><code>git log</code></p>
-       <p><b> Create a new branch:</b> <code>git branch branchName </code></p>
-       <p><b>Switch to a branch: </b><code>git checkout branchName</code></p>
-       <p><b>Merge a branch:</b> <code>git merge branchName</code></p>
-       <p><b>Remove a branch:</b><code>git branch -d branchName</code></p>
-       <p><b>Push a branch to GitHub:</b> <code>git push -u origin branchName</code></p>
+     <p>
+      <b>1.</b>Let’s say you create or edit a file named index.html.<br>
+      <b>2.</b>You stage the file with <code>git add index.html</code><br>
+      <b>3.</b>You commit the change with: <code> git commit -m "Add index.html with initial content" </code>.<br>
+      <b>4.</b>Now this change is saved in branchName but not in the main branch.<br>
+     </p>        
+     <h3 style="color: red">3. Merge Branches:</h3>
+     <p> Once you’ve completed work on a branch, it’s time to bring it into the main project.<br>
+      Merging brings the changes from one branch into another (typically from a  branchName into the main branch).<br>
+     <b>1.</b>First, switch to main branch with: <code>git checkout main</code><br>
+     <b>2.</b>Now Merge branchName changes into main by running <code>git merge branchName</code><br>
+     <b>3.</b>Your main branch now has all the updates from <b>branchName</b></p>
+     <h3 style="color: purple">4. Push Branches to a GitHub Repository:</h3>
+     <p>Pushing uploads your branch (and all its commits) to GitHub, making it available online for others to see or review.<br>
+     <b>1.</b>To Push your branch to GitHub <code>git push -u origin branchName</code><br>
+     Now branchName is available on GitHub, and others can see the changes there.</p>
+     <h3 style="color: green">5. Create and manage pull requests on GitHub:</h3>
+     <p>A pull request (PR) is a request to merge your branch into the main branch on GitHub.
+     It allows team members to review and approve changes before they are merged.<br>
+     <b>1.</b> Go to GitHub and navigate to your repository.<br>
+     <b>2.</b>Click the button to Compare & pull request for branchName.<br>
+     <b>3.</b>Write a short description (e.g., "Adds initial content for index.html").<br>
+     <b>4.</b>Click Create pull request.<br>
+     <b>5.</b>Once approved, you can Merge the pull request to add branchName changes to main.<br>
+    </p>
+    <h3 style="color: orange">6.Remove a branch:</h3>
+    <p>Use this command to delete a branch that you no longer need. Note that you must not be on the branch you are trying to delete.
+    <code>git branch -d yourBranchName</code><br>
+    <b>1.</b>If you have a branch named branchName that you want to delete, type:
+    <code>git branch -d branchName </code><br>
+    <b>2.</b>This will delete branchName from your local repository.<br>
+    If Git prevents deletion because the branch hasn't been merged yet, you can force-delete it with:
+    <code>git branch -D branchName</code><br>
+    <b style="color:red">Note:Use this carefully, as force deletion will remove the branch and its changes permanently from your local repo.</b>
+    </p>
+    <h3 style="color: majenta">7. Basic Commands:</h3>
+    <p><b>Initialize a Repository:</b> <code>git init</code></p>
+    <p><b>Add Files to Staging:</b> <code>git add &lt;file-name&gt;</code></p>
+    <p><b>Commit Changes:</b> <code>git commit -m "Initial commit"</code></p>
+    <p><b>View Commit History:</b><code>git log</code></p>
+    <p><b> Create a new branch:</b> <code>git branch branchName </code></p>
+    <p><b>Switch to a branch: </b><code>git checkout branchName</code></p>
+    <p><b>Merge a branch:</b> <code>git merge branchName</code></p>
+    <p><b>Remove a branch:</b><code>git branch -d branchName</code></p>
+    <p><b>Push a branch to GitHub:</b> <code>git push -u origin branchName</code></p>
     </section>
 
     <!-- Practice Questions Section -->
     <section>
-          <!--Questions 1 to 5... -->
-        <h2 style="color: brown">Practice Exercises:</h2>
-        <form id="Exercise1">
-            <label for="question1">1. What command is used to create a branch in Git?</label>
-            <input type="text" id="question1" name="question1">
-            <button type="button" onclick="checkAnswer('question1', 'git branch')">Check Answer</button>
-            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
-        </form>
+    <!--Questions 1 to 5... -->
+    <h2 style="color: brown">Practice Exercises:</h2>
+    <form id="Exercise1">
+    <label for="question1">1. What command is used to create a branch in Git?</label>
+    <input type="text" id="question1" name="question1">
+    <button type="button" onclick="checkAnswer('question1', 'git branch')">Check Answer</button>
+    <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
       
-        <form id="Exercise2">
-            <label for="question2">2. Which command initializes a Git repository?</label>
-            <input type="text" id="question2" name="question2">
-            <button type="button" onclick="checkAnswer('question2', 'git init')">Check Answer</button>
-            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
-        </form>
-        <form id="Exercise3">
-            <label for="question3">3. What command merge the branch?</label>
-            <input type="text" id="question3" name="question3">
-            <button type="button" onclick="checkAnswer('question3', 'git merge')">Check Answer</button>
-            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
-        </form>
-        <form id="Exercise4">
-            <label for="question4">4. What command is used to remove the branch from local repository?</label>
-            <input type="text" id="question4" name="question4">
-            <button type="button" onclick="checkAnswer('question4', 'git branch -d')">Check Answer</button>
-            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
-        </form>
-        <form id="Exercise5">
-            <label for="question5">5. What command is used to push a branch to GitHub?</label>
-            <input type="text" id="question5" name="question5">
-            <button type="button" onclick="checkAnswer('question5', 'git push -u origin')">Check Answer</button>
-            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
-        </form>
+    <form id="Exercise2">
+        <label for="question2">2. Which command initializes a Git repository?</label>
+        <input type="text" id="question2" name="question2">
+        <button type="button" onclick="checkAnswer('question2', 'git init')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise3">
+        <label for="question3">3. What command merge the branch?</label>
+        <input type="text" id="question3" name="question3">
+        <button type="button" onclick="checkAnswer('question3', 'git merge')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise4">
+        <label for="question4">4. What command is used to remove the branch from local repository?</label>
+        <input type="text" id="question4" name="question4">
+        <button type="button" onclick="checkAnswer('question4', 'git branch -d')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise5">
+        <label for="question5">5. What command is used to push a branch to GitHub?</label>
+        <input type="text" id="question5" name="question5">
+        <button type="button" onclick="checkAnswer('question5', 'git push -u origin')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
         <p id="score">Score: 0</p>
         <button type="button" onclick="saveScore()">Save Your Score</button>
     </section>
-
     <section>
         <button type="button" onclick="calculateTrophy()">View Your Trophy</button>
         <p id="trophyResult"></p>
