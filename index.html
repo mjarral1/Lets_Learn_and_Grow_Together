@@ -45,13 +45,14 @@
      <section>
     <h2>Lesson Scores</h2>
     <p id="day1Score">Lesson 1 Score: Not completed yet.</p>
-</section>
+    </section>
         <button onclick="markAttendance()">Mark Attendance!</button>
         <button onclick="continueLearning()">Lesson of the day!</button>
         <button onclick="giveFeedback()">Give Feedback / Ask a Question?</button>
         <button onclick="resetProgress()">Reset Progress!</button>
         <button onclick="resetNickname()">Reset Nickname!</button>
-        <button onclick="showTotalScore()">Total Score!</button>
+        <button onclick="displayScores()">Total Score!</button>
+     
 
         <section id="feedbackSection" style="display: none;">
             <p>Would you like to continue learning, provide feedback, or ask questions?</p>
@@ -104,6 +105,7 @@
         const GOLD_THRESHOLD = 30;
         const SILVER_THRESHOLD = 20;
         const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+      
 
         function getNickname() {
             let nickname = localStorage.getItem("nickname");
@@ -234,7 +236,6 @@
     }
 
     window.onload = displayScores;
-
 
         function init() {
             getNickname();
