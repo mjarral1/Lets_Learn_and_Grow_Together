@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: Let's start with Basics: Introduction to Git and Setup</title>
+    <link rel="stylesheet" href=".../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lesson 2: Introduction to Git, Setup, and Git Basics!</h1>
+    </header>
+
+    <section>
+        <h2>Week: 1 </h2> 
+        <p>Understand basic Git operations: setting up, creating, and committing in repositories, with a focus on tracking changes and basic branching.</p>
+        <h2>Day: 2</h2> 
+        <p> By the end of the lesson 2, we’ll know how to:
+            <b>1.</b> Create and switch branches.<br>
+            <b>2.</b> Commit changes in different branches.<br>
+            <b>3.</b> Merge branches.<br>
+            <b>4.</b> Push branches to a GitHub repository.<br>
+            <b>5.</b> Create and manage pull requests on GitHub.
+        </p>
+    </section>
+
+    <section>
+        <h2>Overview of Lesson 2: Branching and Merging in Git</h2>
+        <p>Lesson 1 covers the Introduction to Git, shows us the Git Setup process, and makes us learn some Git Basics to begin our journey of Git together!<br>
+        Review Lesson 1 content, focusing on Git setup, initializing repositories, and basic Git commands like git add, git commit, and git push.
+        </p>
+        <h3>1. What is Git?</h3>
+        <p>Git is a distributed version control system that helps track code changes, collaborate with others, and manage project history.</p>
+        <p><b>Why Use Git?</b> Git allows multiple developers to work on a project simultaneously, maintains a complete history of all changes, and provides tools to merge and resolve code differences.</p>
+
+        <h3>2. Git Setup:</h3>
+        <p><b>Installation:</b> Download and install Git from <a href="https://git-scm.com/" target="_blank">git-scm.com.</a></p>
+        <p><b>Configuration:</b> Set up your name and email for commit history.</p>
+        <pre>git config --global user.name "Your Name"</pre>
+        <pre>git config --global user.email "your.email@example.com"</pre>
+
+        <h3>3. Basic Commands:</h3>
+        <p><b>Initialize a Repository:</b> <code>git init</code></p>
+        <p><b>Add Files to Staging:</b> <code>git add &lt;file-name&gt;</code></p>
+        <p><b>Commit Changes:</b> <code>git commit -m "Initial commit"</code></p>
+        <p><b>View Commit History:</b> <code>git log</code></p>
+    </section>
+
+    <!-- Practice Questions Section -->
+    <section>
+        <h2>Practice Exercises:</h2>
+        <form id="Exercise1">
+            <label for="question1">1. What is Git?</label>
+            <input type="text" id="question1" name="question1">
+            <button type="button" onclick="checkAnswer('question1', 'version control system')">Check Answer</button>
+            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+        </form>
+        <!--Questions 2 to 5... -->
+        <form id="Exercise2">
+            <label for="question2">2. Which command initializes a Git repository?</label>
+            <input type="text" id="question2" name="question2">
+            <button type="button" onclick="checkAnswer('question2', 'git init')">Check Answer</button>
+            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+        </form>
+        <form id="Exercise3">
+            <label for="question3">3. What command saves changes with a message?</label>
+            <input type="text" id="question3" name="question3">
+            <button type="button" onclick="checkAnswer('question3', 'git commit -m')">Check Answer</button>
+            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+        </form>
+        <form id="Exercise4">
+            <label for="question4">4. What command is used to add file to staging?</label>
+            <input type="text" id="question4" name="question4">
+            <button type="button" onclick="checkAnswer('question4', 'git add')">Check Answer</button>
+            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+        </form>
+        <form id="Exercise5">
+            <label for="question5">5. What command is used to view history of commits?</label>
+            <input type="text" id="question5" name="question5">
+            <button type="button" onclick="checkAnswer('question5', 'git log')">Check Answer</button>
+            <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+        </form>
+        <p id="score">Score: 0</p>
+        <button type="button" onclick="saveScore()">Save Your Score</button>
+    </section>
+
+    <section>
+        <button type="button" onclick="calculateTrophy()">View Your Trophy</button>
+        <p id="trophyResult"></p>
+    </section>
+
+    <section id="feedbackSection" style="display: none;">
+        <p>Would you like to continue learning, provide feedback, or ask questions?</p>
+        <button onclick="continueLearning()">Continue to Learning</button>
+        <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
+    </section>
+
+    <script>
+let score = 0;
+let attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
+const hintMessage = "Hint: Review the lesson content above.";
+let questionsAnswered = 0; // To track the number of completed questions
+
+function checkAnswer(questionId, correctAnswer) {
+    const input = document.getElementById(questionId);
+    if (input.value.toLowerCase() === correctAnswer.toLowerCase()) {
+        if (!input.disabled) { // Ensures score is only added once
+            alert("Correct!");
+            score += 10;
+            questionsAnswered++;
+            input.disabled = true;
+            attempts[questionId] = 0;
+            document.getElementById("score").innerText = "Score: " + score;
+            
+            if (questionsAnswered === 5) { // Check if all questions are answered
+                alert("Congratulations! You've completed all questions.");
+                document.getElementById("feedbackSection").style.display = "block";
+            }
+        }
+    } else {
+        attempts[questionId]++;
+        if (attempts[questionId] === 3) {
+            alert(hintMessage);
+        } else if (attempts[questionId] === 4) {
+            alert("Solution: " + correctAnswer);
+            input.disabled = true;
+            questionsAnswered++;
+            if (questionsAnswered === 5) {
+                alert("Congratulations! You've completed all questions.");
+                document.getElementById("feedbackSection").style.display = "block";
+            }
+        } else {
+            alert("Incorrect! Try again.");
+        }
+    }
+}
+
+function saveScore() {
+    localStorage.setItem("day1_score", score);
+    alert("Score saved for Day 1: " + score);
+}
+
+function calculateTrophy() {
+    let daysAttended = 1; // Update this as needed for future days
+    let trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
+    document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
+}
+
+function continueLearning() {
+    window.location.href = "https://mjarral1.github.io/Lets_Learn_and_Grow_Together/index.html"; // Redirect to index.html for next lessons
+}
+
+function giveFeedback() {
+    const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question?");
+    if (feedbackChoice) {
+        window.open("https://www.linkedin.com/in/mjarral786/", "_blank");
+        window.open("https://github.com/mjarral1/Lets_Learn_and_Grow_Together/discussions", "_blank");
+    }
+}
+  </script>
+</body>
+</html>
