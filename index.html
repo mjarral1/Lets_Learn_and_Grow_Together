@@ -45,6 +45,7 @@
      <section>
     <h3 style="color:green">Lesson Scores:</h3>
     <p id="day1Score">Lesson 1 Score: Not completed yet.</p>
+    <p id="day2Score">Lesson 2 Score: Not completed yet.</p>
     </section>
         <button onclick="markAttendance()">Mark Attendance!</button>
         <button onclick="continueLearning()">Lesson of the day!</button>
@@ -228,9 +229,13 @@
     function displayScores() {
         const day1Score = localStorage.getItem("day1_score");
         const day1Date = localStorage.getItem("day1_date");
-
+        const day2Score = localStorage.getItem("day2_score");
+        const day2Date = localStorage.getItem("day2_date");
         if (day1Score && day1Date) {
             document.getElementById("day1Score").innerText = `Lesson 1 Score: ${day1Score} (Date: ${day1Date})`;
+        }
+     if (day2Score && day2Date) {
+            document.getElementById("day2Score").innerText = `Lesson 2 Score: ${day2Score} (Date: ${day2Date})`;
         }
     }
 
