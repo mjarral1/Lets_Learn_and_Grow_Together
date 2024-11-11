@@ -44,6 +44,7 @@
         <p id="attendanceMessage">Total Attendance Days: 0</p>
      <section>
     <h3 style="color:green">Lesson Scores:</h3>
+      <div id="scoresContainer"></div>
     <p id="day1Score">Lesson 1 Score: Not completed yet.</p>
     <p id="day2Score">Lesson 2 Score: Not completed yet.</p>
     </section>
@@ -226,18 +227,21 @@
             }
         }
      
-    function displayScores() {
-        const day1Score = localStorage.getItem("day1_score");
-        const day1Date = localStorage.getItem("day1_date");
-        const day2Score = localStorage.getItem("day2_score");
-        const day2Date = localStorage.getItem("day2_date");
-        if (day1Score && day1Date) {
-            document.getElementById("day1Score").innerText = `Lesson 1 Score: ${day1Score} (Date: ${day1Date})`;
-        }
-        if (day2Score && day2Date) {
-            document.getElementById("day2Score").innerText = `Lesson 2 Score: ${day2Score} (Date: ${day2Date})`;
+     function displayScores() {
+    const scoresContainer = document.getElementById("scoresContainer");
+    scoresContainer.innerHTML = ""; // Clear any previous content
+
+    for (let i = 1; i <= 7; i++) {
+        const score = localStorage.getItem(`day${i}_score`);
+        const date = localStorage.getItem(`day${i}_date`);
+        
+        if (score && date) {
+            const scoreElement = document.createElement("p");
+            scoreElement.innerText = `Lesson ${i} Score: ${score} (Date: ${date})`;
+            scoresContainer.appendChild(scoreElement);
         }
     }
+}
 
     window.onload = displayScores;
 
