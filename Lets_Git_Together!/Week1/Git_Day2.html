@@ -186,12 +186,12 @@ function checkAnswer(questionId, correctAnswer) {
 }
 
 function saveScore() {
-    localStorage.setItem("day1_score", score);
-    alert("Score saved for Day 1: " + score);
+    localStorage.setItem("day2_score", score);
+    alert("Score saved for Day 2: " + score);
 }
 
 function calculateTrophy() {
-    let daysAttended = 1; // Update this as needed for future days
+    let daysAttended = 2; // Update this as needed for future days
     let trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
     document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
 }
