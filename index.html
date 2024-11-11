@@ -226,32 +226,32 @@
                 }
             }
         }
-     
-     function displayScores() {
-    const scoresContainer = document.getElementById("scoresContainer");
-    scoresContainer.innerHTML = ""; // Clear any previous content
+      function displayScores() {
+     const scoresContainer = document.getElementById("scoresContainer");
+     scoresContainer.innerHTML = ""; // Clear any previous content
 
-    for (let i = 1; i <= 7; i++) {
-        const score = localStorage.getItem(`day${i}_score`);
-        const date = localStorage.getItem(`day${i}_date`);
-        
-        if (score && date) {
-            const scoreElement = document.createElement("p");
-            scoreElement.innerText = `Lesson ${i} Score: ${score} (Date: ${date})`;
-            scoresContainer.appendChild(scoreElement);
-        }
-    }
-}
+     for (let i = 1; i <= 7; i++) {
+         const score = localStorage.getItem(`day${i}_score`);
+         const date = localStorage.getItem(`day${i}_date`);
+         console.log(`Checking day ${i}: score = ${score}, date = ${date}`); // Log for debugging
 
-    window.onload = displayScores;
-
+         if (score && date) {
+             const scoreElement = document.createElement("p");
+             scoreElement.innerText = `Lesson ${i} Score: ${score} (Date: ${date})`;
+             scoresContainer.appendChild(scoreElement);
+         }
+     }
+ }
         function init() {
             getNickname();
             updateAttendanceMessage();
             checkResult();
         }
-
-        window.onload = init;
+window.onload = function() {
+    init();
+    displayScores();
+};
+     
     </script>
 </body>
  <footer style="background-color: #f1f1f1; padding: 20px; text-align: center;">
