@@ -68,7 +68,7 @@
                 button.className = "button";
                 button.innerText = `Day ${day} Lesson`;
 
-                if (day <= 4 || isRegularUser) { // Allow access to lessons up to Day 4, or all if a regular user
+                if (day <= 7 || isRegularUser) { // Allow access to lessons up to Day 7, or all if a regular user
                     button.onclick = () => openLesson(day);
                 } else {
                     button.onclick = () => alert("The lesson for this day is not available yet. Please check back later.");
@@ -101,7 +101,7 @@
             }
 
             // Automatically open today's lesson if within available range for non-regular users
-            if (!isUserRegular && getDaySinceJoin(joinDate) <= 4) {
+            if (!isUserRegular && getDaySinceJoin(joinDate) <= 7) {
                 openLesson(getDaySinceJoin(joinDate));
             }
         }
