@@ -57,7 +57,6 @@
             <button onclick="continueLearning()">Continue to Learning</button>
             <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
         </section>
-     <section>
      <p>The series will follow this consecutive order for each skill for every 30 days:</p>
             <nav>
                 <ul>
@@ -72,8 +71,63 @@
                     <li><a href="Machine_Learning!/ML.html">ML: Understanding the Psychology of Machines!</a></li>
                 </ul>
             </nav>
-      </section>
-    <script> 
+   <p> More: .... (For additional topics, please suggest in the comments!)</p>
+     <p>Consistent learning and skill-building, one step at a time!</p>
+
+         <p>🌟 Consistency is Key: Don’t miss a day and watch your data-related skills flourish by the end of the month.</p>
+
+         <p>Tag a friend who might be interested or leave a comment if you’re ready to join! Let’s learn and practice together for the next 30 days! 📊💻
+         </p>  
+            <p>Follow me and the trends on LinkedIn: 
+                <a href="https://www.amivero.com/" target="_blank">#Amivero</a> 
+                <a href="https://www.linkedin.com/in/mjarral786/" target="_blank">#LinkedIn</a>   
+                <a href="https://www.linkedin.com/posts/activity-7151332103652007936-ImW9?utm_source=share&utm_medium=member_desktop"target="_blank">Human & AI Collaboration: Beyond Competition to Synergy </a> 
+                <a href="https://www.linkedin.com/pulse/unlocking-narratives-art-storytelling-clean-data-amivero-8kllc/?trackingId=r4Z3KcDGIDgpe%2BGRRleONw%3D%3D"target="_blank">Unlocking Narratives: The Art of Storytelling with Clean Data </a>           
+            </p>
+          <p> #SQL #GitHub #Learning #DataAnalysis #Excel #PowerBI #PowerAutomate #PowerApps #Python #LearningJourney #30DaysOfLearning #DataSkills #GrowthMindset #DataScience #Automation #Statistics #MachineLearning #AI </P>
+         </p>
+
+    </header>
+
+    <!-- JavaScript for interactive prompts and attendance tracking -->
+    <script>
+        const TOTAL_DAYS = 30;
+        const GOLD_THRESHOLD = 30;
+        const SILVER_THRESHOLD = 20;
+        const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+
+        function getNickname() {
+            let nickname = localStorage.getItem("nickname");
+            if (!nickname) {
+                nickname = prompt("Please enter your nickname:");
+                if (nickname) {
+                    localStorage.setItem("nickname", nickname);
+                    localStorage.setItem("attendanceDays", "0");
+                    localStorage.setItem("totalScore", "0");
+                } else {
+                    alert("Nickname is required to track your progress.");
+                    location.reload();
+                }
+            }
+            document.getElementById("welcomeMessage").innerText = `Welcome, ${nickname}!`;
+            trackAttendance();
+            startLessonPrompt();
+        }
+
+        function startLessonPrompt() {
+            const lastVisit = localStorage.getItem("lastVisitDate");
+            const today = new Date().toDateString();
+            if (lastVisit !== today) {
+                localStorage.setItem("lastVisitDate", today);
+                const lessonPrompt = "Today's lesson is ready! Please review the lesson material and complete the exercise.";
+                if (confirm("Would you like to start today's lesson and practice exercise?")) {
+                    window.open("Lets_Git_Together!/Week1/Git_Day1.html", "_blank");
+                  markAttendance();
+                }
+                document.getElementById("lessonPrompt").innerText = lessonPrompt;
+            }
+        }
      function trackAttendance() {
             const lastVisit = localStorage.getItem("lastVisitDate");
             const today = new Date().toDateString();
@@ -161,32 +215,25 @@
                 }
             }
         }
-      function displayScores() {
-     const scoresContainer = document.getElementById("scoresContainer");
-     scoresContainer.innerHTML = ""; // Clear any previous content
 
-     for (let i = 1; i <= 7; i++) {
-         const score = localStorage.getItem(`day${i}_score`);
-         const date = localStorage.getItem(`day${i}_date`);
-         console.log(`Checking day ${i}: score = ${score}, date = ${date}`); // Log for debugging
+    function displayScores() {
+        const day1Score = localStorage.getItem("day1_score");
+        const day1Date = localStorage.getItem("day1_date");
 
-         if (score && date) {
-             const scoreElement = document.createElement("p");
-             scoreElement.innerText = `Lesson ${i} Score: ${score} (Date: ${date})`;
-             scoresContainer.appendChild(scoreElement);
-         }
-     }
- }
+        if (day1Score && day1Date) {
+            document.getElementById("day1Score").innerText = `Lesson 1 Score: ${day1Score} (Date: ${day1Date})`;
+        }
+    }
+
+    window.onload = displayScores;
+
         function init() {
             getNickname();
             updateAttendanceMessage();
             checkResult();
         }
-window.onload = function() {
-    init();
-    displayScores();
-};
-     
+
+        window.onload = init;
     </script>
 </body>
  <footer style="background-color: #f1f1f1; padding: 20px; text-align: center;">
