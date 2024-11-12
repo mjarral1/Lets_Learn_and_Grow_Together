@@ -33,7 +33,6 @@
     <div id="lesson-buttons"></div>
 
     <script>
-        // Function to get the user's join date or set it if it's the user's first visit
         function getUserJoinDate() {
             let joinDate = localStorage.getItem("joinDate");
             if (!joinDate) {
@@ -43,76 +42,63 @@
             return new Date(joinDate);
         }
 
-        // Function to calculate the day number since the user joined
         function getDaySinceJoin(joinDate) {
             const today = new Date();
             const timeDiff = today - joinDate;
             return Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 1;
         }
 
-        // Function to check if the user is a regular visitor
         function isRegularUser(joinDate) {
-            const currentDay = getDaySinceJoin(joinDate);
-            return currentDay >= 7; // If they've visited for 7 days since joining, they’re considered a regular user
+            const daysSinceJoin = getDaySinceJoin(joinDate);
+            return daysSinceJoin >= 7;
         }
 
-        // Function to create lesson buttons based on user type
-        function createLessonButtons(isRegularUser) {
+        function createLessonButtons(isRegular) {
             const lessonButtonsContainer = document.getElementById("lesson-buttons");
-            lessonButtonsContainer.innerHTML = ""; // Clear previous buttons
+            lessonButtonsContainer.innerHTML = "";
 
-            const totalDays = isRegularUser ? 7 : getDaySinceJoin(getUserJoinDate());
+            const totalDays = isRegular ? 30 : getDaySinceJoin(getUserJoinDate());
 
             for (let day = 1; day <= totalDays; day++) {
                 const button = document.createElement("button");
                 button.className = "button";
                 button.innerText = `Day ${day} Lesson`;
 
-                if (day <= 30 || isRegularUser) { // Allow access to lessons up to Day 30, or all if a regular user
+                if (day <= 30 || isRegular) {
                     button.onclick = () => openLesson(day);
                 } else {
                     button.onclick = () => alert("The lesson for this day is not available yet. Please check back later.");
-                    button.disabled = true; // Disable button for lessons not yet loaded
+                    button.disabled = true;
                 }
 
                 lessonButtonsContainer.appendChild(button);
             }
         }
 
-        // Function to open a specific lesson in a new window
         function openLesson(day) {
-            const lessonURL1 = `https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week1/Git_Day${day}.html`;
-            window.open(lessonURL1, "_blank");
-            const lessonURL2 = `https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week2/Git_Day${day}.html`;
-            window.open(lessonURL2, "_blank");
-            const lessonURL3 = `https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week3/Git_Day${day}.html`;
-            window.open(lessonURL3, "_blank");
-            const lessonURL4 = `https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week4/Git_Day${day}.html`;
-            window.open(lessonURL4, "_blank");
+            const week = Math.ceil(day / 7);
+            const lessonURL = `https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week${week}/Git_Day${day}.html`;
+            window.open(lessonURL, "_blank");
         }
 
-        // Initial function to set up the page
         function initializePage() {
             const joinDate = getUserJoinDate();
             const isUserRegular = isRegularUser(joinDate);
+            const daysSinceJoin = getDaySinceJoin(joinDate);
             createLessonButtons(isUserRegular);
-            
-            // Display a welcome message
+
             const welcomeMessage = document.getElementById("welcome-message");
             if (isUserRegular) {
                 welcomeMessage.innerText = "Welcome, regular user! You have access to all available lessons.";
             } else {
-                const currentDay = getDaySinceJoin(joinDate);
-                welcomeMessage.innerText = `Welcome! Today is Day ${currentDay} of your learning journey since joining on ${joinDate.toDateString()}.`;
+                welcomeMessage.innerText = `Welcome! Today is Day ${daysSinceJoin} of your learning journey since joining on ${joinDate.toDateString()}.`;
             }
 
-            // Automatically open today's lesson if within available range for non-regular users
-            if (!isUserRegular && getDaySinceJoin(joinDate) <= 30) {
-                openLesson(getDaySinceJoin(joinDate));
+            if (!isUserRegular && daysSinceJoin <= 30) {
+                openLesson(daysSinceJoin);
             }
         }
 
-        // Initialize page on load
         window.onload = initializePage;
     </script>
 </body>
