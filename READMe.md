@@ -35,8 +35,9 @@ I’ll post a new lesson and a practice exercise every day for 30 days, focusing
 Beginners looking to start a career in data analysis. Professionals wanting to enhance their automation, visualization, and app-building skills. Anyone curious about data tools and seeking hands-on with practice.
 
 💡 Get Started: Simply follow my daily posts, stay consistent, and let’s grow our data skills together! 🙌
+If you are ready to be my teammate, then please visit my website. Here is a link: [Be My Teammate!](https://mjarral1.github.io/Lets_Learn_and_Grow_Together/)
 
-🌟 Consistency is Key: Don’t miss a day and watch your data-related skills flourish by the end of the month.
+🌟 Please Note! Consistency is Key: Don’t miss a day and watch your data-related skills flourish by the end of the month.
 
 Tag a friend who might be interested or leave a comment if you’re ready to join! Let’s learn and practice together for the next 30 days! 📊💻
 
