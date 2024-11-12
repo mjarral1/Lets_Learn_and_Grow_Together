@@ -81,7 +81,7 @@
 
         // Function to open a specific lesson in a new window
         function openLesson(day) {
-            const lessonURL = `https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week1/Git_Day${day}.html`;
+            const lessonURL = `https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Week2/Git_Day${day}.html`;
             window.open(lessonURL, "_blank");
         }
 
@@ -101,7 +101,7 @@
             }
 
             // Automatically open today's lesson if within available range for non-regular users
-            if (!isUserRegular && getDaySinceJoin(joinDate) <= 4) {
+            if (!isUserRegular && getDaySinceJoin(joinDate) <= 7) {
                 openLesson(getDaySinceJoin(joinDate));
             }
         }
