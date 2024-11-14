@@ -146,52 +146,68 @@
     </section>
 
     <script>
-let score = 0;
-let attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
-const hintMessage = "Hint: Review the lesson content above.";
-let questionsAnswered = 0; // To track the number of completed questions
+ let score = 0;
+        let questionsAnswered = 0;
+        let attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
+        const hintMessage = "Hint: Review the lesson content above.";
+        const today = new Date().toLocaleDateString(); // Get today's date as a string
 
-function checkAnswer(questionId, correctAnswer) {
-    const input = document.getElementById(questionId);
-    if (input.value.toLowerCase() === correctAnswer.toLowerCase()) {
-        if (!input.disabled) { // Ensures score is only added once
-            alert("Correct!");
-            score += 10;
-            questionsAnswered++;
-            input.disabled = true;
-            attempts[questionId] = 0;
-            document.getElementById("score").innerText = "Score: " + score;
-            
-            if (questionsAnswered === 5) { // Check if all questions are answered
-                alert("Congratulations! You've completed all questions.");
-                document.getElementById("feedbackSection").style.display = "block";
+        function checkAnswer(questionId, correctAnswer) {
+            const input = document.getElementById(questionId);
+            if (input.value.toLowerCase() === correctAnswer.toLowerCase()) {
+                if (!input.disabled) {
+                    alert("Correct!");
+                    score += 10;
+                    questionsAnswered++;
+                    input.disabled = true;
+                    attempts[questionId] = 0;
+                    document.getElementById("score").innerText = "Score: " + score;
+
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                }
+            } else {
+                attempts[questionId]++;
+                if (attempts[questionId] === 3) {
+                    alert(hintMessage);
+                } else if (attempts[questionId] === 4) {
+                    alert("Solution: " + correctAnswer);
+                    input.disabled = true;
+                    questionsAnswered++;
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                } else {
+                    alert("Incorrect! Try again.");
+                }
             }
         }
-    } else {
-        attempts[questionId]++;
-        if (attempts[questionId] === 3) {
-            alert(hintMessage);
-        } else if (attempts[questionId] === 4) {
-            alert("Solution: " + correctAnswer);
-            input.disabled = true;
-            questionsAnswered++;
-            if (questionsAnswered === 5) {
-                alert("Congratulations! You've completed all questions.");
-                document.getElementById("feedbackSection").style.display = "block";
-            }
-        } else {
-            alert("Incorrect! Try again.");
-        }
-    }
-}
 
-function saveScore() {
-    localStorage.setItem("day2_score", score);
-    alert("Score saved for Day 2: " + score);
-}
+        function saveScore() {
+            const previousScore = localStorage.getItem("day2_score");
+            const previousDate = localStorage.getItem("day2_date");
+
+            if (previousDate === today) {
+                alert("You have already saved your score today.");
+            } else if (previousScore) {
+                if (confirm("You already saved a score before. Saving now will overwrite it. Do you want to continue?")) {
+                    updateScore();
+                }
+            } else {
+                updateScore();
+            }
+        }
+
+        function updateScore() {
+            localStorage.setItem("day2_score", score);
+            localStorage.setItem("day2_date", today);
+            alert("Score saved for Day 2: " + score);
+        }
+
 
 function calculateTrophy() {
-    let daysAttended = 2; // Update this as needed for future days
+    let daysAttended = 1; // Update this as needed for future days
     let trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
     document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
 }
@@ -207,6 +223,7 @@ function giveFeedback() {
         window.open("https://github.com/mjarral1/Lets_Learn_and_Grow_Together/discussions", "_blank");
     }
 }
+
   </script>
 </body>
 </html>
