@@ -50,6 +50,7 @@
     <!-- Attendance, Feedback, and Scores Section -->
     <p id="attendanceMessage">📅 Total Attendance Days: 0</p>
  <button onclick="markAttendance()">Mark Attendance!</button>
+ <div id="loginMessage"></div>
  <!-- <button onclick="showTotalScore()">Attendance Score!</button> -->
   <div id="savedScores"></div>
  
@@ -124,6 +125,8 @@
             updateAttendanceMessage();
             checkMedalStatus();
             showTotalScore();
+          // Call the function when the page loads
+        trackAttendance();
         };
 
         function markAttendance() {
@@ -195,6 +198,29 @@
         function updateAttendanceMessage() {
             const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
             document.getElementById("attendanceMessage").innerText = `Total Attendance Days: ${attendanceDays}`;
+        }
+      // Function to track attendance and calculate the score
+        function trackAttendance() {
+            const pointsPerVisit = 10;  // Points awarded per visit
+            const today = new Date().toLocaleDateString();  // Current date in "MM/DD/YYYY" format
+
+            // Get previous data from localStorage
+            const lastVisitDate = localStorage.getItem("lastVisitDate");
+            let totalScore = parseInt(localStorage.getItem("totalScore")) || 0;  // Default to 0 if no score
+
+            // Check if the user is visiting on a new day
+            if (lastVisitDate !== today) {
+                // If it's a new visit day, add points
+                totalScore += pointsPerVisit;
+                localStorage.setItem("lastVisitDate", today);  // Update last visit date in localStorage
+                localStorage.setItem("totalScore", totalScore);  // Update total score in localStorage
+
+                // Display a welcome message with the updated score
+                document.getElementById("loginMessage").innerText = `Welcome back! You have earned 10 points today. Your total score is now ${totalScore} points.`;
+            } else {
+                // If the user has already visited today, just show their current score
+                document.getElementById("loginMessage").innerText = `Welcome back! Your total score is ${totalScore} points.`;
+            }
         }
 
         function showTotalScore() {
