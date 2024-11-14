@@ -115,7 +115,6 @@
         window.onload = function() {
             getNickname();
             updateAttendanceMessage();
-            displayScores30();
             checkMedalStatus();
         };
 
@@ -189,6 +188,7 @@
 
         function showTotalScore() {
             const totalScore = parseInt(localStorage.getItem("totalScore")) || 0;
+         document.getElementById("scoresContainer").innerText = `Total Scores Earned by Days: ${totalScore}`;
             alert(`Your Total Score: ${totalScore}`);
         }
 
