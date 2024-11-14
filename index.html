@@ -50,9 +50,10 @@
     <!-- Attendance, Feedback, and Scores Section -->
     <p id="attendanceMessage">📅 Total Attendance Days: 0</p>
  <button onclick="markAttendance()">Mark Attendance!</button>
- <div id="loginMessage"></div>
  <button onclick="showTotalScore()">Attendance Score!</button>
-  <div id="savedScores"></div>
+ <!-- <div id="savedScores"></div> -->
+ <button id="toggleButton1" onclick="toggleAttendanceScores()">Show Attendance Scores!</button>
+ <div id="loginMessage"></div>
  
     <section>
         <h3 style="color:green">📈 Lesson Scores:</h3>
@@ -288,6 +289,23 @@ function displayScores30() {
                 button.innerText = "Show 30 Days Scores"; // Change button text
             }
         }
+
+  
+// Function to toggle visibility of the total attendance scores
+        function toggleAttendanceScores() {
+            const totalScoresContainer1 = document.getElementById("loginMessage");
+            const button1 = document.getElementById("toggleButton1");
+
+            if (totalScoresContainer1.style.display === "none") {
+                totalScoresContainer1.style.display = "block";
+                button1.innerText = "Hide Attendance Scores"; // Change button text
+                trackAttendance();  // Display the scores when the button is clicked
+            } else {
+                totalScoresContainer1.style.display = "none";
+                button1.innerText = "Show Attendance Scores"; // Change button text
+            }
+        }
+
     </script>
 </body>
  <footer style="background-color: #f1f1f1; padding: 20px; text-align: center;">
