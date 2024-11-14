@@ -267,7 +267,6 @@ function displayScores30() {
             totalDaysCompleted++;  // Count the number of completed days
         } else {
             dayScoreElement.innerText = `Lesson ${day} Score: Not completed yet.`;
-         alert(`Your Score: ${totalScore}`);  <!--- Review -->
         }
         // Append the score element to the container
         scoresContainer.appendChild(dayScoreElement);
@@ -275,7 +274,8 @@ function displayScores30() {
     // Create an element to display the total score
     const totalScoreElement = document.createElement('p');
     totalScoreElement.innerText = `Total Score: ${totalScore} out of ${totalDaysCompleted * 100} (${totalDaysCompleted} days completed)`;
-    // Append the total score element to the container
+ alert(`Your Score: ${totalScore}`);  <!--- Review -->   
+ // Append the total score element to the container
     scoresContainer.appendChild(totalScoreElement);
 }
      // Function to toggle visibility of the total scores
