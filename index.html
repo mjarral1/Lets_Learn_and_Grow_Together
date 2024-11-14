@@ -115,7 +115,7 @@
         window.onload = function() {
             getNickname();
             updateAttendanceMessage();
-            displayScores();
+            displayScores30();
             checkMedalStatus();
         };
 
@@ -129,6 +129,7 @@
                 localStorage.setItem("lastAttendance", now);
                 updateAttendanceMessage();
                 calculateTotalScore();
+                displayScores30();
             } else {
                 const hoursLeft = Math.floor((ONE_DAY_MS - (now - lastAttendance)) / (60 * 60 * 1000));
                 alert(`You’ve already marked attendance today. Please wait ${hoursLeft} hours to mark again.`);
