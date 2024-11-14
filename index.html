@@ -50,6 +50,8 @@
     <!-- Attendance, Feedback, and Scores Section -->
     <p id="attendanceMessage">📅 Total Attendance Days: 0</p>
  <button onclick="markAttendance()">Mark Attendance!</button>
+ <button onclick="showTotalScore()">Attendance Score!</button>
+ <div id="savedScores"></div>
  
     <section>
         <h3 style="color:green">📈 Lesson Scores:</h3>
@@ -93,7 +95,7 @@
      
     <!-- Feedback Section -->
     <section id="feedbackSection" style="display: none;">
-        <p>Would you like to continue learning, provide feedback, or ask questions?</p>
+        <p> Would you like to continue learning, provide feedback, or ask questions? </p>
         <button onclick="startLesson()">Continue to Learning</button>
         <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
     </section>
