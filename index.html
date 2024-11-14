@@ -55,6 +55,7 @@
     <section>
         <h3 style="color:green">📈 Lesson Scores:</h3>
      <button onclick="displayScores30()">30 Days Score!</button>
+     <button id="toggleButton" onclick="toggleTotalScores()">Show Total Scores</button>
         <div id="scoresContainer"></div>
         
         
@@ -245,6 +246,20 @@ function displayScores30() {
     // Append the total score element to the container
     scoresContainer.appendChild(totalScoreElement);
 }
+     // Function to toggle visibility of the total scores
+        function toggleTotalScores() {
+            const totalScoresContainer = document.getElementById("totalScores");
+            const button = document.getElementById("toggleButton");
+
+            if (totalScoresContainer.style.display === "none") {
+                totalScoresContainer.style.display = "block";
+                button.innerText = "Hide Total Scores"; // Change button text
+                displayScores();  // Display the scores when the button is clicked
+            } else {
+                totalScoresContainer.style.display = "none";
+                button.innerText = "Show Total Scores"; // Change button text
+            }
+        }
     </script>
 </body>
  <footer style="background-color: #f1f1f1; padding: 20px; text-align: center;">
