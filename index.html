@@ -50,7 +50,7 @@
     <!-- Attendance, Feedback, and Scores Section -->
     <p id="attendanceMessage">📅 Total Attendance Days: 0</p>
  <button onclick="markAttendance()">Mark Attendance!</button>
- <button onclick="showTotalScore()">Attendance Score!</button>
+<!-- <button onclick="showTotalScore()">Attendance Score!</button> -->
  <!-- <div id="savedScores"></div> -->
  <button id="toggleButton1" onclick="toggleAttendanceScores()">Show Attendance Scores!</button>
  <div id="loginMessage"></div>
@@ -91,7 +91,8 @@
     <button onclick="giveFeedback()">Give Feedback / Ask a Question?</button>
     <button onclick="resetProgress()">Reset Progress!</button>
     <button onclick="resetNickname()">Reset Nickname!</button>
-    <button onclick="showTotalScore()">Attendance Score!</button>
+   <!-- <button onclick="showTotalScore()">Attendance Score!</button> -->
+ <button id="toggleButton1" onclick="toggleAttendanceScores()">Show Attendance Scores!</button>
    <!--  <button onclick="displayScores30()">30 Days Score!</button> -->
  <button id="toggleButton" onclick="toggleTotalScores()">Show 30 Days Scores</button>
      
@@ -221,6 +222,7 @@
             } else {
                 // If the user has already visited today, just show their current score
                 document.getElementById("loginMessage").innerText = `Welcome back! Your total score is ${totalScore} points.`;
+             alert(`Your Total Attendance Score: ${totalScore}`);
             }
         }
 
