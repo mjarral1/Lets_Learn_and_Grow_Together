@@ -54,6 +54,8 @@
         <div id="scoresContainer"></div>
         <p id="day1Score">Lesson 1 Score: Not completed yet.</p>
         <p id="day2Score">Lesson 2 Score: Not completed yet.</p>
+        <p id="30DaysScore"> Total Score so far!</p>
+        
     </section>
   <p>The series will follow this consecutive order for each skill for every 30 days:</p>
             <nav>
@@ -95,6 +97,7 @@
     <button onclick="resetProgress()">Reset Progress!</button>
     <button onclick="resetNickname()">Reset Nickname!</button>
     <button onclick="showTotalScore()">Total Score!</button>
+    <button onclick="displayScores30()">30 Days Score!</button>
 
     <!-- Feedback Section -->
     <section id="feedbackSection" style="display: none;">
@@ -216,6 +219,28 @@
                 document.getElementById("day1Score").innerText = `Lesson 1 Score: ${day1Score} (completed on ${day1Date})`;
             }
         }
+     function displayScores30() {
+    const scoresContainer = document.getElementById("scoresContainer");
+    scoresContainer.innerHTML = '';  // Clear the container before displaying new scores
+
+    // Loop through all 30 days
+    for (let day = 1; day <= 30; day++) {
+        const dayScore = localStorage.getItem(`day${day}_score`);
+        const dayDate = localStorage.getItem(`day${day}_date`);
+
+        // Create a new element to display each day's score
+        const dayScoreElement = document.createElement('p');
+        
+        if (dayScore && dayDate) {
+            dayScoreElement.innerText = `Lesson ${day} Score: ${dayScore} (completed on ${dayDate})`;
+        } else {
+            dayScoreElement.innerText = `Lesson ${day} Score: Not completed yet.`;
+        }
+
+        // Append the score element to the container
+        scoresContainer.appendChild(dayScoreElement);
+    }
+}
     </script>
 </body>
  <footer style="background-color: #f1f1f1; padding: 20px; text-align: center;">
