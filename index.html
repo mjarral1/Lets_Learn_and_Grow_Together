@@ -267,6 +267,7 @@ function displayScores30() {
             totalDaysCompleted++;  // Count the number of completed days
         } else {
             dayScoreElement.innerText = `Lesson ${day} Score: Not completed yet.`;
+         alert(`Your Score: ${totalScore}`);  <!--- Review -->
         }
         // Append the score element to the container
         scoresContainer.appendChild(dayScoreElement);
@@ -289,6 +290,7 @@ function displayScores30() {
             } else {
                 totalScoresContainer.style.display = "none";
                 button.innerText = "Show 30 Days Scores"; // Change button text
+             
             }
         }
 
