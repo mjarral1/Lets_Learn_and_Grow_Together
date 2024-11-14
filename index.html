@@ -50,7 +50,6 @@
     <!-- Attendance, Feedback, and Scores Section -->
     <p id="attendanceMessage">📅 Total Attendance Days: 0</p>
  <button onclick="markAttendance()">Mark Attendance!</button>
- <button onclick="showTotalScore()">Attendance Score!</button>
  
     <section>
         <h3 style="color:green">📈 Lesson Scores:</h3>
@@ -254,7 +253,7 @@ function displayScores30() {
             if (totalScoresContainer.style.display === "none") {
                 totalScoresContainer.style.display = "block";
                 button.innerText = "Hide Total Scores"; // Change button text
-                displayScores();  // Display the scores when the button is clicked
+                displayScores30();  // Display the scores when the button is clicked
             } else {
                 totalScoresContainer.style.display = "none";
                 button.innerText = "Show Total Scores"; // Change button text
