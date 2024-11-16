@@ -68,12 +68,39 @@
     "Wow, this shows a clean summary of our commits!" Jane exclaimed.
     She noticed that Mary’s "Updated header design" commit was the latest.
     Jane then ran: <pre>git log</pre> to see the detailed commit history with author names and timestamps.
-    She murmured that the <pre>git log</pre> command provides insights into the project's progress and who made changes.
-        
-        
+    She murmured that the <pre>git log</pre> command provides insights into the project's progress and who made changes.        
+    </p>
+    <b>Task 3: Trouble with Merging</b>
+    <p>
+    Raja was working on a new feature in a branch called <b>feature-footer </b>. 
+    Meanwhile, Mary updated the same part of the HTML file in the <b>main</b> branch.
+    When Raja tried to merge his branch into <b>main</b>, he ran into an issue:
+        <code>git checkout main</code>
+        <code>git merge feature-footer</code>
+       <b style="color:tomato;"> Git threw a warning: </b> <br>
+        <code>CONFLICT (content): Merge conflict in footer.html</code> <br>
+        "Uh-oh! A merge conflict," Raja said nervously. "But no worries, I can handle this."<br>
+        What Raja Did:<br>
+        <b>1. </b>Opened the footer.html file.<br>
+        <b>2. </b>Found the conflict markers <br>
+        <pre><<<<<<< HEAD
+        <footer>Updated by Mary</footer>
+         =======
+         <footer>New feature by Raja</footer>
+         >>>>>>> feature-footer</pre> <br>
+        <b>3. </b>Edited the file to merge the changes:
+        <code><footer>Updated by Mary and enhanced by Raja</footer></code><br>
+        <b>4. </b> Staged the resolved file: <br>
+        <code>git add footer.html</code> <br>
+        <b>5. </b> Committed the changes:
+        <code>git commit -m "Resolved merge conflict in footer.html"</code> <br>
+        "Great work, Raja!" Mary and Jane cheered. 
+        so, the lesson they learned is Merge conflicts occur when Git doesn’t know which change to keep. 
+        Resolving them involves carefully reviewing and editing the conflicting files.
     </p>
         <div id="lesson-content"></div>
     <div id="error-message" class="error-message"></div>
+        
 
     <script>
         function loadLesson() {
