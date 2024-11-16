@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
-            background-color: lightpurple; /* This sets the background color */
+            background-color: lightgray; /* This sets the background color */
  
         }
         .message {
@@ -36,22 +36,43 @@
     <section>
         <h2 style="color: green">Week: 1 </h2> 
         <p>Understand basic Git operations: setting up, creating, and committing in repositories, with a focus on tracking changes and basic branching.</p>
-<h2 style="color: blue">Day: 3</h2> 
-        <p>
-            <b>1.</b> Track Changes made to files.<br>
-            <b>2.</b> Understand and resolve merge conflict in Git.<br>
+       <h2 style="color: blue">Day: 3</h2> 
+        <b>1.</b> Track Changes made to files.<br>
+        <b>2.</b> Understand and resolve merge conflict in Git.<br>
     </section>
     <section>
         <h2 style="color: orange">Review of Lesson 1 and 2: </h2>
-    <p>In lesson 1 and 2, we had learned about how to set-up Git and Github Account. We also learned how to initialize repositories.<br>
-        We had learned some basic commands like git add, git commit, git push, and so on. We also learned how to create, switch, merge, push, pull, and remove branches in git repository.<br>
-       From today, we will learn how to work as a team member of a developers' team.<br>
-        Let me introduce you other team members! Mary, Jane, and Raja. They are part of a small development team working on a new web application. To stay organized and collaborate
-        efficiently, they use Git and GitHub.
-        One day, while working on the project, they encountered a merge conflict.Let’s follow their journey as they learn to track changes and resolve conflicts, ensuring their workflow remains smooth.
+    <p>In Lessons 1 and 2, we covered how to set up Git and GitHub accounts, as well as how to initialize repositories. We also learned some basic Git commands like git add, git commit, git push, and more. Additionally, 
+     we explored how to create, switch, merge, push, pull, and remove branches in a Git repository.
+    Starting today, we’ll dive into working as a team member in a developer team.
+    Let me introduce you to other team members: Mary, Jane, and Raja. They’re part of a small development team working on a new web application. To stay organized and collaborate efficiently, they use Git and GitHub for version control. One day, while working on the project, they encountered a merge conflict.
+    Let’s follow their journey as they learn how to track changes, resolve conflicts, and keep their workflow smooth.
     </p>
+    <h3 style="color: purple"> A Day in the Life of the Dev Team </h3>
+     <b>Task 1:  Checking the Status</b>
+    <P>Mary started her day by making some changes to the project’s HTML file to improve the header design. 
+    She wanted to ensure her changes were properly tracked before committing them.
+    She ran the following command: <br>
+    <pre> git status</pre><br>
+    "Hey team, I see the header file I edited is showing up as modified. Let me stage it!" said Mary.
+    Mary staged her changes: <br>
+    <pre>git add header.html</pre> <br>
+    Then, she committed them:
+     <pre>git commit -m "Updated header design" </pre> <br>
+        Mary recalled in her mind that <code>git status</code>helps check which files are modified, staged, or untracked, making it easier to manage changes.
+    </P>
+    <b>Task 2: Checking the Project History</b>
+    <p>
+    Jane wanted to see all the commits made so far in the project. She used the following command: <br>
+        <pre>git log --oneline</pre> <br>
+    "Wow, this shows a clean summary of our commits!" Jane exclaimed.
+    She noticed that Mary’s "Updated header design" commit was the latest.
+    Jane then ran: <pre>git log</pre> to see the detailed commit history with author names and timestamps.
+    She murmured that the <pre>git log</pre> command provides insights into the project's progress and who made changes.
         
-    <div id="lesson-content"></div>
+        
+    </p>
+        <div id="lesson-content"></div>
     <div id="error-message" class="error-message"></div>
 
     <script>
