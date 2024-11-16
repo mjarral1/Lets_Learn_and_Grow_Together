@@ -74,13 +74,13 @@
     <p>
     Raja was working on a new feature in a branch called <b>feature-footer </b>. 
     Meanwhile, Mary updated the same part of the HTML file in the <b>main</b> branch.
-    When Raja tried to merge his branch into <b>main</b>, he ran into an issue:
+    When Raja tried to merge his branch into <b>main</b>, he ran into an issue: <br>
         <code>git checkout main</code>
-        <code>git merge feature-footer</code>
+        <code>git merge feature-footer</code> <br>
        <b style="color:tomato;"> Git threw a warning: </b> <br>
         <code>CONFLICT (content): Merge conflict in footer.html</code> <br>
         "Uh-oh! A merge conflict," Raja said nervously. "But no worries, I can handle this."<br>
-        What Raja Did:<br>
+       <b style="color:green;"> What Raja Did: </b><br>
         <b>1. </b>Opened the footer.html file.<br>
         <b>2. </b>Found the conflict markers <br>
         <pre><<<<<<< HEAD
@@ -98,30 +98,109 @@
         so, the lesson they learned is Merge conflicts occur when Git doesn’t know which change to keep. 
         Resolving them involves carefully reviewing and editing the conflicting files.
     </p>
-        <div id="lesson-content"></div>
-    <div id="error-message" class="error-message"></div>
-        
-
+    </section>
+          <!-- Practice Questions Section -->
+    <section>
+    <!--Questions 1 to 5... -->
+    <h2 style="color: brown">Practice Exercises:</h2>
+    <form id="Exercise1">
+    <label for="question1">1. What command is used to create a branch in Git?</label>
+    <input type="text" id="question1" name="question1">
+    <button type="button" onclick="checkAnswer('question1', 'git branch')">Check Answer</button>
+    <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+         <p id="score">Score: 0</p>
+        <button type="button" onclick="saveScore()">Save Your Score</button>
+    </section>
+    <section>
+        <button type="button" onclick="calculateTrophy()">View Your Trophy</button>
+        <p id="trophyResult"></p>
+    </section>
+        <section>
+    <p id="feedbackSection" style="display: none;"> </p>
+        <p>Would you like to continue learning, provide feedback, or ask questions?</p>
+        <button onclick="continueLearning()">Continue to Learning</button>
+        <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
+    </section>
     <script>
-        function loadLesson() {
-            try {
-                // Simulate loading a lesson
-                let lesson = getLessonFromSource(); // Replace with your actual function to get the lesson
-                document.getElementById("lesson-content").innerText = lesson;
-            } catch (e) {
-                // Handle the exception and show a friendly message
-                document.getElementById("error-message").innerText = 
-                    "Please visit this site at a later point when a lesson is loaded to learn and practice! Meanwhile, just keep learning and practicing the assigned lesson!";
+     let score = 0;
+        let questionsAnswered = 0;
+        let attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
+        const hintMessage = "Hint: Review the lesson content above.";
+        const today = new Date().toLocaleDateString(); // Get today's date as a string
+
+        function checkAnswer(questionId, correctAnswer) {
+            const input = document.getElementById(questionId);
+            if (input.value.toLowerCase() === correctAnswer.toLowerCase()) {
+                if (!input.disabled) {
+                    alert("Correct!");
+                    score += 10;
+                    questionsAnswered++;
+                    input.disabled = true;
+                    attempts[questionId] = 0;
+                    document.getElementById("score").innerText = "Score: " + score;
+
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                }
+            } else {
+                attempts[questionId]++;
+                if (attempts[questionId] === 3) {
+                    alert(hintMessage);
+                } else if (attempts[questionId] === 4) {
+                    alert("Solution: " + correctAnswer);
+                    input.disabled = true;
+                    questionsAnswered++;
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                } else {
+                    alert("Incorrect! Try again.");
+                }
             }
         }
 
-        function getLessonFromSource() {
-            // Simulate an error in loading the lesson
-            throw new Error("Lesson not available"); // This is just for demonstration
+        function saveScore() {
+            const previousScore = localStorage.getItem("day3_score");
+            const previousDate = localStorage.getItem("day3_date");
+
+            if (previousDate === today) {
+                alert("You have already saved your score today.");
+            } else if (previousScore) {
+                if (confirm("You already saved a score before. Saving now will overwrite it. Do you want to continue?")) {
+                    updateScore();
+                }
+            } else {
+                updateScore();
+            }
         }
 
-        // Load the lesson when the page loads
-        window.onload = loadLesson;
-    </script>
+        function updateScore() {
+            localStorage.setItem("day3_score", score);
+            localStorage.setItem("day3_date", today);
+            alert("Score saved for Day 3: " + score);
+        }
+
+
+function calculateTrophy() {
+    let daysAttended = 1; // Update this as needed for future days
+    let trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
+    document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
+}
+
+function continueLearning() {
+    window.location.href = "https://mjarral1.github.io/Lets_Learn_and_Grow_Together/index.html"; // Redirect to index.html for next lessons
+}
+
+function giveFeedback() {
+    const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question?");
+    if (feedbackChoice) {
+        window.open("https://www.linkedin.com/in/mjarral786/", "_blank");
+        window.open("https://www.linkedin.com/feed/update/urn:li:activity:7263105755958980610/", "_blank");
+    }
+}
+
+  </script>
 </body>
 </html>
