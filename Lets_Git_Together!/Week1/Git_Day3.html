@@ -94,9 +94,15 @@
         <code>git add footer.html</code> <br>
         <b>5. </b> Committed the changes:
         <code>git commit -m "Resolved merge conflict in footer.html"</code> <br>
-        "Great work, Raja!" Mary and Jane cheered. 
-        so, the lesson they learned is Merge conflicts occur when Git doesn’t know which change to keep. 
+        "Great work, 🙌  Raja!" Mary and Jane cheered. 
+        so, they understood that Merge conflicts occur when Git doesn’t know which change to keep. 
         Resolving them involves carefully reviewing and editing the conflicting files.
+    </p>
+        <b>Task :4  Pushing Changes to GitHub</b>
+    <p>Once the conflict was resolved, Raja pushed the updated branch to GitHub by using the command: <br>
+    <code>git push origin main</code><br>
+    The team reviewed the changes on GitHub and confirmed everything was working fine. 
+        So, 📝 remember always push your changes after resolving conflicts to keep the remote repository up-to-date.
     </p>
     </section>
           <!-- Practice Questions Section -->
@@ -108,6 +114,30 @@
     <input type="text" id="question1" name="question1">
     <button type="button" onclick="checkAnswer('question1', 'git branch')">Check Answer</button>
     <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise2">
+        <label for="question2">2. Which command is used to create a new branch?</label>
+        <input type="text" id="question2" name="question2">
+        <button type="button" onclick="checkAnswer('question2', 'git checkout -b')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise3">
+        <label for="question3">3. Which command is used to Switch to the main branch?</label>
+        <input type="text" id="question3" name="question3">
+        <button type="button" onclick="checkAnswer('question3', 'git checkout main')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise3">
+        <label for="question4">4. Which command is used to show changes between working directory and index or between commits.?</label>
+        <input type="text" id="question4" name="question4">
+        <button type="button" onclick="checkAnswer('question4', 'git diff')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise"5>
+        <label for="question5">5. Which command is used to check the history of commits?</label>
+        <input type="text" id="question5" name="question5">
+        <button type="button" onclick="checkAnswer('question5', 'git log')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
     </form>
          <p id="score">Score: 0</p>
         <button type="button" onclick="saveScore()">Save Your Score</button>
@@ -196,7 +226,6 @@ function continueLearning() {
 function giveFeedback() {
     const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question?");
     if (feedbackChoice) {
-        window.open("https://www.linkedin.com/in/mjarral786/", "_blank");
         window.open("https://www.linkedin.com/feed/update/urn:li:activity:7263105755958980610/", "_blank");
     }
 }
