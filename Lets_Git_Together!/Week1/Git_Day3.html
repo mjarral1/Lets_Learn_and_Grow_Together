@@ -76,12 +76,13 @@
     Raja was working on a new feature in a branch called <b>feature-footer </b>. 
     Meanwhile, Mary updated the same part of the HTML file in the <b>main</b> branch.
     When Raja tried to merge his branch into <b>main</b>, he ran into an issue: <br>
-        <code>git checkout main</code>
-        <code>git merge feature-footer</code> <br>
+        <code>git checkout main</code> <br>
+        <code>git merge feature-footer</code> <br> <br>
        <b style="color:tomato;"> Git threw a warning: </b> <br>
         <code>CONFLICT (content): Merge conflict in footer.html</code> <br>
         "Uh-oh! A merge conflict," Raja said nervously. "But no worries, I can handle this."<br>
-       <b style="color:green;"> What Raja Did: </b><br>
+       <b style="color:green;"> What Raja Did: </b>
+        <br>
         <b>1. </b>Opened the footer.html file.<br>
         <b>2. </b>Found the conflict markers <br>
         <pre><<<<<<< HEAD
@@ -94,9 +95,9 @@
         <b>4. </b> Staged the resolved file: <br>
         <code>git add footer.html</code> <br>
         <b>5. </b> Committed the changes:
-        <code>git commit -m "Resolved merge conflict in footer.html"</code> <br>
+        <code>git commit -m "Resolved merge conflict in footer.html"</code> <br> <br>
         "Great work, 🙌  Raja!" Mary and Jane cheered. 
-        so, they understood that Merge conflicts occur when Git doesn’t know which change to keep. 
+        Now, they understood that Merge conflicts occur when Git doesn’t know which change to keep. 
         Resolving them involves carefully reviewing and editing the conflicting files.
     </p>
         <b>Task :4  Pushing Changes to GitHub</b>
