@@ -65,40 +65,47 @@
             To understand what went wrong, Mary suggested reviewing the commit differences: <br>
            <b><code>git show <commit-hash></code>  </b> <br>
             <br> They examined the output:
+            <br>
             - // Old logic <br>
             + // Incorrect updated logic <br>
             <br>
-           <ul> "Ah, there’s the mistake! Raja, you added an incorrect calculation here," Mary pointed out. </ul>
+            "Ah, there’s the mistake! Raja, you added an incorrect calculation here," Mary pointed out. 
         </p>
-        <b style="color:purple"> Reverting the Changes: </b>
-    <p>The team decided to revert the problematic commit.<br>
-    "Don’t worry, Raja. Let’s use <b><code>git revert </code> </b> to undo the changes from your commit without rewriting history," said Jane. <br>
-    Raja followed Jane’s instructions: <br>
-    <b><code>git revert <commit-hash></code> <br> </b>
-    A text editor opened for Raja to add a commit message. He entered: <br>
-    <b><code> Reverted incorrect JavaScript logic update </code> </b>
+        <b style="color:green"> Reverting the Changes: </b>
+    <p>The team decided to revert the problematic commit.
         <br>
+    "Don’t worry, Raja. Let’s use <code><b>git revert</b> </code> to undo the changes from your commit without rewriting history," said Jane.
+    <br>
+    Raja followed Jane’s instructions: 
+    <br>
+    <code><b>git revert <commit-hash></b></code>
+    <br>
+    A text editor opened for Raja to add a commit message. He entered: 
+    <br>
+    <<code> <b>Reverted incorrect JavaScript logic update </b> </code>
+    <br>
     Raja saved and closed the editor, and the revert was committed. 
     </p>
-        <b style="color:purple"> Pushing the Fix to GitHub: </b>
+        <b style="color:brown"> Pushing the Fix to GitHub: </b>
         <p>
             To make the fix available to everyone, Raja pushed the reverted commit to the remote repository: 
             <br>
-           <b><code>git push origin main</code> </b> <br>
+           <code><b>git push origin main </b></code> 
+            <br>
             "Great job, Raja! The website is back to normal now," said Mary with relief.
         </p>
         <b style="color:purple"> Reflecting on Lessons Learned: </b>
         <p>
             Jane shared some insights: <br>
             <ul>
-                  <b>1.</b>Reviewing commits with <b><code> git show </code> </b> helps pinpoint errors. 
+                  <b>1.</b>Reviewing commits with <code> <b>git show </b> </code> helps pinpoint errors. 
                 <br>
-                  <b>2.</b> <b><code> git revert </code> </b> is the safest way to undo changes without altering history.
+                  <b>2.</b> <code> <b> git revert </b> </code> is the safest way to undo changes without altering history.
                 <br>
                   <b>3.</b>Always test changes locally before committing to the main branch!
                 <br>
             </ul> 
-        Mary added, "Let’s also use <code><b>git diff</b> </code> </b> more often to review changes before committing."
+        Mary added, "Let’s also use <code><b>git diff</b> </code> more often to review changes before committing."
         </p>
     </section>
     <script>
