@@ -70,7 +70,31 @@
             <br>
            <ul> "Ah, there’s the mistake! Raja, you added an incorrect calculation here," Mary pointed out. </ul>
         </p>
-    
+        <b style="color:purple"> Reverting the Changes: </b>
+    <p>The team decided to revert the problematic commit.<br>
+    "Don’t worry, Raja. Let’s use <code>git revert </code> to undo the changes from your commit without rewriting history," said Jane. <br>
+    Raja followed Jane’s instructions: <br>
+    <code>git revert <commit-hash></code> <br>
+    A text editor opened for Raja to add a commit message. He entered: <br>
+    <code> Reverted incorrect JavaScript logic update </code> <br>
+    Raja saved and closed the editor, and the revert was committed. 
+    </p>
+        <b style="color:purple"> Pushing the Fix to GitHub: </b>
+        <p>
+            To make the fix available to everyone, Raja pushed the reverted commit to the remote repository: <br>
+            <code>git push origin main</code> <br>
+            "Great job, Raja! The website is back to normal now," said Mary with relief.
+        </p>
+        <b style="color:purple"> Reflecting on Lessons Learned: </b>
+        <p>
+            Jane shared some insights: <br>
+            <ul>
+                  <li>Reviewing commits with <code> git show </code> helps pinpoint errors.</li>
+                  <li><code> git revert </code> is the safest way to undo changes without altering history.</li>
+                  <li>Always test changes locally before committing to the main branch!</li>
+            </ul> 
+        Mary added, "Let’s also use <code>git diff </code> more often to review changes before committing."
+        </p>
    
     <script>
       
