@@ -79,9 +79,9 @@
     <!--Questions 1 to 5... -->
     <h2 style="color: brown">Practice Exercises:</h2>
     <form id="Exercise1">
-    <label for="question1">1. What command is used to create a branch in Git?</label>
+    <label for="question1">1. Please write a command that is used to clone the fork in another Github repository.</label>
     <input type="text" id="question1" name="question1">
-    <button type="button" onclick="checkAnswer('question1', 'git branch')">Check Answer</button>
+    <button type="button" onclick="checkAnswer('question1', 'git clone <fork-URL>')">Check Answer</button>
     <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
     </form>
     <form id="Exercise2">
@@ -97,15 +97,15 @@
         <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
     </form>
     <form id="Exercise3">
-        <label for="question4">4. Which command is used to show changes between working directory and index or between commits.?</label>
+        <label for="question4">4. Which command is used to stage the changes?</label>
         <input type="text" id="question4" name="question4">
-        <button type="button" onclick="checkAnswer('question4', 'git diff')">Check Answer</button>
+        <button type="button" onclick="checkAnswer('question4', 'git add .')">Check Answer</button>
         <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
     </form>
     <form id="Exercise"5>
-        <label for="question5">5. Which command is used to check the history of commits?</label>
+        <label for="question5">5. Which command is used to push changes to the fork?</label>
         <input type="text" id="question5" name="question5">
-        <button type="button" onclick="checkAnswer('question5', 'git log')">Check Answer</button>
+        <button type="button" onclick="checkAnswer('question5', 'git push origin')">Check Answer</button>
         <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
     </form>
          <p id="score">Score: 0</p>
