@@ -52,9 +52,9 @@
              To their surprise, the repository didn’t allow them to push changes directly.
              Instead, they had to use forks, clones, and pull requests to contribute. <br>
              Join the trio as they navigate this new collaboration model and master advanced GitHub workflows.</p> <br>
-         <p>
+         
           <b style="color: green">Task 1:  Forking the Repository </b> 
-             <br>
+             <p>
              One of the senior software developers explained the tasks to the team: <br>
              "The repository you’ll be working on belongs to another team, so you won’t have direct push access.<br>
              You’ll need to fork it to your own GitHub accounts to start contributing." <br>
@@ -64,9 +64,10 @@
              Following their senior’s instructions, each team member forked the repository by clicking the Fork button on the project’s GitHub page.
              <br> 
          </p>
-         <p>
+        
              <b style="color: blue">Task 2:  Cloning the Fork </b> 
-             <br>
+          <p>
+             
          Next, they cloned their forks to their local machines: <br>
              <pre>git clone fork-URL</pre>
          <br>
@@ -74,9 +75,9 @@
          <pre>git clone https://github.com/raja123/forked-repo.git</pre> <br>
          Jane added, "Now we can work on this project locally, just like we did with our own repositories."<br>
          </p>
-         <p>
+         
              <b style="color: brown">Task 3: Making Changes </b> 
-             <br>
+              <p>
              Each team member switched to a new branch to work on their tasks: 
              <br>
              <code>git checkout -b feature-update</code> 
@@ -91,23 +92,24 @@
 <code>git commit -m "Fix typo in documentation"</code> <br>
              
          </p>
-         <p>
+         
              <b style="color: purple">Task 4: Pushing Changes to the Fork </b>
-             <br>
+              <p>
              "Since we’re working on forks, we’ll push our changes to our own repositories," said Mary. <br>
         Each team member pushed their changes:
              <br>
              <code>git push origin feature-update</code> <br>
          </p>
-         <p>
+         
              <b style="color: orange">Task 5: Creating a Pull Request  </b>
-             <br>
+              <p>
              "Now comes the exciting part: contributing to the original repository using a pull request!" exclaimed Jane. <br>
              They went to their GitHub forks, clicked on the Pull Requests tab, and selected New Pull Request. <br>
              They compared their branches to the original repository’s <code>main</code> branch and submitted pull requests with clear descriptions of their changes.<br>     
          </p>
-         <p>
-             <b style="color: black">Task 6: Reviewing and Merging Pull Requests </b> <br>
+         
+             <b style="color: black">Task 6: Reviewing and Merging Pull Requests </b>
+          <p>
              Mary asked, "What if the original repository gets updated after we fork it? How do we stay up to date?" <br>
              Excellent question! Then senior developers introduced them to the concept of the upstream repository: <br>
              <code>git remote add upstream <original-repo-URL></code> <br>
