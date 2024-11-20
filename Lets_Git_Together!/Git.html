@@ -32,10 +32,10 @@
     <div id="welcome-message" class="message"></div>
     <div id="error-message" class="error-message"></div>
     <div id="lesson-buttons"></div>
-    <div id="lessonPrompt"></div>
+    
     
      <!-- Feedback Section -->
-    <section><div id="lessonPrompt" style="display: none;"> </div>
+    <section><p id="lessonPrompt" style="display: none;"> </p>
         <p> Would you like to continue learning, provide feedback, or ask questions? </p>
         <button onclick="startLesson()">Continue to Learning</button>
         <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
@@ -108,14 +108,13 @@
             }
         }
          function startLesson() {
-            const lessonPrompt = "Do you want to review the other course material and complete the exercise?";
             if (confirm("Would you like to start other course material and practice exercise?")) {
                 window.open("https://mjarral1.github.io/Lets_Learn_and_Grow_Together/index.html", "_blank");
             }
              else {
                  alert("Reviewing Other courses is canceled! so, the existing learning page will be retained.");
               }
-            document.getElementById("lessonPrompt").innerText = lessonPrompt;
+            
         }
 
 
