@@ -32,6 +32,13 @@
     <div id="welcome-message" class="message"></div>
     <div id="error-message" class="error-message"></div>
     <div id="lesson-buttons"></div>
+    
+     <!-- Feedback Section -->
+    <section id="feedbackSection" style="display: none;">
+        <p> Would you like to continue learning, provide feedback, or ask questions? </p>
+        <button onclick="startLesson()">Continue to Learning</button>
+        <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
+    </section>
 
     <script>
         function getUserJoinDate() {
@@ -99,8 +106,18 @@
                 openLesson(daysSinceJoin);
             }
         }
+        function continueLearning() {
+    window.location.href = "https://mjarral1.github.io/Lets_Learn_and_Grow_Together/index.html"; // Redirect to index.html for next lessons
+}
+         function giveFeedback() {
+            if (confirm("Would you like to leave feedback on LinkedIn or ask a question?")) {
+             window.open("https://www.linkedin.com/feed/update/urn:li:activity:7263105755958980610/", "_blank");
+            }
+        }
+        
 
         window.onload = initializePage;
+    
     </script>
 </body>
     <footer style="background-color: #f1f1f1; padding: 20px; text-align: center;">
