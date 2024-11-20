@@ -86,31 +86,38 @@ Jane created an annotated tag: <br>
              <code>git tag -a v1.1 -m "Release version 1.1: Added user login feature"</code> <br>
              <code>git push origin v1.1</code> <br>
              “Now, anyone can see the details of this version by typing <code>git show v1.1 </code>,” said Jane proudly.
-             
-             
+</p>
+<b style="color:plum"> Task 4: Viewing and Deleting Tags </b><br>
+ <p>
+Mary was curious: “What if I accidentally create the wrong tag?” <br>
+The mentor reassured her: <br>
+“You can delete tags locally and remotely.”<br>
+Mary tried: <br>
+     <code>git tag -d v1.0 </code> <br>
+<code>git push origin --delete v1.0</code> <br>
+ </p>
+     <b style="color: palegreen"> Task 5:Publishing Releases on GitHub</b> <br>
+           <p>
+               The team moved on to GitHub, where the senior developer explained how to create releases: <br>
+               <b>1. </b>Navigate to the Releases tab in the repository. <br>
+              <b>2. </b>Click Draft a new release. <br>
+              <b>3. </b>Select the tag version (e.g., v1.1), add a title, and write release notes.<br>
+              <b>4. </b>Click Publish Release. <br>
+              Jane commented, “Releases make it easier to share updates with the world, including compiled binaries or release notes.”<br>
+         </p>
+         <b style="color:brown"> Task 6: Resolving Errors in Tagging</b>
+         <p>
+             As they practiced, Raja accidentally created a tag on the wrong commit. Jane helped him fix it:<br>
+             <b>1.</b> Delete the incorrect tag:<br>
+             <code>git tag -d v1.2</code> <br>
+             <b>2.</b> Create a new tag on the correct commit: <br>
+             <code>git tag v1.2 correct-commit-hash</code>
+                <code>git push origin v1.2</code>
          </p>
      </section>
 
     <script>
-        function loadLesson() {
-            try {
-                // Simulate loading a lesson
-                let lesson = getLessonFromSource(); // Replace with your actual function to get the lesson
-                document.getElementById("lesson-content").innerText = lesson;
-            } catch (e) {
-                // Handle the exception and show a friendly message
-                document.getElementById("error-message").innerText = 
-                    "Please visit this site at a later point when a lesson is loaded to learn and practice! Meanwhile, just keep learning and practicing the assigned lesson!";
-            }
-        }
-
-        function getLessonFromSource() {
-            // Simulate an error in loading the lesson
-            throw new Error("Lesson not available"); // This is just for demonstration
-        }
-
-        // Load the lesson when the page loads
-        window.onload = loadLesson;
+      
     </script>
 </body>
 </html>
