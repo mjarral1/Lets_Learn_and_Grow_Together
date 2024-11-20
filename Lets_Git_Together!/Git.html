@@ -106,6 +106,17 @@
                 openLesson(daysSinceJoin);
             }
         }
+         function startLesson() {
+            const lessonPrompt = "Do you want to review the other course material and complete the exercise?";
+            if (confirm("Would you like to start today's lesson and practice exercise?")) {
+                window.open("https://mjarral1.github.io/Lets_Learn_and_Grow_Together/index.html", "_blank");
+            }
+             else{
+                 alert("Thank you for being awesome team player!")
+             }
+            document.getElementById("lessonPrompt").innerText = lessonPrompt;
+        }
+
         function continueLearning() {
     window.location.href = "https://mjarral1.github.io/Lets_Learn_and_Grow_Together/index.html"; // Redirect to index.html for next lessons
 }
