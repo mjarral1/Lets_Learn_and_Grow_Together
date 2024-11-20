@@ -35,7 +35,7 @@
     <div id="lessonPrompt"></div>
     
      <!-- Feedback Section -->
-    <section id="feedbackSection" style="display: none;">
+    <section><div id="lessonPrompt" style="display: none;"> </div>
         <p> Would you like to continue learning, provide feedback, or ask questions? </p>
         <button onclick="startLesson()">Continue to Learning</button>
         <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
@@ -118,13 +118,14 @@
             document.getElementById("lessonPrompt").innerText = lessonPrompt;
         }
 
-        function continueLearning() {
-    window.location.href = "https://mjarral1.github.io/Lets_Learn_and_Grow_Together/index.html"; // Redirect to index.html for next lessons
-}
+
          function giveFeedback() {
             if (confirm("Would you like to leave feedback on LinkedIn or ask a question?")) {
              window.open("https://www.linkedin.com/feed/update/urn:li:activity:7263105755958980610/", "_blank");
             }
+             else {
+                 alert("Feedback Giving is canceled! so, the existing learning page will be retained.");
+              }
         }
         
 
