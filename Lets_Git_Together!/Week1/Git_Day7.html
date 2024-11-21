@@ -3,44 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson Loader</title>
+    <title>Day 7: Git Collaboration: Building a Git Data Dictionary</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
+            background-color: LightGray; /* This sets the background color */
+        }
+         .message {
+            color: green;
+            font-weight: bold;
         }
         .error-message {
             color: red;
             font-weight: bold;
         }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Lesson Page</h1>
-    <div id="lesson-content"></div>
-    <div id="error-message" class="error-message"></div>
+     <header>
+        <h1 style="color: black">Lesson 7: Git Collaboration: Building A Git Data Dictionary!</h1>
+    </header>
+   <section>
+        <h2 style="color: green">Week: 1 </h2> 
+        <p>Understand basic Git operations: setting up, creating, and committing in repositories, with a focus on tracking changes and basic branching.</p>
+       <h2 style="color: blue">Day: 7</h2> 
+           For Lesson 7, we will review our learning of Week 1 and work on a mini project.
+       We will build a data dictionary for Git and GitHub usage.<br>
+   </section>
+     <section>
+        <h2 style="color: orange">Review of Lesson 1 to Lesson 6: </h2>
+    <p>In previous lessons, we have covered how to set up Git and GitHub accounts, as well as how to initialize repositories.
+        We also learned some basic Git commands like git add, git commit, git push, and more. Additionally, 
+     we explored how to create, switch, merge, push, pull, and remove branches in a Git repository.
+        We also have learned how to review and revert unwanted changes and how to collaborate with other teams with in a shared repository of a project.
+        We also learned about tags and marking milestones of the project.
+        <br>
+    </p>
+         <h3 style="color: purple"> The Power of Team Collaboration </h3>
+         By Day 7 of their Git learning journey, Mary, Jane, and Raja were growing confident in their Git and GitHub skills.<br>
+         However, the senior software developer challenged them to consolidate everything they had learned so far by working on a mini project together. <br>
+         The goal: Create a collaborative Git Commands Data Dictionary repository.<br>
+         <p>This exercise would simulate a real-world software development scenario, teaching them how to use commands from Day 1 to Day 7 cohesively, 
+         resolve potential errors, and create a shared repository that others could benefit from. </p>     
+        “Let’s see if you can combine your knowledge of Git commands and GitHub workflows to create something meaningful,” said the senior developer.<br>
+         <h3 style="color: green"> Creating the Data Dictionary </h3> <br>
+         <b style="color: orange">Task 1:  Setting Up the Repository</b> <br>
+         <p>
+             The team decided that Jane, being the most experienced, would create the repository and set up the initial structure. <br>
+             Jane created a new repository on GitHub called <code>git-commands-dictionary</code>. <br>
+             <code>git init git-commands-dictionary </code> <br>
+              <code>cd git-commands-dictionary</code> <br>
+             She added a <code>README.md </code> file with a project description: <br>
+             <pre># Git Commands Data Dictionary </pre>  <br>
+<pre>collaborative repository documenting Git commands and their uses.</pre> <br>
+         Jane made the first commit and pushed it to the remote repository: <br>
+        <code>git add README.md </code> <br>
+<code>git commit -m "Initial commit: Added README with project description" </code><br>
+<code>git branch -M main </code> <br>
+<code>git remote add origin GitHub-repo-URL </code> <br>
+<code>git push -u origin main </code> <br>
+         <b style ="color: Blue">Task 2: Branching for Collaboration</b> <br>
+         <p>
+             The mentor explained: “Each of you will work on a different section of the data dictionary using separate branches. <br>
+             This avoids conflicts and promotes clean collaboration.” <br>
+             Mary created a branch for basic Git commands: <br>
 
+             <code>git checkout -b basic-commands</code> <br>
+             Raja created a branch for advanced Git commands: <br>
+             <code>git checkout -b advanced-commands</code> <br>
+             Jane created a branch for GitHub workflows: <br>
+             <code>git checkout -b github-workflows</code> <br>
+             Each member added a new Markdown file for their respective sections. <br>
+         </p>
+         <b style="color:tomato"> Task 3: Committing and Pushing Changes</b> <br>
+         <p>
+Each team member worked on their branches, adding commands to their respective files: <br>
+           <b>Mary:</b> <br>
+             - Edited <code>basic-commands.md</code> to document commands like <code>git init, git status, and git add. </code> <br>
+             - Staged and committed her changes: <br>
+             <code>git add basic-commands.md </code> <br>
+<code>git commit -m "Added documentation for basic Git commands"</code> <br>
+                - Pushed her branch to GitHub: <br>
+        <code>git push origin basic-commands</code> <br>
+           <b>Raja:</b> <br>
+            - Edited <code>advanced-commands.md </code> to cover commands like <code>git rebase and git cherry-pick</code>. <br>
+            -Staged, committed, and pushed his branch. <br>
+<b>Jane:</b> <br>
+             -Edited <code> github-workflows.md </code>to explain GitHub actions like pull requests and releases.<br>
+             -Staged, committed, and pushed her branch.            
+         </p>
+    
+<b style="color:navy"> Task 4: Pull Requests and Reviews</b><br>
+<p>
+    The senior softwared developer guided the team to create pull requests and review each other’s work. <br>
+Mary created a pull request for her <code>basic-commands </code> branch on GitHub.<br>
+Jane reviewed the changes, suggesting an edit to improve the explanation of <code>git status </code>. <br>
+Mary implemented the suggestions, committed the changes, and updated the pull request: <br>
+    <code>git add basic-commands.md</code> <br>
+    <code> git commit -m "Updated git status explanation"</code><br>
+    <code> git push origin basic-commands</code> <br>
+     Raja and Jane also followed the same process for their branches.<br>
+    </p>
+     <b style="color: green"> Task 5: Merging to Main</b> <br>
+         <p>
+             After resolving all feedback, the mentor instructed the team to merge the branches into the <code>main</code> branch. <br>
+             Jane merged the pull requests for all branches: <br>
+             <code> git checkout main</code> <br>
+             <code>git merge basic-commands</code> <br>
+             <code> git merge advanced-commands</code> <br>
+             <code> git merge github-workflows</code> <br>
+             <code> git push origin main</code> <br>
+              </p>
+         <b style="color:brown"> Task 6: Resolving Merge Conflicts </b> <br>
+    <p>
+         During the merge, Raja encountered a conflict in <code>README.md </code> With guidance from the senior developer, he resolved it:
+    <br>
+        <b>1. </b> Opened the conflicting file.<br>
+        <b>2. </b>Fixed the conflict by keeping the correct lines. <br>
+        <b>3. </b> Added the resolved file:<br>
+        <code>git add README.md</code> <br>
+        <b>4. </b> Committed the fix: <br>
+        <code>git commit -m "Resolved merge conflict in README.md" </code>
+    </p>
+
+         <b style="color:red">Task 7: Creating a Release</b> <br>
+         <p>
+             Once all changes were merged, the mentor asked the team to create a GitHub release for version <code> v1.0:</code> <br>
+             <b>1. </b>Navigate to the Releases tab on GitHub. <br>
+             <b>2. </b> Click Draft a new release.<br>
+             <b>3. </b>Select the main branch and tag version <code>v1.0.</code> <br>
+             <b>4. </b> Add release notes summarizing the commands included in the data dictionary.<br>
+             <b>5. </b> Publish the release.<br>
+
+             
+         </p>
+         
+         <b style="color:black">Key Takeaways:</b> <br>
+         <b>1. </b>Git commands can be combined to manage collaborative workflows effectively.<br>
+         <b> 2. </b>Branching allows parallel development, while pull requests enable code reviews. <br>
+         <b>3. </b>Resolving conflicts is a crucial skill for teamwork.<br>
+         <b>4. </b>Creating releases on GitHub is a great way to mark project milestones. <br>
+     </section>
+    <!-- Practice Questions Section -->
+    <section>
+    <!--Questions 1 to 5... -->
+    <h2 style="color: brown">Practice Exercises:</h2>
+    <form id="Exercise1">
+    <label for="question1">1. What command is used to view the history of commits?</label>
+    <input type="text" id="question1" name="question1">
+    <button type="button" onclick="checkAnswer('question1', 'git log')">Check Answer</button>
+    <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise2">
+        <label for="question2">2. Which command is used to merge a branch?</label>
+        <input type="text" id="question2" name="question2">
+        <button type="button" onclick="checkAnswer('question2', 'git merge')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise3">
+        <label for="question3">3. Which command is used to Switch to the main branch?</label>
+        <input type="text" id="question3" name="question3">
+        <button type="button" onclick="checkAnswer('question3', 'git checkout main')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise3">
+        <label for="question4">4. Which command is used to stage the changes?</label>
+        <input type="text" id="question4" name="question4">
+        <button type="button" onclick="checkAnswer('question4', 'git add .')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise"5>
+        <label for="question5">5. Which command is used to push tag changes ?</label>
+        <input type="text" id="question5" name="question5">
+        <button type="button" onclick="checkAnswer('question5', 'git push origin')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+         <p id="score">Score: 0</p>
+        <button type="button" onclick="saveScore()">Save Your Score</button>
+    </section>
+    <section>
+        <button type="button" onclick="calculateTrophy()">View Your Trophy</button>
+        <p id="trophyResult"></p>
+    </section>
+        <section>
+    <p id="feedbackSection" style="display: none;"> </p>
+        <p>Would you like to continue learning, provide feedback, or ask questions?</p>
+        <button onclick="continueLearning()">Continue to Learning</button>
+        <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
+    </section>
     <script>
-        function loadLesson() {
-            try {
-                // Simulate loading a lesson
-                let lesson = getLessonFromSource(); // Replace with your actual function to get the lesson
-                document.getElementById("lesson-content").innerText = lesson;
-            } catch (e) {
-                // Handle the exception and show a friendly message
-                document.getElementById("error-message").innerText = 
-                    "Please visit this site at a later point when a lesson is loaded to learn and practice! Meanwhile, just keep learning and practicing the assigned lesson!";
+     let score = 0;
+        let questionsAnswered = 0;
+        let attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
+        const hintMessage = "Hint: Review the lesson content above.";
+        const today = new Date().toLocaleDateString(); // Get today's date as a string
+
+        function checkAnswer(questionId, correctAnswer) {
+            const input = document.getElementById(questionId);
+            if (input.value.toLowerCase() === correctAnswer.toLowerCase()) {
+                if (!input.disabled) {
+                    alert("Correct!");
+                    score += 10;
+                    questionsAnswered++;
+                    input.disabled = true;
+                    attempts[questionId] = 0;
+                    document.getElementById("score").innerText = "Score: " + score;
+
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                }
+            } else {
+                attempts[questionId]++;
+                if (attempts[questionId] === 3) {
+                    alert(hintMessage);
+                } else if (attempts[questionId] === 4) {
+                    alert("Solution: " + correctAnswer);
+                    input.disabled = true;
+                    questionsAnswered++;
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                } else {
+                    alert("Incorrect! Try again.");
+                }
             }
         }
 
-        function getLessonFromSource() {
-            // Simulate an error in loading the lesson
-            throw new Error("Lesson not available"); // This is just for demonstration
+        function saveScore() {
+            const previousScore = localStorage.getItem("day3_score");
+            const previousDate = localStorage.getItem("day3_date");
+
+            if (previousDate === today) {
+                alert("You have already saved your score today.");
+            } else if (previousScore) {
+                if (confirm("You already saved a score before. Saving now will overwrite it. Do you want to continue?")) {
+                    updateScore();
+                }
+            } else {
+                updateScore();
+            }
         }
 
-        // Load the lesson when the page loads
-        window.onload = loadLesson;
+        function updateScore() {
+            localStorage.setItem("day3_score", score);
+            localStorage.setItem("day3_date", today);
+            alert("Score saved for Day 3: " + score);
+        }
+
+
+function calculateTrophy() {
+    let daysAttended = 1; // Update this as needed for future days
+    let trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
+    document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
+}
+
+function continueLearning() {
+    window.location.href = "https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Git.html"; // Redirect to index.html for next lessons
+}
+
+function giveFeedback() {
+    const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question?");
+    if (feedbackChoice) {
+        window.open("https://www.linkedin.com/feed/update/urn:li:activity:7263105755958980610/", "_blank");
+    }
+}
+
     </script>
 </body>
 </html>
+         
+
+
+
+
+
+
+
+
+       
