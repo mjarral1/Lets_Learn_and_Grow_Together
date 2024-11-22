@@ -1,1 +1,47 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Loader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Lesson Page</h1>
+    <div id="lesson-content"></div>
+    <div id="error-message" class="error-message"></div>
+
+    <script>
+        function loadLesson() {
+            try {
+                // Simulate loading a lesson
+                let lesson = getLessonFromSource(); // Replace with your actual function to get the lesson
+                document.getElementById("lesson-content").innerText = lesson;
+            } catch (e) {
+                // Handle the exception and show a friendly message
+                document.getElementById("error-message").innerText = 
+                    "Please visit this site at a later point when a lesson is loaded to learn and practice! Meanwhile, just keep learning and practicing the assigned lesson!";
+            }
+        }
+
+        function getLessonFromSource() {
+            // Simulate an error in loading the lesson
+            throw new Error("Lesson not available"); // This is just for demonstration
+        }
+
+        // Load the lesson when the page loads
+        window.onload = loadLesson;
+    </script>
+</body>
+</html>
