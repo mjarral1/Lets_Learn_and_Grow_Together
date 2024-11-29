@@ -78,7 +78,7 @@ To get hands-on experience, the team assigned Bano a task to add a new section t
     </p>
     <b style="color:tomato"> Task 3: Bano’s First Changes</b> <br>
     <p>
-Bano edited the <pre>team.html </pre>file:
+Bano edited the <code>team.html </code>file:
     <pre>&lt;!DOCTYPE html&gt;<br>
 &lt; html lang="en"&gt;<br>
 &lt; head&gt; <br>
@@ -97,6 +97,28 @@ Bano edited the <pre>team.html </pre>file:
 &lt;/body&gt;<br>
 &lt; /html&gt;<br>
 </pre><br>
+   She staged and committed the changes:<br>
+    <code>git add team.html</code> <br>
+    <code>git commit -m "Added team.html with team member list"</code> <br>
+</p>
+    <b style="color:navy"> Task 4: Pull Request and Feedback</b><br>
+    <p>
+    Bano pushed her branch to GitHub: <br>
+    <code>git push origin add-team-page</code> <br>
+    She created a pull request on GitHub, and the team reviewed it.<br>
+    Mary noticed a missing meta tag for description and suggested the change in the pull request.<br>
+    Bano made the edits and pushed the update:<br>
+    <code>git add team.html</code><br>
+    <code>git commit -m "Added description meta tag"</code> <br>
+    <code>git push origin add-team-page</code><br>
+    </p>
+        <b style="color: green"> Task 5: Merging and Deployment</b> <br>
+    <p>Once the pull request was approved, Jane merged it into the main branch:<br>
+        <code>git checkout main</code><br>
+        <code>git merge add-team-page</code><br>
+        <code>git push origin main</code><br>
+        The team deployed the updated website to GitHub Pages.
+
         
     </p>
        <!-- Practice Questions Section -->
