@@ -38,7 +38,7 @@ Here’s what we’ll focus on: <br>
 Tags and Releases, Building an Interactive Wiki Repository, Creating a Team Collaboration Board, Building a Versioned Cookbook, Branching Strategies, and Collaborative Workflows.
 </p>
        <h2 style="color: blue">Day: 9</h2> 
-     By the end of today, we will learn how tags and release of the project will work.!<br>
+     By the end of today, we will learn how tags and release of the project work!<br>
    </section>
      <section>
         <h2 style="color: orange">Releasing the Team’s First Version! </h2>
@@ -69,20 +69,41 @@ Mary explained, “Tags aren’t automatically pushed to the remote repository. 
     <code>git push origin v1.0</code> <br>
         Now the tag appeared in their GitHub repository.
     </p>
+     <b style="color:tomato"> Task 3: Creating a Release on GitHub</b> <br>
+    <p>
+The team logged into GitHub and navigated to the Releases section of their repository. <br>
+        Jane clicked Create a new release, selected the <pre> v1.0 tag</pre>, and wrote a description: <br>
+    <b>Title:</b> <pre>v1.0 - Initial Release</pre> <br>
+    <b>Description:</b>"This is the first release of our interactive website. It includes the team page, styling, and functionality for collaboration."<br>
+    They published the release, which made it easy for others to download and use their project.<br>        
+    </p>
+    
+    <b style="color:navy"> Task 4: Bano Learns to Manage Tags</b><br>
+    <p>
+Bano asked, “What if I create a tag by mistake?” <br>
+        Mary showed how to delete a local tag:<br>
+        <code>git tag -d v1.0</code>
+        <br>
+        “And if it’s already on the remote repository?”
+Raja added:<br>
+        <code>git push origin --delete refs/tags/v1.0</code>
+        
+        
+    </p>
        <!-- Practice Questions Section -->
     <section>
     <!--Questions 1 to 5... -->
     <h2 style="color: brown">Practice Exercises:</h2>
     <form id="Exercise1">
-    <label for="question1">1. Which file is automatically created to describe the project on GitHub?</label>
+    <label for="question1">1.What is the main purpose of tags in Git??</label>
     <input type="text" id="question1" name="question1">
-    <button type="button" onclick="checkAnswer('question1', 'README.md')">Check Answer</button>
+    <button type="button" onclick="checkAnswer('question1', 'Bookmark specific commits')">Check Answer</button>
     <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>                                              
     </form>
     <form id="Exercise2">
-        <label for="question2">2. Which command is used to merge a branch?</label>
+        <label for="question2">2. Which command is used to create a light weight tag?</label>
         <input type="text" id="question2" name="question2">
-        <button type="button" onclick="checkAnswer('question2', 'git merge')">Check Answer</button>
+        <button type="button" onclick="checkAnswer('question2', 'git tag')">Check Answer</button>
         <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
     </form>
     <form id="Exercise3">
@@ -92,9 +113,9 @@ Mary explained, “Tags aren’t automatically pushed to the remote repository. 
         <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
     </form>
     <form id="Exercise3">
-        <label for="question4">4. Which command is used to stage the changes?</label>
+        <label for="question4">4. Which command is used to delete the tag locally?</label>
         <input type="text" id="question4" name="question4">
-        <button type="button" onclick="checkAnswer('question4', 'git add .')">Check Answer</button>
+        <button type="button" onclick="checkAnswer('question4', 'git tag -d')">Check Answer</button>
         <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
     </form>
     <form id="Exercise"5>
