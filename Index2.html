@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Let's Learn and Grow Together!</title>
+ <link rel="stylesheet" href="css/styles.css">
+ <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+        background-color: lightblue; /* Background color */
+    }
+    .message {
+        color: green;
+        font-weight: bold;
+    }
+    .error-message {
+        color: red;
+        font-weight: bold;
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    /* Modal Styling */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        text-align: center;
+    }
+    .modal h3 {
+        margin-bottom: 15px;
+    }
+    .modal button {
+        padding: 10px 15px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .modal button:hover {
+        background-color: #0056b3;
+    }
+    #modalOverlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1 style="color: green">🚀 Let's Learn and Grow Together in 30 Days, One Skill at a Time! 🚀</h1>
+    <p id="welcomeMessage">Greetings, My Dear Friend!</p> 
+</header>
+
+<section>
+    <p>Welcome to your learning journey!</p>
+    <button onclick="askNickname()">Set Nickname</button>
+    <button onclick="trackAttendance()">Track Attendance</button>
+    <button onclick="showTotalScore()">Show Total Scores</button>
+</section>
+
+<div id="modalOverlay"></div>
+<div class="modal" id="alertModal">
+    <h3 id="modalMessage">Alert Message</h3>
+    <button onclick="closeModal()">Close</button>
+</div>
+
+<script>
+    // Function to set and display the nickname
+    function askNickname() {
+        const nickname = localStorage.getItem("nickname") || prompt("Please enter your nickname:");
+        if (nickname) {
+            localStorage.setItem("nickname", nickname);
+            document.getElementById("welcomeMessage").innerText = `Welcome, ${nickname}!`;
+            showModal(`Hello ${nickname}, your nickname is set successfully!`);
+        }
+    }
+
+    // Function to track attendance
+    function trackAttendance() {
+        const attendanceDays = parseInt(localStorage.getItem("attendanceDays")) || 0;
+        const newAttendanceDays = attendanceDays + 1;
+        localStorage.setItem("attendanceDays", newAttendanceDays);
+        showModal(`Attendance marked! Total Attendance Days: ${newAttendanceDays}`);
+    }
+
+    // Function to display total score
+    function showTotalScore() {
+        const totalScore = parseInt(localStorage.getItem("totalScore")) || 0;
+        showModal(`Your Total Score: ${totalScore}`);
+    }
+
+    // Modal functionality
+    function showModal(message) {
+        const modal = document.getElementById("alertModal");
+        const overlay = document.getElementById("modalOverlay");
+        document.getElementById("modalMessage").innerText = message;
+        modal.style.display = "block";
+        overlay.style.display = "block";
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("alertModal");
+        const overlay = document.getElementById("modalOverlay");
+        modal.style.display = "none";
+        overlay.style.display = "none";
+    }
+
+    // Load nickname on page load
+    window.onload = function() {
+        const nickname = localStorage.getItem("nickname");
+        if (nickname) {
+            document.getElementById("welcomeMessage").innerText = `Welcome, ${nickname}!`;
+        }
+    };
+</script>
+</body>
+</html>
