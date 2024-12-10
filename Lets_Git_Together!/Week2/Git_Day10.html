@@ -3,44 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson Loader</title>
+    <title>Day 9: Let's Learn Advanced Git Features! Tags and Releases</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
+            background-color: LightGray; /* This sets the background color */
+        }
+         .message {
+            color: green;
+            font-weight: bold;
         }
         .error-message {
             color: red;
             font-weight: bold;
         }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
     </style>
-</head>
-<body>
-    <h1>Welcome to the Lesson Page</h1>
-    <div id="lesson-content"></div>
-    <div id="error-message" class="error-message"></div>
+    </head>
 
-    <script>
-        function loadLesson() {
-            try {
-                // Simulate loading a lesson
-                let lesson = getLessonFromSource(); // Replace with your actual function to get the lesson
-                document.getElementById("lesson-content").innerText = lesson;
-            } catch (e) {
-                // Handle the exception and show a friendly message
-                document.getElementById("error-message").innerText = 
-                    "Please visit this site at a later point when a lesson is loaded to learn and practice! Meanwhile, just keep learning and practicing the assigned lesson!";
-            }
-        }
-
-        function getLessonFromSource() {
-            // Simulate an error in loading the lesson
-            throw new Error("Lesson not available"); // This is just for demonstration
-        }
-
-        // Load the lesson when the page loads
-        window.onload = loadLesson;
-    </script>
+   <body>
+     <header>
+        <h1 style="color: black">Lesson 10: Let's Learn about Interctive Wiki Repository!</h1>
+    </header>
+     <section>
+        <h2 style="color: green">Week: 2 </h2> 
+        <p> We’ll be reviewing everything from Week 1 and diving deep into some exciting and hands-on concepts in Week 2! 🚀<br>
+Here’s what we’ll focus on: <br>
+Tags and Releases, Building an Interactive Wiki Repository, Creating a Team Collaboration Board, Building a Versioned Cookbook, Branching Strategies, and Collaborative Workflows.
+</p>
+       <h2 style="color: blue">Day: 10</h2> 
+     By the end of today, we will learn how to build an interactive Wiki Repository!
+   </section>
+        <section>
+        <h2 style="color: orange">A Knowledge Base for the Team! </h2>
+        <p>
+            After completing their first release of the interactive website, Mary, Jane, Raja, and Bano realized they often needed to look up Git commands, workflows, 
+            and best practices. Raja suggested, “Why don’t we build a centralized knowledge base?
+            We could use a GitHub repository as a wiki to document everything we’ve learned!”
+        </p>
+        <p>
+            The team agreed and decided to build an Interactive Wiki Repository, where they could contribute, edit, and update Git-related knowledge collaboratively. <br>
+            This project would also help them practice advanced Git concepts like <b>forking, pull requests, and managing issues</b>.
+        </p>
+        </section>
+       <b style="color: purple">Task 1: Create the Wiki Repository: </b> <br>
+       <p>
+<b>1.</b>Bano sets up a new GitHub repository named <code>TeamGitWiki</code>: <br>
+           <b>-></b>Navigate to GitHub and click New Repository.<br>
+           <b>-></b>Name it <code>TeamGitWiki</code> <br>
+           <b>-></b>Add a <code>README.md</code> file and initialize the repository.<br>
+<b>2.</b>Clone the repository locally: <br>
+           <code>git clone https://github.com/your-username/TeamGitWiki.git</code><br>
+           <code>cd TeamGitWiki</code> 
+       </p>
+       <b style ="color: green">Task 2: Add Wiki Pages </b> <br>
+       <b>1.</b> Jane creates the first Markdown file: <br>
+       <b>-></b>Create a file named <code>basic-commands.md</code> <br>
+       <b>-></b>Add information about basic Git commands: <br>
+       <code># Basic Git Commands</code> <br>
+       <code> - `git init`: Initialize a new repository.</code> <br>
+       <code> - `git status`: Show the status of changes.</code> <br>
+       <code> - `git add`: Stage files for a commit.</code> <br>
+       
+       
 </body>
 </html>
