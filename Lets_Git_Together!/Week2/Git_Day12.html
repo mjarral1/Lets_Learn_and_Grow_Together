@@ -1,47 +1,181 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson Loader</title>
+    <title>Day 12: Let's Learn About Versioned Cookbook!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
+            background-color: LightGray; /* This sets the background color */
+        }
+         .message {
+            color: green;
+            font-weight: bold;
         }
         .error-message {
             color: red;
             font-weight: bold;
         }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
     </style>
-</head>
-<body>
-    <h1>Welcome to the Lesson Page</h1>
-    <div id="lesson-content"></div>
-    <div id="error-message" class="error-message"></div>
+     </head>
 
+   <body>
+     <header>
+        <h1 style="color: black">Lesson 12: Let's Learn about Versioned Cookbook!</h1>
+    </header>
+     <section>
+        <h2 style="color: orange">Week: 2 </h2> 
+        <p> We’ll be reviewing everything from Week 1 and diving deep into some exciting and hands-on concepts in Week 2! 🚀<br>
+        In <b style="color: green">week 1 </b>, we have learned about  basic Git operations, how to set up Git and GitHub, how to create, and commit in repositories, with a focus on tracking changes and basic branching. 
+        <br>
+    Here’s in <b style="color: brown"> week 2 </b> what we’ll focus on:
+        Tags and Releases, Building an Interactive Wiki Repository, Creating a Team Collaboration Board, Building a Versioned Cookbook, Branching Strategies, and Collaborative Workflows.
+        </p>
+<h2 style="color: blue">Day: 12 Versioned Cookbook</h2> 
+ </section>
+ <h2 style="color: orange">Sharing Recipes Without Losing Changes </h2>
+  </section>
+ <b style="color: purple">Task 1:  </b> <br>
+ <b style ="color: green">Task 2:  </b> <br>
+ <b style="color:tomato"> Task 3:  </b> <br>
+ <b style="color:navy"> Task 4:    </b><br>
+<h3 style="color: orange">Scenario: A Cookbook for Everyone! </h3> <br>
+<h3 style="color: blue">Mini Project:Collaborative Cookbook </h3> <br>
+<h3 style="color: Tomato">Practice Problems: </h3> <br>
+<h3 style ="color: green">Day 12 Summary: </h3> <br>
+ <!-- Practice Questions Section -->
+    <section>
+    <!--Questions 1 to 5... -->
+    <h2 style="color: brown">Practice Exercises:</h2>
+    <form id="Exercise1">
+    <label for="question1">1.?</label>
+    <input type="text" id="question1" name="question1">
+    <button type="button" onclick="checkAnswer('question1', 'A:1')">Check Answer</button>
+    <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>                                              
+    </form>
+    <form id="Exercise2">
+        <label for="question2">2.?</label>
+        <input type="text" id="question2" name="question2">
+        <button type="button" onclick="checkAnswer('question2', 'A:2')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise3">
+        <label for="question3">3. ?</label>
+        <input type="text" id="question3" name="question3">
+        <button type="button" onclick="checkAnswer('question3', 'A:3')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise3">
+        <label for="question4">4.?</label>
+        <input type="text" id="question4" name="question4">
+        <button type="button" onclick="checkAnswer('question4', 'A:4')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+    <form id="Exercise"5>
+        <label for="question5">5.?</label>
+        <input type="text" id="question5" name="question5">
+        <button type="button" onclick="checkAnswer('question5', 'A:5')">Check Answer</button>
+        <span id="hint1" style="display:none;color:grey;">Hint: Review the lesson content above.</span>
+    </form>
+         <p id="score">Score: 0</p>
+        <button type="button" onclick="saveScore()">Save Your Score</button>
+    </section>
+    <section>
+        <button type="button" onclick="calculateTrophy()">View Your Trophy</button>
+        <p id="trophyResult"></p>
+    </section>
+        <section>
+    <p id="feedbackSection" style="display: none;"> </p>
+        <p>Would you like to continue learning, provide feedback, or ask questions?</p>
+        <button onclick="continueLearning()">Continue to Learning</button>
+        <button onclick="giveFeedback()">Give Feedback / Ask a Question</button>
+    </section>
     <script>
-        function loadLesson() {
-            try {
-                // Simulate loading a lesson
-                let lesson = getLessonFromSource(); // Replace with your actual function to get the lesson
-                document.getElementById("lesson-content").innerText = lesson;
-            } catch (e) {
-                // Handle the exception and show a friendly message
-                document.getElementById("error-message").innerText = 
-                    "Please visit this site at a later point when a lesson is loaded to learn and practice! Meanwhile, just keep learning and practicing the assigned lesson!";
+     let score = 0;
+        let questionsAnswered = 0;
+        let attempts = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 };
+        const hintMessage = "Hint: Review the lesson content above.";
+        const today = new Date().toLocaleDateString(); // Get today's date as a string
+
+        function checkAnswer(questionId, correctAnswer) {
+            const input = document.getElementById(questionId);
+            if (input.value.toLowerCase() === correctAnswer.toLowerCase()) {
+                if (!input.disabled) {
+                    alert("Correct!");
+                    score += 10;
+                    questionsAnswered++;
+                    input.disabled = true;
+                    attempts[questionId] = 0;
+                    document.getElementById("score").innerText = "Score: " + score;
+
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                }
+            } else {
+                attempts[questionId]++;
+                if (attempts[questionId] === 3) {
+                    alert(hintMessage);
+                } else if (attempts[questionId] === 4) {
+                    alert("Solution: " + correctAnswer);
+                    input.disabled = true;
+                    questionsAnswered++;
+                    if (questionsAnswered === 5) {
+                        alert("Congratulations! You've completed all questions.");
+                    }
+                } else {
+                    alert("Incorrect! Try again.");
+                }
             }
         }
 
-        function getLessonFromSource() {
-            // Simulate an error in loading the lesson
-            throw new Error("Lesson not available"); // This is just for demonstration
+        function saveScore() {
+            const previousScore = localStorage.getItem("day3_score");
+            const previousDate = localStorage.getItem("day3_date");
+
+            if (previousDate === today) {
+                alert("You have already saved your score today.");
+            } else if (previousScore) {
+                if (confirm("You already saved a score before. Saving now will overwrite it. Do you want to continue?")) {
+                    updateScore();
+                }
+            } else {
+                updateScore();
+            }
         }
 
-        // Load the lesson when the page loads
-        window.onload = loadLesson;
+        function updateScore() {
+            localStorage.setItem("day11_score", score);
+            localStorage.setItem("day11_date", today);
+            alert("Score saved for Day 11: " + score);
+        }
+
+
+function calculateTrophy() {
+    let daysAttended = 1; // Update this as needed for future days
+    let trophy = daysAttended === 30 ? "Golden Trophy" : daysAttended >= 20 ? "Silver Trophy" : "Copper Trophy";
+    document.getElementById("trophyResult").innerText = `You attended ${daysAttended} days. You've earned a ${trophy}!`;
+}
+
+function continueLearning() {
+    window.location.href = "https://mjarral1.github.io/Lets_Learn_and_Grow_Together/Lets_Git_Together!/Git.html"; // Redirect to index.html for next lessons
+}
+
+function giveFeedback() {
+    const feedbackChoice = confirm("Would you like to leave feedback on LinkedIn or ask a question?");
+    if (feedbackChoice) {
+        window.open("https://www.linkedin.com/feed/update/urn:li:activity:7263105755958980610/", "_blank");
+    }
+}
     </script>
 </body>
 </html>
