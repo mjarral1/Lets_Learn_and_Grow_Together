@@ -139,8 +139,8 @@
         }
 
         function saveScore() {
-            const previousScore = localStorage.getItem("day3_score");
-            const previousDate = localStorage.getItem("day3_date");
+            const previousScore = localStorage.getItem("day12_score");
+            const previousDate = localStorage.getItem("day12_date");
 
             if (previousDate === today) {
                 alert("You have already saved your score today.");
@@ -154,9 +154,9 @@
         }
 
         function updateScore() {
-            localStorage.setItem("day11_score", score);
-            localStorage.setItem("day11_date", today);
-            alert("Score saved for Day 11: " + score);
+            localStorage.setItem("day12_score", score);
+            localStorage.setItem("day12_date", today);
+            alert("Score saved for Day 12: " + score);
         }
 
 
